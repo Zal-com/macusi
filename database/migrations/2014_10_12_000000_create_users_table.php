@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->string('username')->primary();
             $table->string('email');
-            $table->string('photo');
-            $table->integer('status');
+            $table->string('photo')->nullable();
+            $table->integer('status')->default(1);
             $table->string('password');
-            $table->string('code_nationalite', 2)->index();
+            $table->string('code_nationalite', 2)->index()->nullable();
             $table->rememberToken();
+            $table->timestamps();
 
 
             //Foreign Keys

@@ -49,6 +49,8 @@ class User extends Authenticatable
     ];
     */
 
+    public $timestamps = true;
+
     public function nationalite()
     {
         return $this->belongsTo(Nationalite::class);
