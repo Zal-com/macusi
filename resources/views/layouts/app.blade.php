@@ -34,7 +34,7 @@
                             <a href="#" class="nav-link">{{__('C\'est quoi?')}}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">{{__('Construction')}}</a>
+                            <a href="{{ url('/construction') }}" class="nav-link">{{__('Construction')}}</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">{{__('Dictionnaire')}}</a>
