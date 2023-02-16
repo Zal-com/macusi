@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->string('type_title', 50);
             $table->json('trads');
             $table->smallInteger('isValidated');
         });

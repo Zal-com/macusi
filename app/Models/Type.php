@@ -10,7 +10,6 @@ class Type extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type_title',
         'trads',
         'isValidated'
     ];
