@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/construction', function (){
     return view('construction');
 });
+Route::get('c-est-quoi', function (){
+    return view('macusi-expl');
+});
 
 Auth::routes();
 
