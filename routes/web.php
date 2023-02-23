@@ -24,6 +24,8 @@ Route::get('c-est-quoi', function (){
     return view('macusi-expl');
 });
 
+Route::get('/dictionary', [\App\Http\Controllers\DicoController::class, 'index'])->name('dico.index');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
