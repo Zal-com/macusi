@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             SyllabeSeeder::class,
             TypeSeeder::class,
             MotSeeder::class,
+            TypeMotSeeder::class
         ]);
     }
 }
