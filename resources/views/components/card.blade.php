@@ -1,27 +1,22 @@
 @props(['mot'])
-<div class="border rounded w-25 mx-1 my-3">
+<div class="border border-1 border-dark rounded w-25 mx-1 my-3 bg-black bg-opacity-10">
     <div>
-        <h2 class="text-center py-4 border-bottom text-primary">{{ $mot->enMacusi }}</h2>
+        <h2 class="text-center py-4 border-bottom text-primary bg-white border-top rounded">{{ $mot->enMacusi }}</h2>
     </div>
-    <div class="text-center">
+    <div class="px-4 lh-2 ">
         @php
             $locale = (string) strtoupper(app()->getLocale());
         @endphp
-        <p>{{json_decode($mot->trads)->$locale}}</p>
-        @if($mot->types->count() > 1)
-            @php
-                $str = 'Types : ';
-                foreach ($mot->types as $type){
-                    $str .= json_decode($type->trads)->$locale . ' / ';
-                    }
-                $string = substr($str, 0, strlen($str)-2);
-            @endphp
+        {{-- Traduction --}}
+        <p class="fw-bold lead text-center">{{json_decode($mot->trads)->$locale}}</p>
 
-            <p>{{$string}}</p>
-        @else <p>Type : {{ json_decode($mot->types[0]->trads)->$locale}}</p>
+        {{-- Listing of type(s) --}}
+        <p>{{ $mot->typesString() }}</p>
 
+        {{-- Concept --}}
+        @if(!str_contains($mot->typesString(), 'Chiffre'))
+           <p>Concept : {{$mot->syllabesString()}}</p>
         @endif
-
     </div>
 </div>
 

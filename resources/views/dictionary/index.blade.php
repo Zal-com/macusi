@@ -9,8 +9,8 @@
             <x-card :mot="$mot"/>
         @endforeach
     </div>
-    <div class="d-flex justify-content-center">
-        {{ $mots->links() }}
+    <div class="d-flex justify-content-center mt-4">
+         {{ $mots->links() }}
     </div>
 
 @endsection
