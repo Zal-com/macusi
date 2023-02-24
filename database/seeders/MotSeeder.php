@@ -23,7 +23,7 @@ class MotSeeder extends Seeder
 
 
 
-        $record = [
+        /*$record = [
             ['id'=>'1','mot1'=>'Vu', 'mot2'=>'', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'Vu', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'[{"FR":"0"}]'],
             ['id'=>'2','mot1'=>'Ta', 'mot2'=>'', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'Ta', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'[{"FR":"1"}]'],
             ['id'=>'3','mot1'=>'Te', 'mot2'=>'', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'Te', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'[{"FR":"2"}]'],
@@ -2409,8 +2409,8 @@ class MotSeeder extends Seeder
             ['id'=>'2383','mot1'=>'Te', 'mot2'=>'Vu', 'mot3'=>'Nu', 'mot4'=>'Su', 'mot5'=>'Gu', 'mot6'=>'Su', 'enMacusi'=>'TeVuNuSuGuSu', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'20 ans', 'trads'=>'[{"FR":"Vicennal"}]'],
             ['id'=>'2384','mot1'=>'Ga', 'mot2'=>'Gu', 'mot3'=>'No', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'GaGuNo', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'[{"FR":"Virgule"}]'],
             ['id'=>'2385','mot1'=>'Wa', 'mot2'=>'Wa', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'WaWa', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'[{"FR":"Wouaf"}]']
-        ]; //avec crochets
-        /* $record = [
+        ]; //avec crochets */
+        $record = [
             ['id'=>'1','mot1'=>'Vu', 'mot2'=>'', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'Vu', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'{"FR":"0"}'],
             ['id'=>'2','mot1'=>'Ta', 'mot2'=>'', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'Ta', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'{"FR":"1"}'],
             ['id'=>'3','mot1'=>'Te', 'mot2'=>'', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'Te', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'{"FR":"2"}'],
@@ -4796,7 +4796,7 @@ class MotSeeder extends Seeder
             ['id'=>'2383','mot1'=>'Te', 'mot2'=>'Vu', 'mot3'=>'Nu', 'mot4'=>'Su', 'mot5'=>'Gu', 'mot6'=>'Su', 'enMacusi'=>'TeVuNuSuGuSu', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'20 ans', 'trads'=>'{"FR":"Vicennal"}'],
             ['id'=>'2384','mot1'=>'Ga', 'mot2'=>'Gu', 'mot3'=>'No', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'GaGuNo', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'{"FR":"Virgule"}'],
             ['id'=>'2385','mot1'=>'Wa', 'mot2'=>'Wa', 'mot3'=>'', 'mot4'=>'', 'mot5'=>'', 'mot6'=>'', 'enMacusi'=>'WaWa', 'dateAjout'=>'2022-02-20 00:00:00', 'explication'=>'', 'trads'=>'{"FR":"Wouaf"}']
-        ]; //sans crochets */
+        ]; //sans crochets
 
 
         DB::table('mots')->insert($record);

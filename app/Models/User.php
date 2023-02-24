@@ -54,4 +54,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Nationalite::class);
     }
+
+    public function isAdmin(){
+        return $this->status == 2;
+    }
 }

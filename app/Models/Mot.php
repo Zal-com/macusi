@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Mot extends Model
 {
@@ -29,8 +31,7 @@ class Mot extends Model
 
     public $timestamps = false;
 
-    public function syllabe(): BelongsTo
-    {
-        return $this->belongsTo(Syllabe::class);
+    public function types() : HasManyThrough{
+        return $this->hasManyThrough(Type::class, TypeMot::class, 'id_mot', 'id', 'id', 'id_type');
     }
 }

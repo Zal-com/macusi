@@ -24,6 +24,8 @@ Route::get('c-est-quoi', function (){
     return view('macusi-expl');
 });
 
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin')->middleware('can:access-admin');
+
 Route::get('/dictionary', [\App\Http\Controllers\DicoController::class, 'index'])->name('dico.index');
 
 Auth::routes();

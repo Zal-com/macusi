@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Mot;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\App;
 
 class DicoController extends Controller
 {
@@ -14,7 +16,7 @@ class DicoController extends Controller
     public function index()
     {
         return view('dictionary.index', [
-            'mots' => Mot::all()
+            'mots' => Mot::paginate(48)
         ]);
     }
 }
