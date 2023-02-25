@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Soumissions de membres</h2>
-    <h2>Liste des membres</h2>
-    <h2>Data</h2>
+    <x-admin_sidebar/>
+    <div>
+        <h1>Dashboard</h1>
+    </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -50,12 +51,20 @@ class User extends Authenticatable
 
     public $timestamps = true;
 
-    public function nationalite()
+    public function nationalite() : BelongsTo
     {
         return $this->belongsTo(Nationalite::class);
     }
 
-    public function isAdmin(){
+    public function isAdmin() : bool {
         return $this->status == 2;
+    }
+
+    public function isActivated() : bool {
+        return !($this->status == 0);
+    }
+
+    public function dateVerbose(String $date) : String {
+        return date('d/m/Y', strtotime($this->$date));
     }
 }

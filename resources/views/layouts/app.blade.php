@@ -59,20 +59,20 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    <a href="{{route('user.profile.index', ['id' => Auth::user()->id])}}" class="dropdown-item">{{ __('Profil') }}</a>
                                     @if(Auth::user()->isAdmin())
-                                        <a href="{{route('admin')}}" class="dropdown-item">{{ __('Administration') }}</a>
+                                        <a href="{{route('admin.')}}" class="dropdown-item">{{ __('Administration') }}</a>
                                     @endif
-
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -85,6 +85,7 @@
         </nav>
 
         <main class="py-4 container">
+            @include('flash-message')
             @yield('content')
         </main>
     </div>
