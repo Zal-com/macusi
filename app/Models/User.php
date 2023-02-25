@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function nationalite() : BelongsTo
     {
-        return $this->belongsTo(Nationalite::class);
+        return $this->belongsTo(Nationalite::class, 'code_nationalite', 'code', 'nationalite');
     }
 
     public function isAdmin() : bool {

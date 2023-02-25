@@ -38,6 +38,10 @@ Route::group([
 ], function() {
     Route::get('/{id}', [ProfileController::class, 'index'])->name('profile.index')
         ->where('id', '[0-9]+');
+    Route::get('/{id}/edit', [ProfileController::class, 'edit'])->name('profile.edit')
+        ->where('id', '[0-9]+');
+    Route::put('/{id}/edit', [ProfileController::class, 'update'])->name('profile.update')
+        ->where('id', '[0-9]+');
 });
 
 Route::group([

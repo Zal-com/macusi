@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
     <x-admin_sidebar/>
-    <div>
         <h1>Dashboard</h1>
     </div>
 @endsection
