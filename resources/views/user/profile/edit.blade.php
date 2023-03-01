@@ -8,20 +8,6 @@
                 @csrf
                 @method('PUT')
                 <div>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username"
-                           @if(old('username'))
-                               value="{{ old('username') }}"
-                           @else
-                               value="{{ $user->username }}"
-                           @endif
-                           class="@error('username') is-invalid @enderror">
-
-                    @error('username')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-
                 <div>
                     <label for="email">E-mail</label>
                     <input type="text" id="email" name="email"

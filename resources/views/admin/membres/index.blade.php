@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-admin_sidebar/>
-    <div>
+    <x-admin_sidebar :url="$url"/>
+    <div class="right px-5">
         <h2 class="mb-4">Liste des membres</h2>
         <table class="table table-striped table-bordered">
             <thead>

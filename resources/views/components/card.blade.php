@@ -10,8 +10,13 @@
         {{-- Traduction --}}
         <p class="fw-bold lead text-center">{{json_decode($mot->trads)->$locale}}</p>
 
+        <p>
         {{-- Listing of type(s) --}}
-        <p>{{ $mot->typesString() }}</p>
+        @if($mot->types->count() == 1)
+            <p>Type : {{ $mot->typesString() }} </p>
+        @elseif($mot->types->count() == 2)
+            <p>Types : {{ $mot->typesString() }} </p>
+        @endif
 
         {{-- Concept --}}
         @if(!str_contains($mot->typesString(), 'Chiffre'))

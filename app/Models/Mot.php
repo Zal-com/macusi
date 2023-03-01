@@ -72,15 +72,16 @@ class Mot extends Model
         return substr($str, 0,strlen($str)-1);
     }
 
+
     public function TypesString() : String{
         if(empty($this->types)) return '';
 
         $locale = strtoupper(app()->getLocale());
         if(sizeof($this->types) == 1){
-            return 'Type : ' . json_decode($this->types[0]->trads)->$locale;
+            return json_decode($this->types[0]->trads)->$locale;
         }
 
-        $str = 'Types : ';
+        $str = '';
         foreach ($this->types as $type){
             $str .= json_decode($type->trads)->$locale . ' / ';
         }

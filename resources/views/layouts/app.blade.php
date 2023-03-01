@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -48,13 +49,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i> {{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -64,14 +65,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{route('user.profile.index', ['id' => Auth::user()->id])}}" class="dropdown-item">{{ __('Profil') }}</a>
+                                    <a href="{{route('user.profile.index', ['id' => Auth::user()->id])}}" class="dropdown-item"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
                                     @if(Auth::user()->isAdmin())
-                                        <a href="{{route('admin.')}}" class="dropdown-item">{{ __('Administration') }}</a>
+                                        <a href="{{route('admin.')}}" class="dropdown-item"><i class="fa-solid fa-toolbox"></i> {{ __('Administration') }}</a>
                                     @endif
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            <i class="fa-solid fa-right-from-bracket"></i> {{ __('Logout') }}
                                         </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

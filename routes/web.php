@@ -54,6 +54,9 @@ Route::group([
         ->where('id', '[0-9]+');
     Route::get('/members/{id}', [AdminController::class, 'edit'])->name('members.edit')
         ->where('id', '[0-9]+');
+    Route::get('/dictionary', [AdminController::class, 'dictionary'])->name('dictionary.index');
+    Route::get('/dictionary/{id}/edit', [AdminController::class, 'wordEdit'])->name('dictionary.edit')
+        ->where('id', '[0-9]+');
 });
 
 /**
