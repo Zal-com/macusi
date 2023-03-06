@@ -18,17 +18,17 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::get('/', function () {
-    return redirect()->route('dico.index');
+    return redirect()->route('c-est-quoi');
 });
 
-Route::get('/construction', function (){
+Route::get('construction', function (){
     return view('construction');
-});
+})->name('contruction');
 Route::get('c-est-quoi', function (){
     return view('macusi-expl');
-});
+})->name('c-est-quoi');
 
-Route::get('/dictionary', [DicoController::class, 'index'])->name('dico.index');
+Route::get('dictionary', [DicoController::class, 'index'])->name('dico.index');
 
 Route::group([
     'prefix' => '/user',
@@ -58,8 +58,6 @@ Route::group([
     Route::get('/dictionary/{id}/edit', [AdminController::class, 'wordEdit'])->name('dictionary.edit')
         ->where('id', '[0-9]+');
 });
-
-
 
 /**
  * PUT = Modification

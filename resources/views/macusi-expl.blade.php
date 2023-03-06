@@ -41,12 +41,11 @@
         <h3>En résumé</h3>
         <p>Le <span class='MaCuSi'>MaCuSi</span> est une langue :
         <ul>
-            <li>auxiliaire conçue pour être simple afin de faciliter la communication;</li><br>
-            <li>logique conçue avec un raisonnement et sans irrégularité;</li><br>
+            <li>auxiliaire conçue pour être simple afin de faciliter la communication;</li>
+            <li>logique conçue avec un raisonnement et sans irrégularité;</li>
             <li>oligosynthétique agglutinante puisque tous les mots sont construits au moyen d'un nombre
-                réduit de racines qui se regroupent pour former les mots;</li><br>
+                réduit de racines qui se regroupent pour former les mots;</li>
             <li>a priori car elle ne puise pas son vocabulaire dans une langue existante.</li>
         </ul>
-        </p>
     </div>
 @endsection

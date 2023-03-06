@@ -16,7 +16,7 @@ class DicoController extends Controller
     public function index()
     {
         return view('dictionary.index', [
-            'mots' => Mot::paginate(48)
+            'mots' => Mot::where('id', '>=', 65)->paginate(48)
         ]);
     }
 }
