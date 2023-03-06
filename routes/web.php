@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes(['verify' => true]);
+
 Route::get('/', function () {
-    return view('macusi-expl');
+    return redirect()->route('dico.index');
 });
 
 Route::get('/construction', function (){
@@ -28,13 +30,10 @@ Route::get('c-est-quoi', function (){
 
 Route::get('/dictionary', [DicoController::class, 'index'])->name('dico.index');
 
-Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::group([
-   'prefix' => '/user',
-   'as' => 'user.'
+    'prefix' => '/user',
+    'as' => 'user.',
+    'middleware' => ['verified']
 ], function() {
     Route::get('/{id}', [ProfileController::class, 'index'])->name('profile.index')
         ->where('id', '[0-9]+');
@@ -46,7 +45,8 @@ Route::group([
 
 Route::group([
     'prefix' => '/admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
+    'middleware' => ['verified']
 ], function() {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/members', [AdminController::class, 'members'])->name('members');
@@ -59,7 +59,12 @@ Route::group([
         ->where('id', '[0-9]+');
 });
 
+
+
 /**
  * PUT = Modification
  * POST = Insertion
  */
+
+
+

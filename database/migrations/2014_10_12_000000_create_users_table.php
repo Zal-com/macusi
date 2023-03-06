@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('code_nationalite', 2)->index()->nullable();
             $table->rememberToken();
+            $table->dateTime('email_verified_at')->nullable();
             $table->timestamps();
 
 
