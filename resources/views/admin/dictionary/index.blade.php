@@ -5,7 +5,7 @@
     <div class="right px-5">
         <h2>Gestion du dictionnaire</h2>
         {{$mots->links()}}
-        <table class="table">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <td>Mot</td>

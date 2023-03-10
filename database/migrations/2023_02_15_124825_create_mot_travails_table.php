@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -21,8 +22,8 @@ return new class extends Migration
             $table->string('mot4_sug', 2)->index();
             $table->string('mot5_sug', 2)->index();
             $table->string('mot6_sug', 2)->index();
-            $table->string('enMacusi', 12);
-            $table->date('dateAjout_sug');
+            $table->string('enMacusi_sug', 12);
+            $table->date('dateAjout_sug')->default(DB::raw(('CURRENT_TIMESTAMP')));
             $table->text('explication_sug');
             $table->smallInteger('isValidated_sug');
             $table->string('submitter_sug')->index();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MotTravail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +38,12 @@ class ProfileController
         ]);
 
         return redirect()->back()->with('success', 'Informations mises à jour avec succès');
+    }
 
-
+    public function submissionsIndex($id){
+        return view('user.profile.submissions.index', [
+            'submissions' => MotTravail::all()->where('submitter_sug', '=', Auth::user()->username),
+            'url' => 'submissions'
+        ]);
     }
 }

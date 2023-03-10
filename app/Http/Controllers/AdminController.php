@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mot;
+use App\Models\MotTravail;
 use App\Models\User;
 use Faker\Core\File;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -72,6 +73,17 @@ class AdminController extends Controller
         return view('admin.dictionary.index', [
             'mots' => Mot::paginate(20),
             'url' => 'dictionary'
+        ]);
+    }
+
+    public function submissions(){
+        if(!Gate::allows('access-admin')){
+            return redirect()->route('home');
+        }
+
+        return view('admin.submissions.index', [
+            'submissions' => MotTravail::paginate(25),
+            'url' => 'submissions'
         ]);
     }
 
