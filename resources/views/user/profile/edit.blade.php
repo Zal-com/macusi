@@ -23,8 +23,8 @@
                     @enderror
                 </div>
 
-                <button>Modifier</button>
-                <a href="{{ back() }}">Annuler</a>
+                <button>{{__('Modifier')}}</button>
+                <a href="{{ back() }}">{{__('Annuler')}}</a>
             </form>
 
             @if ($errors->any())

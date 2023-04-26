@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h1 style="text-align: center; color: red;">MaCuSi</h1>
+        {{__('test')}}
         <p>Le <span class='MaCuSi'>MaCuSi</span> est une langue construite minimaliste aux niveaux phonologique et grammatical
             mais pas de manière lexicale. En effet, beaucoup de langues construites sont centrées sur un
             thème unique. Le <span class='MaCuSi'>MaCuSi</span> a été conçu pour permettre la génération de tous les mots d'une

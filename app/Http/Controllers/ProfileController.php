@@ -11,23 +11,23 @@ use Illuminate\Support\Facades\URL;
 class ProfileController
 {
 
-    public function index($id){
+    public function index(){
         return view('user.profile.index', [
-            'user' => User::find($id),
+            'user' => User::find(Auth::id()),
             'url' => 'index'
         ]);
     }
 
     public function edit($id){
         return view('user.profile.edit', [
-            'user' => User::find($id),
+        'user' => User::find(Auth::id()),
             'url' => 'edit'
         ]);
     }
 
     public function update($id){
 
-        $user = User::find($id);
+        $user = User::find(Auth::id());
 
         request()->validate([
             'email' => ['required', 'string']

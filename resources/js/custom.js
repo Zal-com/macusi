@@ -1,16 +1,9 @@
-let enMacusi = document.getElementById('enMacusi');
+function previewMacusi() {
 
-let wordArray = []
-let concept = []
-function renderFields(field){
-    let word = ''
-    let syllabeIndex = field.name.substring(field.name.length-1)
-    let syllabeStr = field.value
-    wordArray[syllabeIndex] = syllabeStr
+    let enMacusi = document.getElementById('enMacusi');
 
-    for (const e of wordArray) {
-        word+=e
-    }
-    console.log(word)
-    console.log(enMacusi.setAttribute('value', word))
+    let wordArray = []
+    let concept = []
+
+    console.log('test')
 }

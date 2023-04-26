@@ -18,13 +18,13 @@
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/f92d7e8a24.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/custom.js'])
 </head>
 <body class="d-flex min-vh-100 flex-column">
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/c-est-quoi') }}">
+            <a class="navbar-brand" href="{{ route('home', app()->getLocale()) }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -35,13 +35,13 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/c-est-quoi') }}" class="nav-link">{{__('C\'est quoi?')}}</a>
+                        <a href="{{ route('c-est-quoi', app()->getLocale()) }}" class="nav-link">{{__('C\'est quoi?')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/construction') }}" class="nav-link">{{__('Construction')}}</a>
+                        <a href="{{ route('construction', app()->getLocale()) }}" class="nav-link">{{__('Construction')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/dictionary') }}" class="nav-link">{{__('Dictionnaire')}}</a>
+                        <a href="{{ route('dico.index', app()->getLocale()) }}" class="nav-link">{{__('Dictionnaire')}}</a>
                     </li>
                 </ul>
 
@@ -51,13 +51,13 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login', app()->getLocale()) }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i> {{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register', app()->getLocale()) }}"><i class="fa-solid fa-user-plus"></i> {{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -67,26 +67,36 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a href="{{route('user.profile.index', ['id' => Auth::user()->id])}}" class="dropdown-item"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
+                                <a href="{{route('user.profile.index', ['lang' => app()->getLocale(),'id' => Auth::user()->id])}}" class="dropdown-item"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
                                 @if(Auth::user()->isAdmin())
-                                    <a href="{{route('admin.')}}" class="dropdown-item"><i class="fa-solid fa-toolbox"></i> {{ __('Administration') }}</a>
+                                    <a href="{{route('admin.', app()->getLocale())}}" class="dropdown-item"><i class="fa-solid fa-toolbox"></i> {{ __('Administration') }}</a>
                                 @endif
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-right-from-bracket"></i> {{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>
                         </li>
                     @endguest
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle" src="https://flagsapi.com/{{App::getLocale()=='en' ? 'GB' : strtoupper(App::getLocale())}}/flat/24.png">{{strtoupper(App::getLocale())}}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end w-auto">
+                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'fr']))}}"><img class="rounded-circle" src="https://flagsapi.com/FR/flat/24.png"> FR</a>
+                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'de']))}}"><img class="rounded-circle" src="https://flagsapi.com/DE/flat/24.png"> DE</a>
+                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"><img class="rounded-circle" src="https://flagsapi.com/GB/flat/24.png"> EN</a>
+                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'it']))}}"><img class="rounded-circle" src="https://flagsapi.com/IT/flat/24.png"> IT</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <main class="py-4 container">
         @include('flash-message')
         @yield('content')
@@ -119,21 +129,21 @@
                         Liens utiles
                     </h6>
                     <p>
-                        <a href="{{route('c-est-quoi')}}" class="text-reset text-decoration-none">MaCuSi, c'est quoi ? </a>
+                        <a href="{{route('c-est-quoi', app()->getLocale()) }}" class="text-reset text-decoration-none">MaCuSi, c'est quoi ? </a>
                     </p>
                     <p>
-                        <a href="{{ route('construction') }}" class="text-reset text-decoration-none">Construction</a>
+                        <a href="{{ route('construction', app()->getLocale()) }}" class="text-reset text-decoration-none">{{__('Construction')}}</a>
                     </p>
                     <p>
-                        <a href="{{route('dico.index')}}" class="text-reset text-decoration-none">Dictionnaire</a>
+                        <a href="{{route('dico.index', app()->getLocale())}}" class="text-reset text-decoration-none">{{__('Dictionnaire')}}</a>
                     </p>
                     @guest
                         <p>
-                            <a href="{{route('login')}}" class="text-reset text-decoration-none">Se connecter</a>
+                            <a href="{{route('login', app()->getLocale())}}" class="text-reset text-decoration-none">{{__('Login')}}</a>
                         </p>
                     @else
                         <p>
-                            <a href="{{route('dictionary.create')}}" class="text-reset text-decoration-none">Soumettre un mot</a>
+                            <a href="{{route('dictionary.create', app()->getLocale())}}" class="text-reset text-decoration-none">{{__('Soumettre un mot')}}</a>
                         </p>
                     @endguest
                 </div>
