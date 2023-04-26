@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('syllabes', function (Blueprint $table) {
+            $table->integerIncrements('id')->unique();
             $table->string('syllabe', 2)->primary();
             $table->json('trads');
         });

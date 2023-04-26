@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,6 +13,7 @@ use Ramsey\Uuid\Type\Integer;
 
 class Mot extends Model
 {
+    use CrudTrait;
     use HasFactory;
 
     protected $fillable =[
@@ -24,8 +26,6 @@ class Mot extends Model
         'enMacusi',
         'dateAjout',
         'explication',
-        'isValidated',
-        'submitter',
         'trads',
     ];
 

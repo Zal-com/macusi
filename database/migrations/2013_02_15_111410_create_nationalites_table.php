@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('nationalites', function (Blueprint $table) {
+            $table->integerIncrements('id')->unique();
             $table->string('code', 2)->primary();
             $table->string('nationalite', 30);
         });

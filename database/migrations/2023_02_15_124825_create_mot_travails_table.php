@@ -36,7 +36,7 @@ return new class extends Migration
             $table->foreign('mot4_sug')->references('syllabe')->on('syllabes');
             $table->foreign('mot5_sug')->references('syllabe')->on('syllabes');
             $table->foreign('mot6_sug')->references('syllabe')->on('syllabes');
-            $table->foreign('submitter_sug')->references('username')->on('users');
+            $table->foreign('submitter_sug')->references('id')->on('users');
         });
     }
 

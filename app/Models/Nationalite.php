@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Nationalite extends Model
 {
+    use CrudTrait;
     use HasFactory;
 
-    protected $primaryKey = 'code';
+    protected $primaryKey = 'id';
+
     protected $fillable = [
-        'id',
         'nationalite',
         'code'
     ];
