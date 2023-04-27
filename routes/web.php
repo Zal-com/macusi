@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ Route::group(['prefix' => '{lang}'], function (){
         return view('macusi-expl');
     })->name('home');
 
-    Auth::routes(['verify' => true]);
+    Auth::routes();
 
     Route::get('construction', function (){
         return view('construction');
@@ -36,6 +37,10 @@ Route::group(['prefix' => '{lang}'], function (){
     Route::get('dictionary', [DicoController::class, 'index'])->name('dico.index');
     Route::get('/dictionary/create', [DicoController::class, 'create'])->name('dictionary.create');
     Route::post('/dictionary/store', [DicoController::class, 'store'])->name('dictionary.store');
+
+    Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+    Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify');
+    Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
     Route::group([
         'prefix' => '/user',
@@ -50,6 +55,7 @@ Route::group(['prefix' => '{lang}'], function (){
             ->where('id', '[0-9]+');
         Route::get('/{id}/submissions', [ProfileController::class, 'submissionsIndex'])->name('profile.submissions.index')
             ->where('id', '[0-9]+');
+
     });
 
     Route::group([

@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('mot5_sug', 2)->index();
             $table->string('mot6_sug', 2)->index();
             $table->string('enMacusi_sug', 12);
-            $table->date('dateAjout_sug')->default(DB::raw(('CURRENT_TIMESTAMP')));
+            $table->date('dateAjout_sug');
             $table->text('explication_sug');
             $table->smallInteger('isValidated_sug');
-            $table->string('submitter_sug')->index();
+            $table->foreignId('submitter_sug');
             $table->json('trads_sug');
 
             //Foreign keys

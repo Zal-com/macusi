@@ -15,6 +15,10 @@ class LangMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        //Determine default language based on client
+        //Fallback on english if language not available
+        //To add a language, add the locale in config/custom.php file
+
         \App::setLocale($request->lang);
 
         return $next($request);

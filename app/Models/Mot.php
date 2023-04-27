@@ -88,4 +88,5 @@ class Mot extends Model
 
         return substr($str, 0, strlen($str)-2);
     }
+
 }

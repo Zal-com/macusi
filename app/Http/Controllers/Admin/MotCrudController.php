@@ -41,16 +41,23 @@ class MotCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('mot1');
-        CRUD::column('mot2');
-        CRUD::column('mot3');
-        CRUD::column('mot4');
-        CRUD::column('mot5');
-        CRUD::column('mot6');
-        CRUD::column('enMacusi');
-        CRUD::column('dateAjout');
+        CRUD::column('mot1')->label('Syllabe 1');
+        /*
+        CRUD::column('mot2')->label('Syllabe 2');
+        CRUD::column('mot3')->label('Syllabe 3');
+        CRUD::column('mot4')->label('Syllabe 4');
+        CRUD::column('mot5')->label('Syllabe 5');
+        CRUD::column('mot6')->label('Syllabe 6');
+        //CRUD::column('enMacusi')->label('Macusi');
+        //CRUD::column('dateAjout')->label("Date d'ajout");
         CRUD::column('explication');
+        */
         CRUD::column('trads');
+        CRUD::addColumn([
+            'name' => 'types',
+            'label' => 'types',
+            'type' => 'select_multiple',
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -74,7 +81,7 @@ class MotCrudController extends CrudController
                 'name' => 'mot'.$i,
                 'label' => 'Mot ' . $i,
                 'type' => 'select',
-                'entity' => 'syllabe'.$i,
+                'model' => 'App\Models\Syllabe',
                 'attribute' => 'syllabe'
 
             ]);
@@ -83,6 +90,12 @@ class MotCrudController extends CrudController
         CRUD::field('enMacusi')->type('hidden');
         CRUD::field('dateAjout')->type('hidden')->default(Carbon::now());
         CRUD::field('explication');
+        CRUD::addField([
+            'label' => 'Types',
+            'type' => 'select_multiple',
+            'name' => 'types',
+        ]);
+        CRUD::field('trads')->type('hidden');
 
         foreach (config('custom.available_languages') as $language){
             CRUD::addField([
@@ -121,15 +134,15 @@ class MotCrudController extends CrudController
         $trads = json_encode($tradsArray);
         $this->crud->getRequest()['trads'] = $trads;
 
-            //TODO FIXME
-        $this->crud->getRequest()['enMacusi'] = Syllabe::find($this->crud->getRequest()['mot1'])->syllabe.
-                                                Syllabe::find($this->crud->getRequest()['mot2'])->syllabe.
-                                                Syllabe::find($this->crud->getRequest()['mot3'])->syllabe.
-                                                Syllabe::find($this->crud->getRequest()['mot4'])->syllabe.
-                                                Syllabe::find($this->crud->getRequest()['mot5'])->syllabe.
-                                                Syllabe::find($this->crud->getRequest()['mot6'])->syllabe.
+        $macusi = '';
+        for ($i = 1; $i < 7; $i++) {
+            $syllabe = Syllabe::find($this->crud->getRequest()['mot'.$i])->syllabe;
+            $macusi .=  $syllabe;
+            $this->crud->getRequest()['mot'.$i] = $syllabe;
+        }
 
-        dd($this->crud->getRequest());
+        $this->crud->getRequest()['enMacusi'] = $macusi;
+        //dd($this->crud->getRequest());
 
         $response = $this->TraitStore();
         return $response;

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('user_votes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_sug');
-            $table->string('voter_username')->index();
+            $table->foreignId('voter_id')->index();
             $table->integer('vote_type');
 
             //Foreign Keys
@@ -24,7 +24,7 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
 
-            $table->foreign('voter_username')->references('username')->on('users')
+            $table->foreign('voter_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
         });
