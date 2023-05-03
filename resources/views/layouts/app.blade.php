@@ -22,10 +22,10 @@
 </head>
 <body class="d-flex min-vh-100 flex-column">
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-main text-secondary">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home', app()->getLocale()) }}">
-                {{ config('app.name', 'Laravel') }}
+                <img src="{{asset('storage/img/logo-orange.svg')}}">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -35,13 +35,13 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a href="{{ route('c-est-quoi', app()->getLocale()) }}" class="nav-link">{{__('C\'est quoi?')}}</a>
+                        <a href="{{ route('c-est-quoi', app()->getLocale()) }}" class="nav-link text-secondary text-uppercase font-weight-bold">{{__('C\'est quoi?')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('construction', app()->getLocale()) }}" class="nav-link">{{__('Construction')}}</a>
+                        <a href="{{ route('construction', app()->getLocale()) }}" class="nav-link text-secondary text-uppercase font-weight-bold">{{__('Construction')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dico.index', app()->getLocale()) }}" class="nav-link">{{__('Dictionnaire')}}</a>
+                        <a href="{{ route('dico.index', app()->getLocale()) }}" class="nav-link text-secondary text-uppercase font-weight-bold">{{__('Dictionnaire')}}</a>
                     </li>
                 </ul>
 
@@ -51,46 +51,50 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login', app()->getLocale()) }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>
-                            </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register', app()->getLocale()) }}"><i class="fa-solid fa-user-plus"></i> {{ __('Register') }}</a>
+                                <a class="nav-link text-secondary text-uppercase font-weight-bold" href="{{ route('login', app()->getLocale()) }}"><i class="fa-solid fa-right-to-bracket text-secondary"></i> {{ __('Login') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a href="{{route('user.profile.index', ['lang' => app()->getLocale(),'id' => Auth::user()->id])}}" class="dropdown-item"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
+                                <a href="{{route('user.profile.index', ['lang' => app()->getLocale(),'id' => Auth::user()->id])}}" class="dropdown-item text-secondary"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
                                 @if(Auth::user()->isAdmin())
-                                    <a href="{{route('admin.', app()->getLocale())}}" class="dropdown-item"><i class="fa-solid fa-toolbox"></i> {{ __('Administration') }}</a>
+                                    <a href="{{route('admin.', app()->getLocale())}}" class="dropdown-item text-secondary"><i class="fa-solid fa-toolbox text-secondary"></i> {{ __('Administration') }}</a>
                                 @endif
-                                <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
+                                <a class="dropdown-item text-secondary" href="{{ route('logout', app()->getLocale()) }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    <i class="fa-solid fa-right-from-bracket"></i> {{ __('Logout') }}
+                                    <i class="fa-solid fa-right-from-bracket text-secondary"></i> {{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none text-secondary">
                                     @csrf
                                 </form>
                             </div>
                         </li>
                     @endguest
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle" src="https://flagsapi.com/{{App::getLocale()=='en' ? 'GB' : strtoupper(App::getLocale())}}/flat/24.png">{{strtoupper(App::getLocale())}}
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary font-weight-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle mr-1" src="https://flagsapi.com/{{App::getLocale()=='en' ? 'GB' : strtoupper(App::getLocale())}}/flat/24.png">{{strtoupper(App::getLocale())}}
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end w-auto">
+                        <div class="dropdown-menu dropdown-menu-end w-auto bg-main">
+                            @foreach(config('custom.available_languages') as $language)
+                                @if($language == 'EN')
+                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"><img class="rounded-circle" src="https://flagsapi.com/GB/flat/24.png"> EN</a>
+                                @else
+                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>strtolower($language)]))}}"><img class="rounded-circle" src='https://flagsapi.com/{{$language}}/flat/24.png'> {{$language}}</a>
+
+                                @endif
+                            @endforeach
+                            {{--
                             <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'fr']))}}"><img class="rounded-circle" src="https://flagsapi.com/FR/flat/24.png"> FR</a>
                             <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'de']))}}"><img class="rounded-circle" src="https://flagsapi.com/DE/flat/24.png"> DE</a>
                             <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"><img class="rounded-circle" src="https://flagsapi.com/GB/flat/24.png"> EN</a>
                             <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'it']))}}"><img class="rounded-circle" src="https://flagsapi.com/IT/flat/24.png"> IT</a>
+                        --}}
                         </div>
                     </li>
                 </ul>
@@ -103,7 +107,7 @@
     </main>
 </div>
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted border-top mt-auto">
+<footer class="text-center text-lg-start bg-main border-top mt-auto">
     <!-- Section: Links  -->
     <div class="">
         <div class="container text-center text-md-start mt-5">
@@ -111,39 +115,32 @@
             <div class="row mt-3">
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>MaCuSi
-                    </h6>
-                    <p>
-                        Idéolangue née pendant la pandémie de COVID-19, le projet est de créer un language universel
-                        compréhensible par tous et se basant sur des sonorités communes à la plupart des lanques du monde.
-                    </p>
+                    <img src="{{asset('storage/img/logo-orange.svg')}}">
                 </div>
                 <!-- Grid column -->
 
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Liens utiles
+                    <h6 class="fw-bold text-secondary mb-4 fs-18">
+                        A propos
                     </h6>
                     <p>
-                        <a href="{{route('c-est-quoi', app()->getLocale()) }}" class="text-reset text-decoration-none">MaCuSi, c'est quoi ? </a>
+                        <a href="{{route('c-est-quoi', app()->getLocale()) }}" class="text-decoration-none text-white">Macusi, c'est quoi ? </a>
                     </p>
                     <p>
-                        <a href="{{ route('construction', app()->getLocale()) }}" class="text-reset text-decoration-none">{{__('Construction')}}</a>
+                        <a href="{{ route('construction', app()->getLocale()) }}" class="text-decoration-none text-white">{{__('Construction')}}</a>
                     </p>
                     <p>
-                        <a href="{{route('dico.index', app()->getLocale())}}" class="text-reset text-decoration-none">{{__('Dictionnaire')}}</a>
+                        <a href="{{route('dico.index', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Dictionnaire')}}</a>
                     </p>
                     @guest
                         <p>
-                            <a href="{{route('login', app()->getLocale())}}" class="text-reset text-decoration-none">{{__('Login')}}</a>
+                            <a href="{{route('login', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Login')}}</a>
                         </p>
                     @else
                         <p>
-                            <a href="{{route('dictionary.create', app()->getLocale())}}" class="text-reset text-decoration-none">{{__('Soumettre un mot')}}</a>
+                            <a href="{{route('dictionary.create', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Soumettre un mot')}}</a>
                         </p>
                     @endguest
                 </div>
@@ -152,26 +149,26 @@
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                    <p>
-                        <i class="fas fa-envelope me-3"></i>
+                    <h6 class="fw-bold mb-4 text-secondary fs-18">Contact</h6>
+                    <p class="text-white">
+                        <i class="fas fa-envelope me-3 text-white"></i>
                         contact@macusi.be
                     </p>
-                    <p>
-                        <i class="fas fa-envelope me-3"></i>
+                    <p class="text-white">
+                        <i class="fas fa-envelope me-3 text-white"></i>
                         dev@macusi.be
                     </p>
-                    <p><i class="fas fa-link me-3"></i>Formulaire de contact</p>
+                    <p class="text-white"><i class="fas fa-link me-3 text-white"></i>Formulaire de contact</p>
                 </div>
                 <!-- Grid column -->
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">Réseaux sociaux</h6>
+                    <h6 class="text-secondary fw-bold mb-4 fs-18">Réseaux</h6>
                     <a href="https://www.facebook.com/profile.php?id=100087166600089" class="me-4 text-reset text-decoration-none">
-                        <i class="fab fa-facebook-f"></i>
-                        <a href="https://youtube.com/" class="me-4 text-reset text-decoration-none">
-                            <i class="fab fa-youtube"></i>
+                        <i class="fab fa-facebook-f text-white"></i>
+                        <a href="https://youtube.com/" class="me-4 text-white text-decoration-none">
+                            <i class="fab fa-youtube text-white"></i>
                         </a>
                     </a>
                 </div>
@@ -183,9 +180,14 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2023 Copyright
-        <span class="text-reset fw-bold">Macusi.be</span>
+    <div class="text-center p-4 text-white" style="background-color: #050021;">
+        <p class="m-0">
+        © COPYRIGHT MACUSI 2023
+        <span class="vertical">|</span>
+        TERMS AND CONDITIONS
+        <span class="vertical">|</span>
+        PRIVACY POLICY
+        </p>
     </div>
     <!-- Copyright -->
 </footer>

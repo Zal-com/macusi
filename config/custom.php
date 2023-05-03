@@ -1,5 +1,12 @@
 <?php
 
 return[
-    'available_languages' => ['FR', 'EN', 'DE', 'IT'],
+    'available_languages' => [
+        'FR',
+        'EN',
+       /*
+        'DE',
+        'IT',
+       */
+        ],
 ];
