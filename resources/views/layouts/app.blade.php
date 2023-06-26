@@ -25,18 +25,15 @@
     <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-main text-secondary">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home', app()->getLocale()) }}">
-                <img src="{{asset('storage/img/logo-orange.svg')}}">
+                <img src="{{Storage::url('img/logo-orange.svg')}}" alt="logo macusi">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <i class="fa-solid fa-bars fa-xl text-secondary"></i>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse bg-main" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a href="{{ route('c-est-quoi', app()->getLocale()) }}" class="nav-link text-secondary text-uppercase font-weight-bold">{{__('C\'est quoi?')}}</a>
-                    </li>
                     <li class="nav-item">
                         <a href="{{ route('construction', app()->getLocale()) }}" class="nav-link text-secondary text-uppercase font-weight-bold">{{__('Construction')}}</a>
                     </li>
@@ -56,11 +53,11 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary fw-bold text-uppercase" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->username }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-end bg-main" aria-labelledby="navbarDropdown">
                                 <a href="{{route('user.profile.index', ['lang' => app()->getLocale(),'id' => Auth::user()->id])}}" class="dropdown-item text-secondary"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
                                 @if(Auth::user()->isAdmin())
                                     <a href="{{route('admin.', app()->getLocale())}}" class="dropdown-item text-secondary"><i class="fa-solid fa-toolbox text-secondary"></i> {{ __('Administration') }}</a>
@@ -78,23 +75,17 @@
                     @endguest
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary font-weight-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle mr-1" src="https://flagsapi.com/{{App::getLocale()=='en' ? 'GB' : strtoupper(App::getLocale())}}/flat/24.png">{{strtoupper(App::getLocale())}}
+                           {{strtoupper(App::getLocale())}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end w-auto bg-main">
                             @foreach(config('custom.available_languages') as $language)
                                 @if($language == 'EN')
-                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"><img class="rounded-circle" src="https://flagsapi.com/GB/flat/24.png"> EN</a>
+                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"> EN</a>
                                 @else
-                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>strtolower($language)]))}}"><img class="rounded-circle" src='https://flagsapi.com/{{$language}}/flat/24.png'> {{$language}}</a>
+                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>strtolower($language)]))}}"> {{$language}}</a>
 
                                 @endif
                             @endforeach
-                            {{--
-                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'fr']))}}"><img class="rounded-circle" src="https://flagsapi.com/FR/flat/24.png"> FR</a>
-                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'de']))}}"><img class="rounded-circle" src="https://flagsapi.com/DE/flat/24.png"> DE</a>
-                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"><img class="rounded-circle" src="https://flagsapi.com/GB/flat/24.png"> EN</a>
-                            <a class="dropdown-item" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'it']))}}"><img class="rounded-circle" src="https://flagsapi.com/IT/flat/24.png"> IT</a>
-                        --}}
                         </div>
                     </li>
                 </ul>
@@ -106,6 +97,7 @@
         @yield('content')
     </main>
 </div>
+<script src="../../js/custom.js"></script>
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-main border-top mt-auto">
     <!-- Section: Links  -->
@@ -115,7 +107,7 @@
             <div class="row mt-3">
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <img src="{{asset('storage/img/logo-orange.svg')}}">
+                    <img src="{{Storage::url('img/logo-orange.svg')}}" alt="logo macusi">
                 </div>
                 <!-- Grid column -->
 
@@ -165,9 +157,9 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-secondary fw-bold mb-4 fs-18">Réseaux</h6>
-                    <a href="https://www.facebook.com/profile.php?id=100087166600089" class="me-4 text-reset text-decoration-none">
+                    <a href="https://www.facebook.com/profile.php?id=100087166600089" target="_blank" class="me-4 text-reset text-decoration-none">
                         <i class="fab fa-facebook-f text-white"></i>
-                        <a href="https://youtube.com/" class="me-4 text-white text-decoration-none">
+                        <a href="https://youtube.com/" target="_blank" class="me-4 text-white text-decoration-none">
                             <i class="fab fa-youtube text-white"></i>
                         </a>
                     </a>
@@ -186,7 +178,7 @@
         <span class="vertical">|</span>
         TERMS AND CONDITIONS
         <span class="vertical">|</span>
-        PRIVACY POLICY
+        <a href="{{route('privacy-and-policy', app()->getLocale())}}">PRIVACY POLICY</a>
         </p>
     </div>
     <!-- Copyright -->

@@ -2,6 +2,22 @@
 $body-bg: #d3d3d350;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Inter', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+$sizes: () !default;
+$sizes: map-merge(
+        (
+            25: 25%,
+            33 : 33%,
+            40 : 40%,
+            45 : 45%,
+            50 : 50%,
+            66 : 66%,
+            75 : 75%,
+            100 : 100%,
+            auto : auto
+        ),
+    $sizes
+);
+$box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.20);

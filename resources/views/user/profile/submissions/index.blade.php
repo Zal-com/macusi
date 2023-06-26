@@ -7,6 +7,7 @@
     <x-user_sidebar :url="$url"/>
     <div class="right px-5">
         <h2 class="mb-4">Liste des soumissions</h2>
+        <a href="{{route('translate', app()->getLocale())}}" class="btn btn-primary">{{__('Translate')}}</a>
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
@@ -30,4 +31,10 @@
             @endforeach
         </table>
     </div>
+
+    <component :is="'script'">
+        function translateAll(){
+            const Reverso = require('reverso-api')
+        }
+    </component>
 @endsection

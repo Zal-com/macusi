@@ -42,6 +42,12 @@ Route::group(['prefix' => '{lang}'], function (){
     Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify');
     Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
+    Route::get('translate',[TranslateController::class, 'translate'])->name('translate');
+
+    Route::get('/privacy_and_policy', function (){
+        return view('PrivacyPolicy' . \app()->getLocale());
+    })->name('privacy-and-policy');
+
     Route::group([
         'prefix' => '/user',
         'as' => 'user.',
