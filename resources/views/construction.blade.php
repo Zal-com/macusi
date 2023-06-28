@@ -123,6 +123,7 @@
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
     </div>
+    <!--
     <script>
         function modal_open(name) {
             let modal = document.getElementById(name);
@@ -136,6 +137,7 @@
 
 
     </script>
+    -->
 
 
 

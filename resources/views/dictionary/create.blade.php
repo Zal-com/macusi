@@ -57,6 +57,7 @@
         </div>
         <input type="submit" value="Soumettre" class="btn btn-primary">
     </form>
+    <!--
     <script>
         function previewMacusi() {
             //Updates 'enMacusi' field
@@ -89,4 +90,5 @@
             conceptPreview.value = conceptStr.length === 0 ? '---' : conceptStr.substring(0, conceptStr.length-2)
         }
     </script>
+    -->
 @endsection
