@@ -8,9 +8,8 @@
           GRAMMAIRE
         ------------>
         <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">Grammaire</h3>
-
         <div class="container d-flex justify-content-center flex-wrap mt-4">
-            <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+            <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important; cursor: pointer;" onclick="modal_open('declarative')">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase déclarative</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
             </div>
@@ -32,6 +31,25 @@
             </div>
         </div>
     </div>
+    <dialog id="declarative" class="construction">
+        <button class="close" onclick="modal_close('declarative')"><img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup"></button>
+        <h3>La phrase déclarative</h3>
+        <p>Elle se construit de la manière suivante : le sujet se met en début de phrase suivi par le verbe et ensuite viennent les différents compléments.</p>
+        <p class="demo"><span>Sujet</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Complément</span></p>
+        <p class="exemple"><span>Exemple : </span>J'aime les fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Aimer Fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa Da JuMo</p>
+    </dialog>
+    <dialog id="negative" class="construction">
+
+    </dialog>
+    <dialog id="interrogative" class="construction">
+
+    </dialog>
+    <dialog id="exclamative" class="construction">
+
+    </dialog>
+    <dialog id="complements" class="construction">
+
+    </dialog>
 
 
     <!----------
@@ -100,11 +118,24 @@
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Conditionnel</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;--">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Conditionnel passé</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
     </div>
+    <script>
+        function modal_open(name) {
+            let modal = document.getElementById(name);
+            modal.setAttribute('open', true);
+        }
+
+        function modal_close(name){
+            let modal = document.getElementById(name);
+            modal.removeAttribute('open')
+        }
+
+
+    </script>
 
 
 

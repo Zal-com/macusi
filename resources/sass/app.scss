@@ -124,3 +124,43 @@ li::marker{
     float: left;
     position: sticky;
 }
+
+.construction{
+    z-index: 999;
+    border : none;
+    border-radius: 40px;
+    max-width: 849px;
+    padding: 3rem;
+}
+
+construction > close{
+    float: right;
+    border: none;
+}
+.construction > h3{
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.construction > p > span{
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.construction > .demo{
+    text-align: center;
+}
+
+.construction > .exemple{
+
+}
+.construction > .exemple > span{
+    color: black;
+    font-weight: 600;
+    margin-right: 16px;
+}
+
+.construction > p > img{
+    margin: 0 10px;
+    align-self: center;
+}
