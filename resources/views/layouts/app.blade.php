@@ -60,7 +60,7 @@
                             <div class="dropdown-menu dropdown-menu-end bg-main" aria-labelledby="navbarDropdown">
                                 <a href="{{route('user.profile.index', ['lang' => app()->getLocale(),'id' => Auth::user()->id])}}" class="dropdown-item text-secondary"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
                                 @if(Auth::user()->isAdmin())
-                                    <a href="{{route('admin.', app()->getLocale())}}" class="dropdown-item text-secondary"><i class="fa-solid fa-toolbox text-secondary"></i> {{ __('Administration') }}</a>
+                                    <a href="{{route('backpack.dashboard')}}" class="dropdown-item text-secondary"><i class="fa-solid fa-toolbox text-secondary"></i> {{'Administration'}}</a>
                                 @endif
                                 <a class="dropdown-item text-secondary" href="{{ route('logout', app()->getLocale()) }}"
                                    onclick="event.preventDefault();
