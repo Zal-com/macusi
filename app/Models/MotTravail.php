@@ -6,6 +6,8 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class MotTravail extends Model
 {
@@ -34,5 +36,9 @@ class MotTravail extends Model
     public function syllabe(): BelongsTo
     {
         return $this->belongsTo(Syllabe::class);
+    }
+
+    public function types() : HasManyThrough{
+        return $this->hasManyThrough(Type::class, TypeSuggestion::class , 'id_sug' ,'id', 'id_sug', 'id_sug');
     }
 }

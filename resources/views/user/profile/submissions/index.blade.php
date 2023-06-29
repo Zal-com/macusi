@@ -4,37 +4,40 @@
     @php
         $locale = strtoupper(app()->getLocale())
     @endphp
-    <x-user_sidebar :url="$url"/>
-    <div class="right px-5">
-        <h2 class="mb-4">Liste des soumissions</h2>
-        <a href="{{route('translate', app()->getLocale())}}" class="btn btn-primary">{{__('Translate')}}</a>
-        <table class="table table-striped table-bordered">
-            <thead>
-            <tr>
-                <td>Mot</td>
-                <td>Traduction</td>
-                <td>Date de soumission</td>
-                <td>Statut</td>
-                <td>Actions</td>
-            </tr>
-            </thead>
-            @foreach($submissions as $submission)
-                <tr>
-                    <td>{{$submission->enMacusi_sug}}</td>
-                    <td>{{json_decode($submission->trads_sug)->$locale}}</td>
-                    <td>{{$submission->dateAjout_sug}}</td>
-                    <td>{{$submission->isValidated_sug}}</td>
-                    <td>
-                        <a href="" class="btn btn-sm btn-primary">Modifier</a>
-                    </td>
-                </tr>
-            @endforeach
-        </table>
-    </div>
 
-    <component :is="'script'">
-        function translateAll(){
-            const Reverso = require('reverso-api')
-        }
-    </component>
+    <h1 class="h3-title">Mon Compte</h1>
+    <div class="parent mt-5 d-flex justify-content-between">
+        <div class="div1 w-25">
+            <x-user_sidebar :url="$url"/>
+        </div>
+        <div class="div2 w-75">
+            <div class="right px-5 card border-0 shadow p-3 h-100">
+                <h3 class="h3-title mt-2">{{__('Mes soumissions') }}</h3>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Mot en MaCuSi</td>
+                        <td>Mot en {{app()->getLocale()}}</td>
+                        <td>Type</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    @foreach($submissions as $submission)
+                        <tr>
+                            <td>{{$submission->dateAjout_sug}}</td>
+                            <td>{{$submission->enMacusi_sug}}</td>
+                            <td>{{json_decode($submission->trads_sug)->$locale}}</td>s
+                            <td>{{$submission->types}}</td>
+                            <td>
+                                <a href=""><img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier"></a>
+                                <a href=""><img src="{{asset('storage/img/icon-trash.svg')}}" alt="Supprimer"></a>
+
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection

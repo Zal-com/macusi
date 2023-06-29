@@ -164,3 +164,68 @@ construction > close{
     margin: 0 10px;
     align-self: center;
 }
+
+.icon{
+    height: 20px;
+    width: 22px;
+    margin: 16px;
+}
+.side{
+    width: 275px;
+    display: flex;
+    flex-direction: row;
+}
+
+.side > a:not(:last-of-type){
+    border-bottom: 2px solid #FF790010;
+
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 4; }
+
+.navbar-text{
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: black !important;
+    text-align: baseline;
+}
+
+.side .nav-item{
+    margin-bottom: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    &:hover{
+        background-color: #FF790010;
+        border-left: 2px solid #FF790050;
+    }
+}
+
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
+
+.table-borderless tr td:nth-of-type(2){
+    font-size: 18px;
+}
+
+.active{
+    background-color: #FF790010;
+    border-left: 2px solid #FF790050;
+}

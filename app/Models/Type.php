@@ -5,8 +5,10 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Znck\Eloquent\Relations\BelongsToThrough;
 
 class Type extends Model
 {
@@ -28,6 +30,10 @@ class Type extends Model
 
     public function getStatusString(){
         return $this->isValidated == 1 ? 'Oui' : 'Non';
+    }
+
+    public function suggestions() : BelongsToThrough{
+        return $this->belongsToThrough(MotTravail::class, TypeSuggestion::class);
     }
 
 }

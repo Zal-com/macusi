@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <x-user_sidebar :url="$url"/>
-    <div class="right px-5">
+    <div class="right px-5 float-right">
         <h1>Modification du profil de {{ $user->username }}</h1>
         <div class="border rounded-1 shadow-sm p-lg-3">
             <form action="{{-- route('admin.members.update' ,$user->id) --}}" method="post">
