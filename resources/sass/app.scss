@@ -211,7 +211,6 @@ construction > close{
     }
 }
 
-
 .table-borderless > tbody > tr > td,
 .table-borderless > tbody > tr > th,
 .table-borderless > tfoot > tr > td,
@@ -228,4 +227,45 @@ construction > close{
 .active{
     background-color: #FF790010;
     border-left: 2px solid #FF790050;
+}
+
+.nav-item a:hover{
+    color: #FFBC80 !important;
+}
+
+.table-striped{
+    text-align: center;
+    border: none;
+}
+
+.table-striped td, tr{
+    border: none;
+}
+
+.table-striped td+td{
+    border-left: 2px solid #FF7900;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+    background-color: #FFEDDE;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+.table-striped>tbody>tr:nth-child(odd)>td {
+    --bs-table-accent-bg: #FFFFFF !important;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.table-striped>thead{
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.table-striped img{
+    height: 15px;
+    width: 15px;
+    margin: 0 5px 0 5px;
 }
