@@ -9,47 +9,228 @@
         ------------>
         <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">Grammaire</h3>
         <div class="container d-flex justify-content-center flex-wrap mt-4">
-            <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important; cursor: pointer;" onclick="modal_open('declarative')">
+            <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#declarative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase déclarative</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-            </div>
-            <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+            </button>
+            <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#negative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase négative</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-            </div>
-            <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+            </button>
+            <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#interrogative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase interrogative</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-            </div>
-            <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+            </button>
+            <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#exclamative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase exclamative</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-            </div>
-            <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+            </button>
+            <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#complements">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">L'ordre des compléments</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            </button>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="declarative" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">La phrase déclarative</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Elle se construit de la manière suivante : le sujet se met en début de phrase suivi par le verbe et ensuite viennent les différents compléments.</p>
+                    <p class="demo"><span>Sujet</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Complément</span></p>
+                    <p class="exemple"><span>Exemple : </span>J'aime les fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Aimer Fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa Da JuMo</p>
+
+                </div>
             </div>
         </div>
     </div>
-    <dialog id="declarative" class="construction">
-        <button class="close" onclick="modal_close('declarative')"><img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup"></button>
-        <h3>La phrase déclarative</h3>
-        <p>Elle se construit de la manière suivante : le sujet se met en début de phrase suivi par le verbe et ensuite viennent les différents compléments.</p>
-        <p class="demo"><span>Sujet</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Complément</span></p>
-        <p class="exemple"><span>Exemple : </span>J'aime les fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Aimer Fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa Da JuMo</p>
-    </dialog>
-    <dialog id="negative" class="construction">
+    <div class="modal" tabindex="-1" role="dialog" id="negative" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">La phrase négative</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
 
-    </dialog>
-    <dialog id="interrogative" class="construction">
+                </div>
+                <div class="modal-body">
+                    <p>Elle se construit de la même manière que la phrase déclarative mais avec l'ajout du mot [Ze] derrière le verbe.</p>
+                    <p class="demo">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Ze</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Complément</span>
+                    </p>
+                    <p class="exemple">
+                        <span>Exemple : </span>
+                        Je n'aime pas les fruits
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                         Moi Aimer Pas Fruits
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                         Sa Da Ze JuMo
+                    </p>
 
-    </dialog>
-    <dialog id="exclamative" class="construction">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="interrogative" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">La phrase interrogative</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
 
-    </dialog>
-    <dialog id="complements" class="construction">
+                </div>
+                <div class="modal-body">
+                    <p>Elle se construit de la même manière que la phrase déclarative mais avec l'ajout du mot [Wa] où l'on veut dans la phrase.</p>
+                    <p class="demo">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Complément</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Wa</span>
+                    </p>
+                    <p class="demo">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Wa</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Complément</span>
+                    </p>
+                    <p class="demo">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Wa</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Complément</span>
+                    </p>
+                    <p class="demo">
+                        <span class="ajout">Wa</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Complément</span>
+                    </p>
+                    <p class="exemple">
+                        <span>Exemple : </span>
+                        Aimes-tu les fruits ?
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                         Toi Aimer Fruit ?
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                         Se Da JuMo Wa
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="exclamative" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">La phrase exclamative</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
 
-    </dialog>
+                </div>
+                <div class="modal-body">
+                    <p>Les phrases exclamatives ou impératives se construisent de la même manière que la phrase déclarative avec l’ajout du point d’exclamation en fin de phrase.</p>
+                    <p class="demo">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Complément</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout"> !</span>
+                    </p>
+                    <p class="exemple">
+                        <span>Exemple : </span>
+                        Mange tes fruits !
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        Toi Manger Fruits !
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        Se BuLu JuMo !
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="complements" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">L'ordre des compléments</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Les compléments doivent toujours se trouver en fin de phrase. Leur ordre n'est cependant pas défini.</p>
+                    <p class="demo">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Complément de lieu</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Complément de temps</span>
+                    </p>
+                    <p class="demo">
+                        <span>Sujet</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span>Verbe</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Complément de temps</span>
+                        <img src="{{asset('storage/img/icon-plus.svg')}}">
+                        <span class="ajout">Complément de lieu</span>
+                    </p>
+                    <p class="exemple">
+                        <span>Exemple : </span>
+                        Nous partirons dans le désert dans trois jours
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                         Nous Partir Dans Désert Dans 3 Jours
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        SaSi DeNe Ni LiPuNoSo Ni Ti Gu
+                    </p>
+                    <p class="exemple">
+                        <span style="color: transparent">Exemple : </span>
+                        Nous partirons dans trois jours dans le désert
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        Nous Partir Dans 3 Jours Dans Désert
+                        <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        SaSi DeNe Ni Ti Gu Ni LiPuNoSo
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!----------
@@ -102,42 +283,129 @@
     <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">La conjugaison</h3>
 
     <div class="container d-flex justify-content-center flex-wrap mt-4">
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#present">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Présent</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#passe">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Passé</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#futur">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Futur</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#conditionnel">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Conditionnel</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;--">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#condpasse">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Conditionnel passé</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+        </button>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="present" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Présent</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Le verbe ne s'accorde pas avec le sujet. Il restera toujours à l'infinitif.</p>
+                    <p class="demo"><span>Sujet</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Verbe</span></p>
+                    <p class="exemple"><span>Exemple : </span>Je manges <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu</p>
+
+                </div>
+            </div>
         </div>
     </div>
-    <!--
-    <script>
-        function modal_open(name) {
-            let modal = document.getElementById(name);
-            modal.setAttribute('open', true);
-        }
+    <div class="modal" tabindex="-1" role="dialog" id="passe" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Passé</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
 
-        function modal_close(name){
-            let modal = document.getElementById(name);
-            modal.removeAttribute('open')
-        }
+                </div>
+                <div class="modal-body">
+                    <p>[Insérer texte explicatif]</p>
+                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span></p>
+                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précision sur le temps de l'action</span></p>
+                    <p class="exemple"><span>Exemple : </span>Je mangeais un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Passé Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We JuMo</p>
+                    <p class="exemple"><span style="color: transparent">Exemple : </span>J'ai mangé un fruit hier <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Fruits Hier <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZeTa</p>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="futur" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Futur</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
 
-    </script>
-    -->
+                </div>
+                <div class="modal-body">
+                    <p>[Insérer texte explicatif]</p>
+                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">ZeWe</span></p>
+                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précision sur le temps de l'action</span></p>
+                    <p class="exemple"><span>Exemple : </span>Je mangerai un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Futur Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu ZeWe JuMo</p>
+                    <p class="exemple"><span style="color: transparent">Exemple : </span>Je mangerai un fruit demain <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Fruits Demain <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZaTa</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="conditionnel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Conditionnel</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>[Insérer texte explicatif]</p>
+                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
+                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précisionn sur le temps de l'action</span></p>
+                    <p class="exemple"><span>Exemple : </span>Je mangerais un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Condition Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu Wi JuMo</p>
+                    <p class="exemple"><span style="color: transparent">Exemple : </span>Je mangerais un fruit si tu en as acheté <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Fruit Condition Toi Avoir Acheter Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo Wi Se DoJeDuJa We JuMo</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="condpasse" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Conditionnel passé</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>[Insérer texte explicatif]</p>
+                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
+                    <p class="exemple"><span>Exemple : </span>J’aurais mangé un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">  Moi Manger Passé Condition Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We Wi JuMo</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

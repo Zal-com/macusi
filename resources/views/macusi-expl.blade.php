@@ -31,7 +31,7 @@
             de passer en construction Sujet - Verbe - Complément pour les langues qui n’utilisent pas ce
             type de construction.</p>
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-left: -24px; margin-right: -24px">
                 <div class="col">
                     <h3 class="h3-title mb-28">Système d’écriture</h3>
                     <p class="mb-28 text-justify">Chacun des 85 mots est composé d’une consonne écrite en majuscule suivit d’une voyelle

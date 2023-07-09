@@ -125,44 +125,44 @@ li::marker{
     position: sticky;
 }
 
-.construction{
-    z-index: 999;
-    border : none;
-    border-radius: 40px;
-    max-width: 849px;
-    padding: 3rem;
+.modal-dialog{
+    width: auto;
+    max-width: 1000px;
 }
 
-construction > close{
-    float: right;
-    border: none;
+.modal-content{
+    border: none !important;
+    border-radius: 40px !important;
+    padding: 2rem !important;
 }
-.construction > h3{
+
+.modal-header{
     color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color) !important;
 }
 
-.construction > p > span{
+.modal-body > p > span{
     color: var(--secondary-color);
     font-weight: 600;
 }
 
-.construction > .demo{
+.modal-body > .demo{
     text-align: center;
 }
 
-.construction > .exemple{
-
-}
-.construction > .exemple > span{
+.modal-body > .exemple > span{
     color: black;
     font-weight: 600;
     margin-right: 16px;
 }
 
-.construction > p > img{
+.modal-body > p > img{
     margin: 0 10px;
     align-self: center;
+}
+
+.ajout{
+    color: var(--main-color) !important;
 }
 
 .icon{
