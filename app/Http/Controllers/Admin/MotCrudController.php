@@ -6,6 +6,7 @@ use App\Http\Requests\MotRequest;
 use App\Models\Syllabe;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use BackpackImport\ImportOperation;
 use Carbon\Carbon;
 
 /**
@@ -16,10 +17,13 @@ use Carbon\Carbon;
 class MotCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as TraitStore; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation {
+        store as TraitStore;
+    }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use ImportOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -41,7 +45,7 @@ class MotCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('mot1')->label('Syllabe 1');
+        CRUD::column('enMacusi')->label('Mot');
         /*
         CRUD::column('mot2')->label('Syllabe 2');
         CRUD::column('mot3')->label('Syllabe 3');
@@ -52,10 +56,14 @@ class MotCrudController extends CrudController
         //CRUD::column('dateAjout')->label("Date d'ajout");
         CRUD::column('explication');
         */
-        CRUD::column('trads');
+        CRUD::addColumn([
+            'name' => 'trads',
+            'label' => 'Traduction',
+            'type' => 'custom_json'
+        ]);
         CRUD::addColumn([
             'name' => 'types',
-            'label' => 'types',
+            'label' => 'Types',
             'type' => 'select_multiple',
         ]);
 
@@ -78,7 +86,7 @@ class MotCrudController extends CrudController
 
         for ($i = 1; $i < 7; $i++) {
             CRUD::addField([
-                'name' => 'mot'.$i,
+                'name' => 'mot' . $i,
                 'label' => 'Mot ' . $i,
                 'type' => 'select',
                 'model' => 'App\Models\Syllabe',
@@ -91,13 +99,14 @@ class MotCrudController extends CrudController
         CRUD::field('dateAjout')->type('hidden')->default(Carbon::now());
         CRUD::field('explication');
         CRUD::addField([
-            'label' => 'Types',
-            'type' => 'select_multiple',
-            'name' => 'types',
-        ]);
+             'label' => 'Types',
+             'type' => 'select_multiple',
+             'name' => 'types',
+
+         ]);
         CRUD::field('trads')->type('hidden');
 
-        foreach (config('custom.available_languages') as $language){
+        foreach (config('custom.available_languages') as $language) {
             CRUD::addField([
                 'name' => $language,
                 'label' => 'Trad ' . $language,
@@ -136,9 +145,9 @@ class MotCrudController extends CrudController
 
         $macusi = '';
         for ($i = 1; $i < 7; $i++) {
-            $syllabe = Syllabe::find($this->crud->getRequest()['mot'.$i])->syllabe;
-            $macusi .=  $syllabe;
-            $this->crud->getRequest()['mot'.$i] = $syllabe;
+            $syllabe = Syllabe::find($this->crud->getRequest()['mot' . $i])->syllabe;
+            $macusi .= $syllabe;
+            $this->crud->getRequest()['mot' . $i] = $syllabe;
         }
 
         $this->crud->getRequest()['enMacusi'] = $macusi;
@@ -148,4 +157,20 @@ class MotCrudController extends CrudController
         return $response;
     }
 
+    public function importValidationRules()
+    {
+        return [
+            'mot1' => 'required',
+            'mot2' => 'required_if:mot3,=,null',
+            'mot3' => 'required_if:mot4,=,null',
+            'mot4' => 'required_if:mot5,=,null',
+            'mot5' => 'required_if:mot6,=,null',
+            'mot6' => 'nullable',
+            'enMacusi' => 'required|max:12',
+            'dateAjout' => 'nullable',
+            'explication' => 'nullable',
+            'trads' => 'required',
+        ];
+    }
 }
+

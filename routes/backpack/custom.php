@@ -22,4 +22,8 @@ Route::group([
     Route::crud('user-vote', 'UserVoteCrudController');
     Route::crud('nationalite', 'NationaliteCrudController');
     Route::crud('type', 'TypeCrudController');
+    Route::crud('csv-data', 'CsvDataCrudController');
+    Route::crud('type-mot', 'TypeMotCrudController');
+    Route::crud('type-suggestion', 'TypeSuggestionCrudController');
+    Route::crud('user', 'UserCrudController');
 }); // this should be the absolute last line of this file

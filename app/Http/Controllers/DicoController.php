@@ -30,7 +30,6 @@ class DicoController extends Controller
     }
 
     public function store(){
-        //dd(request());
         $validated = request()->validate([
             'syllabe_0' => 'required',
             'syllabe_1' => 'required_with:syllabe_2',

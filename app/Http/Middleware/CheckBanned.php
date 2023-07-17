@@ -24,7 +24,7 @@ class CheckBanned
 
             $request->session()->regenerateToken();
 
-            return redirect()->route('login')->with('error', 'Votre compte a été suspendu. Veuillez contacter un administrateur');
+            return redirect()->route('login', app()->getLocale())->with('error', 'Votre compte a été suspendu. Veuillez contacter un administrateur');
 
         }
         return $next($request);

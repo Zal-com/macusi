@@ -38,10 +38,6 @@ Route::group(['prefix' => '{lang}'], function (){
     Route::get('/dictionary/create', [DicoController::class, 'create'])->name('dictionary.create');
     Route::post('/dictionary/store', [DicoController::class, 'store'])->name('dictionary.store');
 
-    Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
-    Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify');
-    Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
-
     Route::get('translate',[TranslateController::class, 'translate'])->name('translate');
 
     Route::get('/privacy_and_policy', function (){
@@ -81,6 +77,10 @@ Route::group(['prefix' => '{lang}'], function (){
         Route::get('/submissions', [AdminController::class, 'submissions'])->name('submissions');
     });
 });
+
+Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify');
+Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 /**
  * PUT = Modification

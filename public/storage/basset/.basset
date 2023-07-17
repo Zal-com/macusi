@@ -1,0 +1,7 @@
+{
+    "vendor/backpack/crud/src/resources/assets/css/common.css": "/vendor/backpack/crud/src/resources/assets/css/common.css",
+    "vendor/backpack/crud/src/resources/assets/img/spinner.svg": "/vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+    "vendor/backpack/crud/src/resources/assets/js/common.js": "/vendor/backpack/crud/src/resources/assets/js/common.js",
+    "vendor/backpack/crud/src/resources/assets/libs/source-sans-pro.css": "/source-sans-pro/source-sans-pro.css",
+    "vendor/backpack/theme-coreuiv2/resources/assets/css/coreuiv2.css": "/vendor/backpack/theme-coreuiv2/resources/assets/css/coreuiv2.css"
+}
