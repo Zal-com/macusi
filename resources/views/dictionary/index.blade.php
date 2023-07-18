@@ -25,10 +25,9 @@
 
     <div class="language-switch d-flex justify-content-center align-baseline">
         <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> {{$localeString}}</p>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="switch" checked>
+        </div>
         <p>{{$localeString}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> MaCuSi</p>
     </div>
 
@@ -46,5 +45,22 @@
     <div class="d-flex justify-content-center mt-4">
         {{ $mots->links() }}
     </div>
+    <script>
+        $(document).ready(function(){
+            $(".MaLo").hide();
+        })
+
+        $(function () {
+            $("#switch").change(function () {
+                if ($(this).is(":checked")) {
+                    $(".LoMa").show();
+                    $(".MaLo").hide();
+                } else {
+                    $(".LoMa").hide();
+                    $(".MaLo").show();
+                }
+            });
+        });
+    </script>
 
 @endsection
