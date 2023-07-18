@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\App;
 use Ramsey\Uuid\Type\Integer;
 
 class Mot extends Model
@@ -73,10 +74,11 @@ class Mot extends Model
     }
 
 
-    public function TypesString() : String{
+    public function typesString() : String{
         if(empty($this->types)) return '';
 
-        $locale = strtoupper(app()->getLocale());
+        $locale = strtoupper(App::getLocale());
+
         if(sizeof($this->types) == 1){
             return json_decode($this->types[0]->trads)->$locale;
         }

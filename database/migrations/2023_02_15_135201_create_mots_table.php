@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('mot6', 2)->index();
             $table->string('enMacusi', 12);
             $table->date('dateAjout');
-            $table->text('explication');
+            $table->text('explication')->nullable();
             $table->json('trads');
 
             //Foreign keys

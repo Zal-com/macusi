@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\MotRequest;
 use App\Models\Syllabe;
+use App\Models\Type;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use BackpackImport\ImportOperation;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class MotCrudController
@@ -46,16 +48,7 @@ class MotCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('enMacusi')->label('Mot');
-        /*
-        CRUD::column('mot2')->label('Syllabe 2');
-        CRUD::column('mot3')->label('Syllabe 3');
-        CRUD::column('mot4')->label('Syllabe 4');
-        CRUD::column('mot5')->label('Syllabe 5');
-        CRUD::column('mot6')->label('Syllabe 6');
-        //CRUD::column('enMacusi')->label('Macusi');
-        //CRUD::column('dateAjout')->label("Date d'ajout");
-        CRUD::column('explication');
-        */
+
         CRUD::addColumn([
             'name' => 'trads',
             'label' => 'Traduction',
@@ -64,7 +57,7 @@ class MotCrudController extends CrudController
         CRUD::addColumn([
             'name' => 'types',
             'label' => 'Types',
-            'type' => 'select_multiple',
+            'type' => 'custom_type',
         ]);
 
         /**
@@ -84,34 +77,39 @@ class MotCrudController extends CrudController
     {
         CRUD::setValidation(MotRequest::class);
 
-        for ($i = 1; $i < 7; $i++) {
-            CRUD::addField([
-                'name' => 'mot' . $i,
-                'label' => 'Mot ' . $i,
-                'type' => 'select',
-                'model' => 'App\Models\Syllabe',
-                'attribute' => 'syllabe'
+        CRUD::field('enMacusi')
+            ->label('MaCuSi')
+            ->validationRules('required|max:12')
+            ->tab('Mot');
 
-            ]);
-        }
+        CRUD::field('dateAjout')
+            ->type('hidden')
+            ->default(Carbon::now());
 
-        CRUD::field('enMacusi')->type('hidden');
-        CRUD::field('dateAjout')->type('hidden')->default(Carbon::now());
-        CRUD::field('explication');
-        CRUD::addField([
-             'label' => 'Types',
-             'type' => 'select_multiple',
-             'name' => 'types',
+        CRUD::field('explication')
+            ->tab('Mot');
 
-         ]);
-        CRUD::field('trads')->type('hidden');
+        CRUD::field([
+            'label' => 'Types',
+            'type' => 'select_multiple',
+            'name' => 'id',
+            'entity' => 'types',
+            'model' => 'App\Models\Type',
+            'attribute' => 'trads'
+        ])
+            ->validationRules('required')
+            ->tab('Type.s');
 
-        foreach (config('custom.available_languages') as $language) {
-            CRUD::addField([
+        CRUD::field('trads')
+            ->type('hidden');
+
+        foreach (config('custom.available_languages') as $language=>$value) {
+            CRUD::field([
                 'name' => $language,
-                'label' => 'Trad ' . $language,
-                'type' => 'text'
-            ]);
+                'label' => $value,
+                'type' => 'text',
+            ])
+                ->tab('Traductions');
         }
 
         /**
@@ -161,10 +159,10 @@ class MotCrudController extends CrudController
     {
         return [
             'mot1' => 'required',
-            'mot2' => 'required_if:mot3,=,null',
-            'mot3' => 'required_if:mot4,=,null',
-            'mot4' => 'required_if:mot5,=,null',
-            'mot5' => 'required_if:mot6,=,null',
+            'mot2' => 'required_if:mot3,!=,null',
+            'mot3' => 'required_if:mot4,!=,null',
+            'mot4' => 'required_if:mot5,!=,null',
+            'mot5' => 'required_if:mot6,!=,null',
             'mot6' => 'nullable',
             'enMacusi' => 'required|max:12',
             'dateAjout' => 'nullable',

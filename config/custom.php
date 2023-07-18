@@ -2,9 +2,9 @@
 
 return[
     'available_languages' => [
-        'FR',
-        'EN',
-        'DE',
-        'IT',
+        'FR' => 'Français',
+        'EN' => 'Anglais',
+        'DE' => 'Allemand',
+        'IT' => 'Italien',
         ],
 ];

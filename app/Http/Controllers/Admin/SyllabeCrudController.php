@@ -44,7 +44,7 @@ class SyllabeCrudController extends CrudController
             'attribute' => 'id',
             'type'=> 'text',
         ]);
-        CRUD::column('trads');
+        CRUD::column('trads')->type('custom_json');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
