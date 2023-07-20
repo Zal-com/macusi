@@ -42,7 +42,7 @@ class ProfileController
 
     public function submissionsIndex($id){
         return view('user.profile.submissions.index', [
-            'submissions' => MotTravail::all()->where('submitter_sug', '=', Auth::user()->username),
+            'submissions' => MotTravail::all()->where('submitter_sug', '=', Auth::id()),
             'url' => 'submissions'
         ]);
     }

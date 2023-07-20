@@ -133,7 +133,7 @@
                         </p>
                     @else
                         <p>
-                            <a href="{{route('dictionary.create', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Soumettre un mot')}}</a>
+                            <a href="{{route('user.submission.create', ['lang' => app()->getLocale(),'id' => Auth::id()])}}" class="text-decoration-none text-white">{{__('Soumettre un mot')}}</a>
                         </p>
                     @endguest
                 </div>

@@ -32,7 +32,7 @@
                         <tr>
                             <td>{{$submission->formattedDate()}}</td>
                             <td>{{$submission->enMacusi_sug}}</td>
-                            <td>{{json_decode($submission->trads_sug)->$locale}}</td>s
+                            <td>{{json_decode($submission->trads_sug)->$locale}}</td>
                             <td>{{$submission->typesString()}}</td>
                             <td>
                                 <a href=""><img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier"></a>

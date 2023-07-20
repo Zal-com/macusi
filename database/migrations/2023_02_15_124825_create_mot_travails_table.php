@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->string('mot5_sug', 2)->index();
             $table->string('mot6_sug', 2)->index();
             $table->string('enMacusi_sug', 12);
-            $table->date('dateAjout_sug');
+            $table->date('dateAjout_sug')->default(Carbon::now());
             $table->text('explication_sug');
             $table->smallInteger('isValidated_sug');
             $table->foreignId('submitter_sug');

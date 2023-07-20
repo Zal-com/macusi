@@ -25,7 +25,8 @@ class DicoController extends Controller
 
     public function create(){
         return view('dictionary.create', [
-            'syllabes' => Syllabe::all()
+            'syllabes' => Syllabe::all(),
+            'url' => 'create'
         ]);
     }
 
@@ -57,10 +58,10 @@ class DicoController extends Controller
         $motTravail->trads_sug = json_encode(['FR'=> 'test']); //TODO Implémenter appel API
         $motTravail->explication_sug = 'test'; //TODO ajouter champs dans le formulaire
         $motTravail->isValidated_sug = 0; //TODO ajouter valeur par defaut Modele
-        $motTravail->submitter_sug = Auth::user()->username;
+        $motTravail->submitter_sug = Auth::user()->id;
 
         if($motTravail->save()){
-            return redirect()->route('dictionary.create')->with('success', 'Mot soumis avec succès.');
+            return redirect()->route('user.submission.create', ['lang' => \app()->getLocale(), 'id'=>Auth::id()])->with('success', 'Mot soumis avec succès.');
         }
 
 

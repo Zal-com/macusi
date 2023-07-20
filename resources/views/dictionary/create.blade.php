@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    @php
+        $localesArray = ['FR' => 'français', 'EN' => 'English', 'IT' => 'italiano', 'DE' => 'deutsch'];
+
+        $locale = strtoupper(app()->getLocale());
+
+        $localeString = $localesArray[$locale];
+    @endphp
     {{--
         Champs nécéssaires
          - Mot en macusi ✅
@@ -11,53 +18,69 @@
     @php
         $locale = strtoupper(app()->getLocale())
     @endphp
-    <form method="POST" action="{{ route('dictionary.store', app()->getLocale()) }}">
-        @csrf
-        <div class="form-row d-flex align-items-baseline w-100">
-            <label>Syllabes :</label>
-            @for($i = 0; $i < 6; $i++)
-                <div class="form-group col-md-1">
-                    <select name="syllabe_{{$i}}" class="form-control" onchange="previewMacusi()">
-                        <option value="">---</option>
-                        @foreach($syllabes as $syllabe)
-                            <option value="{{$syllabe->syllabe}}" data-concept='{{!empty(json_decode($syllabe->trads)->$locale) ? json_decode($syllabe->trads)->$locale:'null'}}'>{{$syllabe->syllabe}} - {{json_decode($syllabe->trads)->$locale}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            @endfor
-        </div>
 
-        <div class="form-row d-flex">
-            <div class="form-group col-md-3">
-                <label for="enMacusi" class="mx-1">Mot en Macusi : </label>
-                <label>
-                    <input type="text" name="enMacusi" id="enMacusi" class="form-control-plaintext w-75" readonly  value="---">
-                </label>
-            </div>
-            <div class="form-group col-9">
-                <label  for="concept" class="mx-1">Concept : </label>
-                <label>
-                    <input type="text"  name="concept" class="form-control-plaintext" readonly  value="---">
-                </label>
-            </div>
+    <h1 class="h3-title">Mon Compte</h1>
+    <div class="parent mt-5 d-flex justify-content-between">
+        <div class="div1 w-25">
+            <x-user_sidebar :url="$url"/>
         </div>
+        <div class="div2 w-75">
+            <div class="right px-5 card border-0 shadow p-3 h-100">
+                <h3 class="h3-title mt-2">{{__('Soumettre un mot')}}</h3>
+                <form method="POST" action="{{ route('user.submission.store', ['lang' => app()->getLocale(), 'id' => Auth::id()]) }}">
+                    @csrf
+                    <div class="form-row d-flex align-items-baseline w-100">
+                        <label>Syllabes :</label>
+                        @for($i = 0; $i < 6; $i++)
+                            <div class="form-group col-md-1">
+                                <select name="syllabe_{{$i}}" class="form-control" onchange="previewMacusi()">
+                                    <option value="">---</option>
+                                    @foreach($syllabes as $syllabe)
+                                        <option value="{{$syllabe->syllabe}}" data-concept='{{!empty(json_decode($syllabe->trads)->$locale) ? json_decode($syllabe->trads)->$locale:'null'}}'>{{$syllabe->syllabe}} - {{json_decode($syllabe->trads)->$locale}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @endfor
+                    </div>
 
-        <div class="form-row d-flex align-items-baseline">
-            <label>Traduction :</label>
-            <select name="language" class="form-group form-control col-md-1">
-                <option value="GE">Deutsch</option>
-                <option value="EN">English</option>
-                <option value="FR">Français</option>
-                <option value="IT">Italiano</option>
-            </select>
-            <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-2">
+                    <div class="form-row d-flex">
+                        <div class="form-group col-md-3">
+                            <label for="enMacusi" class="mx-1">Mot en Macusi : </label>
+                            <label>
+                                <input type="text" name="enMacusi" id="enMacusi" class="form-control-plaintext w-75" readonly  value="---">
+                            </label>
+                        </div>
+                        <div class="form-group col-9">
+                            <label  for="concept" class="mx-1">Concept : </label>
+                            <label>
+                                <input type="text"  name="concept" class="form-control-plaintext" readonly  value="---">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row d-flex align-items-baseline">
+                        <label>Traduction :</label>
+                        <select name="language" class="form-group form-control col-md-1">
+                            <option value="GE">Deutsch</option>
+                            <option value="EN">English</option>
+                            <option value="FR">Français</option>
+                            <option value="IT">Italiano</option>
+                        </select>
+                        <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-2">
+                    </div>
+                    <div class="form-row">
+                        <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
+                    </div>
+                    <input type="submit" value="Soumettre" class="btn btn-primary">
+                </form>
+            </div>
         </div>
-        <div class="form-row">
-            <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
-        </div>
-        <input type="submit" value="Soumettre" class="btn btn-primary">
-    </form>
-    <!--
+    </div>
+
+
+
+
+
     <script>
         function previewMacusi() {
             //Updates 'enMacusi' field
@@ -90,5 +113,4 @@
             conceptPreview.value = conceptStr.length === 0 ? '---' : conceptStr.substring(0, conceptStr.length-2)
         }
     </script>
-    -->
 @endsection

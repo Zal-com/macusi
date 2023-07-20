@@ -1,4 +1,4 @@
-import {viteStaticCopy, ViteStaticCopy} from 'vite-plugin-static-copy'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
@@ -17,7 +17,7 @@ export default defineConfig({
             targets: [
                 {
                     src: 'resources/js/custom.js',
-                    dest: 'js'
+                    dest: 'js/custom.js'
                 }
             ]
         }),

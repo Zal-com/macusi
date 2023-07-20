@@ -35,8 +35,8 @@ Route::group(['prefix' => '{lang}'], function (){
     })->name('c-est-quoi');
 
     Route::get('dictionary', [DicoController::class, 'index'])->name('dico.index');
-    Route::get('/dictionary/create', [DicoController::class, 'create'])->name('dictionary.create');
-    Route::post('/dictionary/store', [DicoController::class, 'store'])->name('dictionary.store');
+    //Route::get('/dictionary/create', [DicoController::class, 'create'])->name('dictionary.create');
+    //Route::post('/dictionary/store', [DicoController::class, 'store'])->name('dictionary.store');
 
     Route::get('translate',[TranslateController::class, 'translate'])->name('translate');
 
@@ -56,6 +56,10 @@ Route::group(['prefix' => '{lang}'], function (){
         Route::put('/{id}/edit', [ProfileController::class, 'update'])->name('profile.update')
             ->where('id', '[0-9]+');
         Route::get('/{id}/submissions', [ProfileController::class, 'submissionsIndex'])->name('profile.submissions.index')
+            ->where('id', '[0-9]+');
+        Route::get('/{id}/submit', [DicoController::class, 'create'])->name('submission.create')
+            ->where('id', '[0-9]+');
+        Route::post('/{id}/submit', [DicoController::class, 'store'])->name('submission.store')
             ->where('id', '[0-9]+');
 
     });
