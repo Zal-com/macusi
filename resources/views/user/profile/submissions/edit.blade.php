@@ -7,6 +7,7 @@
         $locale = strtoupper(app()->getLocale());
 
         $localeString = $localesArray[$locale];
+
     @endphp
     {{--
         Champs nécéssaires
@@ -26,17 +27,18 @@
         </div>
         <div class="div2 w-75">
             <div class="right px-5 card border-0 shadow p-3 h-100">
-                <h3 class="h3-title mt-2">{{__('Soumettre un mot')}}</h3>
-                <form method="POST" action="{{ route('user.submission.store', ['lang' => app()->getLocale(), 'id' => Auth::id()]) }}">
+                <h3 class="h3-title mt-2">{{__('Modifier un mot')}}</h3>
+                <form method="POST" action="{{ route('user.submission.update', ['lang' => app()->getLocale(), 'id' => Auth::id(), 'id_sug'=>$submission->id_sug]) }}">
                     @csrf
-                    <div class="form-row d-flex align-items-baseline w-100">
+                    @method('PUT')
+                    <div class="form-row d-flex align-items-baseline w-100 mt-4">
                         <label>Syllabes :</label>
-                        @for($i = 0; $i < 6; $i++)
+                        @for($i = 1; $i <= 6; $i++)
                             <div class="form-group col-md-1">
                                 <select name="syllabe_{{$i}}" class="form-control" onchange="previewMacusi()">
                                     <option value="">---</option>
                                     @foreach($syllabes as $syllabe)
-                                        <option value="{{old('syllabe_' . $i) ? old('syllabe_' . $i) : $syllabe->syllabe}}" data-concept='{{!empty(json_decode($syllabe->trads)->$locale) ? json_decode($syllabe->trads)->$locale:'null'}}'>{{$syllabe->syllabe}} - {{json_decode($syllabe->trads)->$locale}}</option>
+                                        <option value="{{$syllabe->syllabe}}" {{$submission->{'mot' . $i . '_sug'} == $syllabe->syllabe ? 'selected' : ''}} data-concept='{{!empty(json_decode($syllabe->trads)->$locale) ? json_decode($syllabe->trads)->$locale:'null'}}'>{{$syllabe->syllabe}} - {{json_decode($syllabe->trads)->$locale}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -61,33 +63,30 @@
                     <div class="form-row d-flex align-items-baseline">
                         <label>Traduction :</label>
                         <select name="language" class="form-group form-control col-md-1">
-                            <option value="GE">Deutsch</option>
-                            <option value="EN">English</option>
-                            <option value="FR">Français</option>
-                            <option value="IT">Italiano</option>
+                            @foreach(config('custom.available_languages') as $language => $value)
+                                <option value="{{$language}}" {{$language == $locale ? 'selected' : ''}}>{{__($value)}}</option>
+                            @endforeach
                         </select>
-                        <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-2">
+                        <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-2" value="{{json_decode($submission->trads_sug)->$locale}}">
                     </div>
-                    <div class="form-row">
-                        <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
-                    </div>
+                    <input type="hidden" name="id_sug" value="{{$submission->id_sug}}">
                     <input type="submit" value="Soumettre" class="btn btn-primary">
                 </form>
             </div>
         </div>
     </div>
 
-
-
-
-
     <script>
+        window.onload = function(){
+            previewMacusi()
+        }
+
         function previewMacusi() {
             //Updates 'enMacusi' field
             let wordsArray = []
             let conceptArray = []
 
-            for(let i = 0; i<6; i++){
+            for(let i = 1; i<=6; i++){
                 let el = document.getElementsByName('syllabe_'+i)[0]
                 wordsArray.push(el.value)
                 conceptArray.push(el.options[el.selectedIndex].dataset.concept)

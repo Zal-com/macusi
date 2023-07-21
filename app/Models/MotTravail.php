@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class MotTravail extends Model
 {
@@ -37,6 +38,25 @@ class MotTravail extends Model
     public function syllabe(): BelongsTo
     {
         return $this->belongsTo(Syllabe::class);
+    }
+
+    public function syllabe1() : HasOne {
+        return $this->hasOne(Syllabe::class, 'syllabe', 'mot1_sug');
+    }
+    public function syllabe2() : HasOne {
+        return $this->hasOne(Syllabe::class, 'syllabe', 'mot2_sug');
+    }
+    public function syllabe3() : HasOne {
+        return $this->hasOne(Syllabe::class, 'syllabe', 'mot3_sug');
+    }
+    public function syllabe4() : HasOne {
+        return $this->hasOne(Syllabe::class, 'syllabe', 'mot4_sug');
+    }
+    public function syllabe5() : HasOne {
+        return $this->hasOne(Syllabe::class, 'syllabe', 'mot5_sug');
+    }
+    public function syllabe6() : HasOne {
+        return $this->hasOne(Syllabe::class, 'syllabe', 'mot6_sug');
     }
 
     public function types() : HasManyThrough{

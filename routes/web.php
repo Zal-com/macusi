@@ -45,23 +45,21 @@ Route::group(['prefix' => '{lang}'], function (){
     })->name('privacy-and-policy');
 
     Route::group([
-        'prefix' => '/user',
+        'prefix' => '/user/{id}',
         'as' => 'user.',
         'middleware' => ['verified']
     ], function() {
-        Route::get('/{id}', [ProfileController::class, 'index'])->name('profile.index')
-            ->where('id', '[0-9]+');
-        Route::get('/{id}/edit', [ProfileController::class, 'edit'])->name('profile.edit')
-            ->where('id', '[0-9]+');
-        Route::put('/{id}/edit', [ProfileController::class, 'update'])->name('profile.update')
-            ->where('id', '[0-9]+');
-        Route::get('/{id}/submissions', [ProfileController::class, 'submissionsIndex'])->name('profile.submissions.index')
-            ->where('id', '[0-9]+');
-        Route::get('/{id}/submit', [DicoController::class, 'create'])->name('submission.create')
-            ->where('id', '[0-9]+');
-        Route::post('/{id}/submit', [DicoController::class, 'store'])->name('submission.store')
-            ->where('id', '[0-9]+');
-
+        Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
+        Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/edit', [ProfileController::class, 'update'])->name('profile.update');
+        Route::get('/submissions', [ProfileController::class, 'submissionsIndex'])->name('profile.submissions.index');
+        Route::get('/submit', [DicoController::class, 'create'])->name('submission.create');
+        Route::post('/submit', [DicoController::class, 'store'])->name('submission.store');
+        Route::get('/submission/{id_sug}/edit', [MotTravailController::class, 'edit'])->name('submission.edit')
+            ->where('id_sug', '[0-9]+');
+        Route::put('/submission/{id_sug}/edit', [MotTravailController::class, 'update'])->name('submission.update')
+            ->where('id_sug
+            ', '[0-9]+');
     });
 
     Route::group([

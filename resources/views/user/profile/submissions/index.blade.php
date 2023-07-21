@@ -17,7 +17,7 @@
         <div class="div2 w-75">
             <div class="right px-5 card border-0 shadow p-3 h-100">
                 <h3 class="h3-title mt-2">{{__('Mes soumissions')}}</h3>
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped mt-4">
                     <thead>
                     <tr>
                         <td>Date d'ajout</td>
@@ -35,7 +35,7 @@
                             <td>{{json_decode($submission->trads_sug)->$locale}}</td>
                             <td>{{$submission->typesString()}}</td>
                             <td>
-                                <a href=""><img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier"></a>
+                                <a href="{{route('user.submission.edit', [ 'id_sug' => $submission->id_sug ,'lang' => app()->getLocale(), 'id' => Auth::id()])}}"><img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier"></a>
                                 <a href=""><img src="{{asset('storage/img/icon-trash.svg')}}" alt="Supprimer"></a>
                             </td>
                         </tr>
