@@ -9,21 +9,22 @@
         </div>
         <div id="{{'collapse' . $count}}" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-                @if($mot->types->count() == 1)
-                    <h5>Type</h5>
-                    <hr class="hr">
-                    <p>{{ $mot->typesString() }} </p>
-                @else
-                    <h5>Types</h5>
-                    <hr class="hr">
-                    <p>{{ $mot->typesString() }} </p>
-                @endif
-
-                    <h5>Concept</h5>
-                    <hr class="hr">
-                @if(!str_contains($mot->typesString(), 'Chiffre'))
-                    <p>{{$mot->syllabesString()}}</p>
-                @endif
+                <div class="mt-2 p-2">
+                    @if($mot->types->count() == 1)
+                        <h5 class="text-secondary mb-0 font">Type</h5>
+                        <hr class="hr my-1 text-secondary">
+                        <p>{{ $mot->typesString() }} </p>
+                    @else
+                        <h5 class="text-secondary mb-0">Types</h5>
+                        <hr class="hr my-1 text-secondary">
+                        <p>{{ $mot->typesString() }} </p>
+                    @endif
+                    <h5 class="text-secondary mb-0">Concept</h5>
+                    <hr class="hr my-1 text-secondary">
+                    @if(!str_contains($mot->typesString(), 'Chiffre'))
+                        <p>{{$mot->syllabesString()}}</p>
+                    @endif
+                </div>
             </div>
         </div>
     </button>

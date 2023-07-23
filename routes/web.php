@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Models\MotTravail;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,10 +36,8 @@ Route::group(['prefix' => '{lang}'], function (){
     })->name('c-est-quoi');
 
     Route::get('dictionary', [DicoController::class, 'index'])->name('dico.index');
-    //Route::get('/dictionary/create', [DicoController::class, 'create'])->name('dictionary.create');
-    //Route::post('/dictionary/store', [DicoController::class, 'store'])->name('dictionary.store');
 
-    Route::get('translate',[TranslateController::class, 'translate'])->name('translate');
+    //Route::get('translate',[TranslateController::class, 'translate'])->name('translate');
 
     Route::get('/privacy_and_policy', function (){
         return view('PrivacyPolicy' . \app()->getLocale());
@@ -49,17 +48,26 @@ Route::group(['prefix' => '{lang}'], function (){
         'as' => 'user.',
         'middleware' => ['verified']
     ], function() {
-        Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
-        Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::put('/edit', [ProfileController::class, 'update'])->name('profile.update');
-        Route::get('/submissions', [ProfileController::class, 'submissionsIndex'])->name('profile.submissions.index');
-        Route::get('/submit', [DicoController::class, 'create'])->name('submission.create');
-        Route::post('/submit', [DicoController::class, 'store'])->name('submission.store');
-        Route::get('/submission/{id_sug}/edit', [MotTravailController::class, 'edit'])->name('submission.edit')
+        Route::get('/', [ProfileController::class, 'index'])
+            ->name('profile.index');
+        Route::get('/edit', [ProfileController::class, 'edit'])
+            ->name('profile.edit');
+        Route::put('/edit', [ProfileController::class, 'update'])
+            ->name('profile.update');
+        Route::get('/submissions', [ProfileController::class, 'submissionsIndex'])
+            ->name('profile.submissions.index');
+        Route::get('/submit', [DicoController::class, 'create'])
+            ->name('submission.create');
+        Route::post('/submit', [DicoController::class, 'store'])
+            ->name('submission.store');
+        Route::get('/submission/{id_sug}/edit', [MotTravailController::class, 'edit'])
+            ->name('submission.edit')
             ->where('id_sug', '[0-9]+');
-        Route::put('/submission/{id_sug}/edit', [MotTravailController::class, 'update'])->name('submission.update')
-            ->where('id_sug
-            ', '[0-9]+');
+        Route::put('/submission/{id_sug}/edit', [MotTravailController::class, 'update'])
+            ->name('submission.update')
+            ->where('id_sug', '[0-9]+');
+        Route::delete('/submission/{id_sug}', [MotTravailController::class, 'delete'])
+            ->name('submission.delete');
     });
 
     Route::group([

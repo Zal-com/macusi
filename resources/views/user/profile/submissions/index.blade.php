@@ -32,11 +32,17 @@
                         <tr>
                             <td>{{$submission->formattedDate()}}</td>
                             <td>{{$submission->enMacusi_sug}}</td>
-                            <td>{{json_decode($submission->trads_sug)->$locale}}</td>
+                            <td class="text-capitalize">{{json_decode($submission->trads_sug)->$locale}}</td>
                             <td>{{$submission->typesString()}}</td>
-                            <td>
+                            <td class="d-flex justify-content-around">
                                 <a href="{{route('user.submission.edit', [ 'id_sug' => $submission->id_sug ,'lang' => app()->getLocale(), 'id' => Auth::id()])}}"><img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier"></a>
-                                <a href=""><img src="{{asset('storage/img/icon-trash.svg')}}" alt="Supprimer"></a>
+                                <form action="{{route('user.submission.delete', [ 'id_sug' => $submission->id_sug ,'lang' => app()->getLocale(), 'id' => Auth::id()])}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="id" value="{{$submission->id_sug}}">
+                                    <input type="hidden" name="submitter_id" value="{{$submission->submitter_sug}}">
+                                    <button class="border-0 bg-transparent p-0"><img src="{{asset('storage/img/icon-trash.svg')}}" alt="Supprimer"></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

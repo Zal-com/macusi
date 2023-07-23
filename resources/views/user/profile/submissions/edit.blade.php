@@ -20,6 +20,8 @@
         $locale = strtoupper(app()->getLocale())
     @endphp
 
+    @error()
+    @enderror
     <h1 class="h3-title">Mon Compte</h1>
     <div class="parent mt-5 d-flex justify-content-between">
         <div class="div1 w-25">

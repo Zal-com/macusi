@@ -116,7 +116,7 @@
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
                     <h6 class="fw-bold text-secondary mb-4 fs-18">
-                        A propos
+                        Liens utiles
                     </h6>
                     <p>
                         <a href="{{route('c-est-quoi', app()->getLocale()) }}" class="text-decoration-none text-white">Macusi, c'est quoi ? </a>

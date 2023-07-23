@@ -40,8 +40,33 @@ class MotTravailController extends Controller
         $submission->trads_sug = $traductions;
 
         if($submission->save()){
-            return redirect()->route('user.profile.submissions.index', ['lang'=>app()->getLocale(), 'id' => \Auth::id()])->with('success', __('Soumission modifiée avec succès.'));
+            return redirect()->route('user.profile.submissions.index', [
+                'lang'=>app()->getLocale(),
+                'id' => \Auth::id()
+            ])->with('success', __('Soumission modifiée avec succès.'));
         }
-        //TODO ELSE
+        else{
+            return redirect()->route('user.submission.edit', [
+                'lang'=>app()->getLocale(),
+                'id'=>\Auth::id(),
+                'id_sug' => $submission->id_sug
+            ])->with('error', 'Erreur lors de l\'enregistrement. Veuillez rééssayer.');
+        }
+    }
+
+    public function delete(Request $request){
+        $submission = MotTravail::find($request->get('id'));
+        if($request->get('submitter_id') == \Auth::id()){
+            return $submission->delete()
+                ? redirect()->route('user.profile.submissions.index', [
+                    'lang' => app()->getLocale(),
+                    'id' => \Auth::id()
+                ])->with('success', __('Soumission supprimée avec succès.'))
+                : redirect()->route('user.profile.submissions.index', [
+                    'lang' => app()->getLocale(),
+                    'id' => \Auth::id()
+                ])->with('error', __('Erreur lors de la suppression.'));
+
+        }
     }
 }
