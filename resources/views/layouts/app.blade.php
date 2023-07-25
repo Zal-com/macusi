@@ -79,7 +79,7 @@
                            {{strtoupper(App::getLocale())}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end w-auto bg-main">
-                            @foreach(config('custom.available_languages') as $language)
+                            @foreach(config('custom.available_languages') as $language=>$value)
                                 @if($language == 'EN')
                                     <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"> EN</a>
                                 @else
@@ -177,9 +177,9 @@
         <p class="m-0">
         © COPYRIGHT MACUSI 2023
         <span class="vertical">|</span>
-        TERMS AND CONDITIONS
+            <a class="text-white text-decoration-none" href="{{route('terms-and-conditions', app()->getLocale())}}">TERMS AND CONDITIONS</a>
         <span class="vertical">|</span>
-        <a href="{{route('privacy-and-policy', app()->getLocale())}}">PRIVACY POLICY</a>
+        <a class="text-decoration-none text-white" href="{{route('privacy-and-policy', app()->getLocale())}}">PRIVACY POLICY</a>
         </p>
     </div>
     <!-- Copyright -->

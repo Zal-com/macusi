@@ -10,16 +10,18 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\TranslateTrait;
 
 class DicoController extends Controller
 {
+    use TranslateTrait;
     /**
      * Shows the listing of all existing words in the dictionary
      */
     public function index()
     {
         return view('dictionary.index', [
-            'mots' => Mot::where('id', '>=', 65)->paginate(48)
+            'mots' => Mot::where('id', '>=', 65)->paginate(24)
         ]);
     }
 
@@ -44,7 +46,6 @@ class DicoController extends Controller
             'concept' => 'required',
             'language' => 'required',
             'traduction' => 'required',
-            'contextSentence' => 'required'
         ]);
 
         //TODO Appel de l'API de traduction REVERSO
@@ -57,9 +58,7 @@ class DicoController extends Controller
         $motTravail->mot5_sug = $validated['syllabe_4'];
         $motTravail->mot6_sug = $validated['syllabe_5'];
         $motTravail->enMacusi_sug = $validated['enMacusi'];
-        $motTravail->trads_sug = json_encode(['FR' => 'test']); //TODO Implémenter appel API
-        $motTravail->explication_sug = 'test'; //TODO ajouter champs dans le formulaire
-        $motTravail->isValidated_sug = 0; //TODO ajouter valeur par defaut Modele
+        $motTravail->trads_sug =  json_encode($this->translate($validated['language'], $validated['traduction']));
         $motTravail->submitter_sug = Auth::user()->id;
 
         if ($motTravail->save()) {

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @php
+        $nationalités = \App\Models\Nationalite::all();
+    @endphp
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -15,10 +19,38 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('username') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="firstname" class="col-md-4 col-form-label text-md-end">{{ __('First name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+
+                                @error('firstname')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="lastname" class="col-md-4 col-form-label text-md-end">{{ __('Last name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+
+                                @error('lastname')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -33,6 +65,25 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="nationality" class="col-md-4 col-form-label text-md-end">{{ __('Nationalité') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="nationality" class="form-control @error('nationality') is-invalid @enderror" name="nationality" value="{{ old('nationality') }}" required autocomplete="nationality">
+                                    @foreach($nationalités as $nationalité)
+                                        <option value="{{$nationalité->code}}">{{$nationalité->nationalite}}</option>
+                                    @endforeach
+
+                                </select>
+
+                                @error('nationality')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror

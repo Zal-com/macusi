@@ -43,6 +43,10 @@ Route::group(['prefix' => '{lang}'], function (){
         return view('PrivacyPolicy' . \app()->getLocale());
     })->name('privacy-and-policy');
 
+    Route::get('/terms-and-conditions', function(){
+        return view('TermsAndConditions' . \app()->getLocale());
+    })->name('terms-and-conditions');
+
     Route::group([
         'prefix' => '/user/{id}',
         'as' => 'user.',

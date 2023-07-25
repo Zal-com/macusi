@@ -24,11 +24,11 @@
     </div>
 
     <div class="language-switch d-flex justify-content-center align-baseline">
-        <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> {{$localeString}}</p>
+        <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> {{ucfirst($localeString)}}</p>
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="switch" checked>
         </div>
-        <p>{{$localeString}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> MaCuSi</p>
+        <p>{{ucfirst($localeString)}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> MaCuSi</p>
     </div>
 
 

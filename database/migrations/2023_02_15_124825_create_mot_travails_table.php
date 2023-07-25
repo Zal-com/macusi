@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('mot6_sug', 2)->index();
             $table->string('enMacusi_sug', 12);
             $table->date('dateAjout_sug')->default(Carbon::now());
-            $table->text('explication_sug');
-            $table->smallInteger('isValidated_sug');
+            $table->text('explication_sug')->nullable();
+            $table->smallInteger('isValidated_sug')->default(0);
             $table->foreignId('submitter_sug');
             $table->json('trads_sug');
 

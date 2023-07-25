@@ -20,8 +20,6 @@
         $locale = strtoupper(app()->getLocale())
     @endphp
 
-    @error()
-    @enderror
     <h1 class="h3-title">Mon Compte</h1>
     <div class="parent mt-5 d-flex justify-content-between">
         <x-user_sidebar :url="$url"/>
