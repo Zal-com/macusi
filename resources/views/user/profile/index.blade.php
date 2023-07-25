@@ -11,25 +11,15 @@
                 <table class="mt-4 table table-borderless">
                     <tr>
                         <td>Nom :</td>
-                        <td>{{$user->username}}</td>
-                        <td>
-                            <a href="#">
-                                <img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier">
-                            </a>
-                        </td>
+                        <td>{{$user->last_name}}</td>
                     </tr>
                     <tr>
                         <td>Prénom :</td>
-                        <td>{{$user->username}}</td>
-                        <td>
-                            <a href="#">
-                                <img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier">
-                            </a>
-                        </td>
+                        <td>{{$user->first_name}}</td>
                     </tr>
                     <tr>
                         <td>Pseudo :</td>
-                        <td>{{$user->username}}</td>
+                        <td>{{$user->name}}</td>
                         <td>
                             <a href="#">
                                 <img src="{{asset('storage/img/icon-pen.svg')}}" alt="Modifier">
