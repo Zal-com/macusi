@@ -68,6 +68,10 @@ Route::group(['prefix' => '{lang}'], function (){
             ->where('id_sug', '[0-9]+');
         Route::delete('/submission/{id_sug}', [MotTravailController::class, 'delete'])
             ->name('submission.delete');
+        Route::get('/password/edit', [ProfileController::class, 'editPassword'])
+            ->name('profile.password.edit');
+        Route::put('/password/edit', [ProfileController::class, 'updatePassword'])
+            ->name('profile.password.update');
     });
 
     Route::group([

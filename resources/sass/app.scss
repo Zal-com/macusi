@@ -197,7 +197,7 @@ li::marker{
     flex-direction: row;
 }
 
-.side > a:not(:last-of-type){
+.side > a {
     border-bottom: 2px solid #FF790010;
 
 }
