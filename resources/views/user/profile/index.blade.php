@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1 class="h3-title">Mon Compte</h1>
+    <h1 class="h3-title">{{__('Mon compte')}}</h1>
     <div class="parent mt-5 d-flex justify-content-between">
         <div class="div1 w-25">
             <x-user_sidebar :url="$url"/>
@@ -10,15 +10,15 @@
                 <h3 class="h3-title mt-2">{{__('Détails') }}</h3>
                 <table class="mt-4 table table-borderless">
                     <tr>
-                        <td>Nom :</td>
+                        <td>{{__('Nom')}} :</td>
                         <td>{{$user->last_name}}</td>
                     </tr>
                     <tr>
-                        <td>Prénom :</td>
+                        <td>{{__('Prénom')}} :</td>
                         <td>{{$user->first_name}}</td>
                     </tr>
                     <tr>
-                        <td>Pseudo :</td>
+                        <td>{{__('Pseudo')}} :</td>
                         <td>{{$user->name}}</td>
                         <td>
                             <a href="#">
@@ -27,7 +27,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Email :</td>
+                        <td>{{__('Email')}} :</td>
                         <td>{{$user->email}}</td>
                         <td>
                             <a href="#">
@@ -36,7 +36,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Nationalité :</td>
+                        <td>{{__('Nationalité')}} :</td>
                         <td>{{ $user->nationalite->nationalite ?? 'N/A' }}</td>
                         <td>
                             <a href="#">

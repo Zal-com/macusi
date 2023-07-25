@@ -116,10 +116,10 @@
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
                     <h6 class="fw-bold text-secondary mb-4 fs-18">
-                        Liens utiles
+                        {{__('Liens utiles')}}
                     </h6>
                     <p>
-                        <a href="{{route('c-est-quoi', app()->getLocale()) }}" class="text-decoration-none text-white">Macusi, c'est quoi ? </a>
+                        <a href="{{route('c-est-quoi', app()->getLocale()) }}" class="text-decoration-none text-white">Macusi, {{__('c\'est quoi ?')}} </a>
                     </p>
                     <p>
                         <a href="{{ route('construction', app()->getLocale()) }}" class="text-decoration-none text-white">{{__('Construction')}}</a>
@@ -142,7 +142,7 @@
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
-                    <h6 class="fw-bold mb-4 text-secondary fs-18">Contact</h6>
+                    <h6 class="fw-bold mb-4 text-secondary fs-18">{{__('Contact')}}</h6>
                     <p class="text-white">
                         <i class="fas fa-envelope me-3 text-white"></i>
                         contact@macusi.be
@@ -151,13 +151,12 @@
                         <i class="fas fa-envelope me-3 text-white"></i>
                         dev@macusi.be
                     </p>
-                    <p class="text-white"><i class="fas fa-link me-3 text-white"></i>Formulaire de contact</p>
                 </div>
                 <!-- Grid column -->
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
-                    <h6 class="text-secondary fw-bold mb-4 fs-18">Réseaux</h6>
+                    <h6 class="text-secondary fw-bold mb-4 fs-18">{{__('Réseaux')}}</h6>
                     <a href="https://www.facebook.com/profile.php?id=100087166600089" target="_blank" class="me-4 text-reset text-decoration-none">
                         <i class="fab fa-facebook-f text-white"></i>
                         <a href="https://youtube.com/" target="_blank" class="me-4 text-white text-decoration-none">
@@ -175,11 +174,9 @@
     <!-- Copyright -->
     <div class="text-center p-4 text-white" style="background-color: #050021;">
         <p class="m-0">
-        © COPYRIGHT MACUSI 2023
+            <a class="text-white text-decoration-none" href="{{route('terms-and-conditions', app()->getLocale())}}">{{__('Conditions d\'utilisation')}}</a>
         <span class="vertical">|</span>
-            <a class="text-white text-decoration-none" href="{{route('terms-and-conditions', app()->getLocale())}}">TERMS AND CONDITIONS</a>
-        <span class="vertical">|</span>
-        <a class="text-decoration-none text-white" href="{{route('privacy-and-policy', app()->getLocale())}}">PRIVACY POLICY</a>
+        <a class="text-decoration-none text-white" href="{{route('privacy-and-policy', app()->getLocale())}}">{{__('Politique de confidentialité')}}</a>
         </p>
     </div>
     <!-- Copyright -->

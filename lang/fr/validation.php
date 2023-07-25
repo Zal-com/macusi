@@ -22,6 +22,7 @@ return [
         'string'  => 'Le texte :attribute doit contenir entre :min et :max caractères.',
     ],
     'boolean'              => 'Le champ :attribute doit être vrai ou faux.',
+    'can'                  => 'Le champ :attribute contient une valeur non autorisée.',
     'confirmed'            => 'Le champ de confirmation :attribute ne correspond pas.',
     'current_password'     => 'Le mot de passe est incorrect.',
     'date'                 => 'Le champ :attribute n\'est pas une date valide.',

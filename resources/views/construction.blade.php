@@ -2,31 +2,31 @@
 
 @section('content')
     <div class="container">
-        <h1 class="h3-title">Construction</h1>
+        <h1 class="h3-title">{{__('Construction')}}</h1>
 
         <!----------
           GRAMMAIRE
         ------------>
-        <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">Grammaire</h3>
+        <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">{{__('Grammaire')}}</h3>
         <div class="container d-flex justify-content-center flex-wrap mt-4">
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#declarative">
-                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase déclarative</div>
+                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase déclarative')}}</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#negative">
-                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase négative</div>
+                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase négative')}}</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#interrogative">
-                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase interrogative</div>
+                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase interrogative')}}</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#exclamative">
-                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">La phrase exclamative</div>
+                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase exclamative')}}</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#complements">
-                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">L'ordre des compléments</div>
+                <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('L\'ordre des compléments')}}</div>
                 <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
             </button>
         </div>
@@ -36,16 +36,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">La phrase déclarative</h5>
+                    <h5 class="modal-title">{{__('La phrase déclarative')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
 
                 </div>
                 <div class="modal-body">
-                    <p>Elle se construit de la manière suivante : le sujet se met en début de phrase suivi par le verbe et ensuite viennent les différents compléments.</p>
-                    <p class="demo"><span>Sujet</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Complément</span></p>
-                    <p class="exemple"><span>Exemple : </span>J'aime les fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Aimer Fruits <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa Da JuMo</p>
+                    <p>{{__('Elle se construit de la manière suivante : le sujet se met en début de phrase suivi par le verbe et ensuite viennent les différents compléments.')}}</p>
+                    <p class="demo"><span>{{__('Sujet')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>{{__('Complément')}}</span></p>
+                    <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('J\'aime les fruits')}}<img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        {{__('Moi Aimer Fruits')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa Da JuMo</p>
 
                 </div>
             </div>
@@ -55,28 +56,28 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">La phrase négative</h5>
+                    <h5 class="modal-title">{{__('La phrase négative')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
 
                 </div>
                 <div class="modal-body">
-                    <p>Elle se construit de la même manière que la phrase déclarative mais avec l'ajout du mot [Ze] derrière le verbe.</p>
+                    <p>{{__('It is built in the same way as the declarative sentence but with the addition of the word [Ze] behind the verb.')}}</p>
                     <p class="demo">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout">Ze</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Complément</span>
+                        <span>{{__('Complément')}}</span>
                     </p>
                     <p class="exemple">
-                        <span>Exemple : </span>
-                        Je n'aime pas les fruits
+                        <span>{{__('Exemple')}} : </span>
+                        {{__('Je n\'aime pas les fruits')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
-                         Moi Aimer Pas Fruits
+                        {{__('Moi Aimer Pas Fruits')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                          Sa Da Ze JuMo
                     </p>
@@ -89,55 +90,55 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">La phrase interrogative</h5>
+                    <h5 class="modal-title">{{__('La phrase interrogative')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
 
                 </div>
                 <div class="modal-body">
-                    <p>Elle se construit de la même manière que la phrase déclarative mais avec l'ajout du mot [Wa] où l'on veut dans la phrase.</p>
+                    <p>{{__('Elle se construit de la même manière que la phrase déclarative mais avec l\'ajout du mot [Wa] où l\'on veut dans la phrase.')}}</p>
                     <p class="demo">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Complément</span>
+                        <span>{{__('Complément')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout">Wa</span>
                     </p>
                     <p class="demo">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout">Wa</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Complément</span>
+                        <span>{{__('Complément')}}</span>
                     </p>
                     <p class="demo">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout">Wa</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Complément</span>
+                        <span>{{__('Complément')}}</span>
                     </p>
                     <p class="demo">
                         <span class="ajout">Wa</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Complément</span>
+                        <span>{{__('Complément')}}</span>
                     </p>
                     <p class="exemple">
-                        <span>Exemple : </span>
-                        Aimes-tu les fruits ?
+                        <span>{{__('Exemple')}} : </span>
+                        {{__('Aimes-tu les fruits ?')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
-                         Toi Aimer Fruit ?
+                        {{__('Toi Aimer Fruit ?')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                          Se Da JuMo Wa
                     </p>
@@ -149,28 +150,28 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">La phrase exclamative</h5>
+                    <h5 class="modal-title">{{__('La phrase exclamative')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
 
                 </div>
                 <div class="modal-body">
-                    <p>Les phrases exclamatives ou impératives se construisent de la même manière que la phrase déclarative avec l’ajout du point d’exclamation en fin de phrase.</p>
+                    <p>{{__('Les phrases exclamatives ou impératives se construisent de la même manière que la phrase déclarative avec l’ajout du point d’exclamation en fin de phrase.')}}</p>
                     <p class="demo">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Complément</span>
+                        <span>{{__('Complément')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout"> !</span>
                     </p>
                     <p class="exemple">
-                        <span>Exemple : </span>
-                        Mange tes fruits !
+                        <span>{{__('Exemple')}} : </span>
+                        {{__('Mange tes fruits !')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
-                        Toi Manger Fruits !
+                        {{__('Toi Manger Fruits !')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         Se BuLu JuMo !
                     </p>
@@ -183,45 +184,45 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">L'ordre des compléments</h5>
+                    <h5 class="modal-title">{{__('L\'ordre des compléments')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
 
                 </div>
                 <div class="modal-body">
-                    <p>Les compléments doivent toujours se trouver en fin de phrase. Leur ordre n'est cependant pas défini.</p>
+                    <p>{{__('Les compléments doivent toujours se trouver en fin de phrase. Leur ordre n\'est cependant pas défini.')}}</p>
                     <p class="demo">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span class="ajout">Complément de lieu</span>
+                        <span class="ajout">{{__('Complément de lieu')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span class="ajout">Complément de temps</span>
+                        <span class="ajout">{{__('Complément de temps')}}</span>
                     </p>
                     <p class="demo">
-                        <span>Sujet</span>
+                        <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>Verbe</span>
+                        <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span class="ajout">Complément de temps</span>
+                        <span class="ajout">{{__('Complément de temps')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span class="ajout">Complément de lieu</span>
+                        <span class="ajout">{{__('Complément de lieu')}}</span>
                     </p>
                     <p class="exemple">
-                        <span>Exemple : </span>
-                        Nous partirons dans le désert dans trois jours
+                        <span>{{__('Exemple')}} : </span>
+                        {{__('Nous partirons dans le désert dans trois jours')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
-                         Nous Partir Dans Désert Dans 3 Jours
+                        {{__('Nous Partir Dans Désert Dans 3 Jours')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         SaSi DeNe Ni LiPuNoSo Ni Ti Gu
                     </p>
                     <p class="exemple">
-                        <span style="color: transparent">Exemple : </span>
-                        Nous partirons dans trois jours dans le désert
+                        <span>{{__('Exemple')}} 2 : </span>
+                        {{__('Nous partirons dans trois jours dans le désert')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
-                        Nous Partir Dans 3 Jours Dans Désert
+                        {{__('Nous Partir Dans 3 Jours Dans Désert')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         SaSi DeNe Ni Ti Gu Ni LiPuNoSo
                     </p>
@@ -236,43 +237,43 @@
     <!----------
           MOTS
         ------------>
-    <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">Les mots</h3>
+    <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">{{__('Mots')}}</h3>
 
     <div class="container d-flex justify-content-center flex-wrap mt-4">
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Particularités</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Particularités')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Genres</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Genres')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Pluriel</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Pluriel')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Adjectif</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Adjectif')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Article</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Article')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Conjugaison & préposition</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conjugaison & préposition')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Verbe</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Verbe')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Nom propre</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Nom propre')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Ponctuation</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Ponctuation')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </div>
     </div>
@@ -280,27 +281,27 @@
     <!----------
          CONJUGAISON
        ------------>
-    <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">La conjugaison</h3>
+    <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">{{__('Conjugaison')}}</h3>
 
     <div class="container d-flex justify-content-center flex-wrap mt-4">
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#present">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Présent</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Présent')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#passe">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Passé</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Passé')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#futur">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Futur</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Futur')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#conditionnel">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Conditionnel</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conditionnel')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#condpasse">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">Conditionnel passé</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conditionnel passé')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
         </button>
     </div>
@@ -309,16 +310,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Présent</h5>
+                    <h5 class="modal-title">{{__('Présent')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
 
                 </div>
                 <div class="modal-body">
-                    <p>Le verbe ne s'accorde pas avec le sujet. Il restera toujours à l'infinitif.</p>
-                    <p class="demo"><span>Sujet</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>Verbe</span></p>
-                    <p class="exemple"><span>Exemple : </span>Je manges <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu</p>
+                    <p>{{__('Le verbe ne s\'accorde pas avec le sujet. Il restera toujours à l\'infinitif.')}}</p>
+                    <p class="demo"><span>{{__('Sujet')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>{{__('Verbe')}}</span></p>
+                    <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('Je mange')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        {{__('Moi Manger')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu</p>
 
                 </div>
             </div>
@@ -328,7 +330,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Passé</h5>
+                    <h5 class="modal-title">{{__('Passé')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
@@ -336,10 +338,12 @@
                 </div>
                 <div class="modal-body">
                     <p>[Insérer texte explicatif]</p>
-                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span></p>
-                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précision sur le temps de l'action</span></p>
-                    <p class="exemple"><span>Exemple : </span>Je mangeais un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Passé Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We JuMo</p>
-                    <p class="exemple"><span style="color: transparent">Exemple : </span>J'ai mangé un fruit hier <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Fruits Hier <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZeTa</p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span></p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">{{__('Précision sur le temps de l\'action')}}</span></p>
+                    <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('Je mangeais un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        {{__('Moi Manger Passé Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We JuMo</p>
+                    <p class="exemple"><span style="color: transparent">{{__('Exemple')}} : </span>{{__('J\'ai mangé un fruit
+                        hier')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> {{__('Moi Manger Fruits Hier')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZeTa</p>
 
                 </div>
             </div>
@@ -349,7 +353,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Futur</h5>
+                    <h5 class="modal-title">{{__('Futur')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
@@ -357,10 +361,13 @@
                 </div>
                 <div class="modal-body">
                     <p>[Insérer texte explicatif]</p>
-                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">ZeWe</span></p>
-                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précision sur le temps de l'action</span></p>
-                    <p class="exemple"><span>Exemple : </span>Je mangerai un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Futur Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu ZeWe JuMo</p>
-                    <p class="exemple"><span style="color: transparent">Exemple : </span>Je mangerai un fruit demain <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Fruits Demain <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZaTa</p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">ZeWe</span></p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précision sur le temps de l'action</span></p>
+                    <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('Je mangerai un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        {{__('Moi Manger Futur Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu ZeWe JuMo</p>
+                    <p class="exemple"><span style="color: transparent">{{__('Exemple')}} : </span>{{__('Je mangerai un fruit
+                        demain')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> {{__('Moi Manger Fruits
+                        Demain')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZaTa</p>
 
                 </div>
             </div>
@@ -370,7 +377,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Conditionnel</h5>
+                    <h5 class="modal-title">{{__('Conditionnel')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
@@ -378,10 +385,12 @@
                 </div>
                 <div class="modal-body">
                     <p>[Insérer texte explicatif]</p>
-                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
-                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précisionn sur le temps de l'action</span></p>
-                    <p class="exemple"><span>Exemple : </span>Je mangerais un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Condition Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu Wi JuMo</p>
-                    <p class="exemple"><span style="color: transparent">Exemple : </span>Je mangerais un fruit si tu en as acheté <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Moi Manger Fruit Condition Toi Avoir Acheter Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo Wi Se DoJeDuJa We JuMo</p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">{{__('Précision sur le temps de l\'action')}}</span></p>
+                    <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('Je mangerais un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        {{__('Moi Manger Condition Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu Wi JuMo</p>
+                    <p class="exemple"><span>{{__('Exemple')}}  2 : </span>{{__('Je mangerais un fruit si tu en as acheté')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        {{__('Moi Manger Fruit Condition Toi Acheter Passé Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo Wi Se DoJeDuJa We JuMo</p>
 
                 </div>
             </div>
@@ -391,7 +400,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Conditionnel passé</h5>
+                    <h5 class="modal-title">{{__('Conditionnel passé')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
@@ -399,8 +408,9 @@
                 </div>
                 <div class="modal-body">
                     <p>[Insérer texte explicatif]</p>
-                    <p class="demo"><span>Verbe</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
-                    <p class="exemple"><span>Exemple : </span>J’aurais mangé un fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">  Moi Manger Passé Condition Fruit <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We Wi JuMo</p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
+                    <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('J\'aurais mangé un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
+                        {{__('Moi Manger Passé Condition Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We Wi JuMo</p>
 
                 </div>
             </div>
@@ -422,7 +432,7 @@
                     <td>
                         <table border=1>
                             <tr>
-                                <td>Sujet</td>
+                                <td>{{__('Sujet')}}</td>
                             </tr>
                         </table>
                     </td>
@@ -432,7 +442,7 @@
                     <td>
                         <table border=1>
                             <tr>
-                                <td>Verbe</td>
+                                <td>{{__('Verbe')}}</td>
                             </tr>
                         </table>
                     </td>
