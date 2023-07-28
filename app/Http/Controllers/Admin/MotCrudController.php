@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MotRequest;
 use App\Models\Syllabe;
 use App\Models\Type;
+use App\Providers\PDFDicoManager;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use BackpackImport\ImportOperation;
@@ -149,9 +150,17 @@ class MotCrudController extends CrudController
         }
 
         $this->crud->getRequest()['enMacusi'] = $macusi;
-        //dd($this->crud->getRequest());
 
         $response = $this->TraitStore();
+
+        /*
+        //Regénération du dictionnaire dans toutes les langues
+        $pdm = new PDFDicoManager();
+
+        foreach(config('custom.available_languages') as $language => $value){
+            $pdm->createPDF($language);
+        }
+*/
         return $response;
     }
 

@@ -11,23 +11,23 @@
         <div class="container d-flex justify-content-center flex-wrap mt-4">
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#declarative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase déclarative')}}</div>
-                <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+                <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#negative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase négative')}}</div>
-                <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+                <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#interrogative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase interrogative')}}</div>
-                <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+                <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#exclamative">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('La phrase exclamative')}}</div>
-                <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+                <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
             </button>
             <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#complements">
                 <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('L\'ordre des compléments')}}</div>
-                <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+                <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
             </button>
         </div>
     </div>
@@ -242,39 +242,39 @@
     <div class="container d-flex justify-content-center flex-wrap mt-4">
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Particularités')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Genres')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Pluriel')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Adjectif')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Article')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conjugaison & préposition')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Verbe')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Nom propre')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
         <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Ponctuation')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
     </div>
 
@@ -286,23 +286,23 @@
     <div class="container d-flex justify-content-center flex-wrap mt-4">
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#present">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Présent')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#passe">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Passé')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#futur">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Futur')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#conditionnel">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conditionnel')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#condpasse">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conditionnel passé')}}</div>
-            <div><img src="{{asset('storage/img/icon-arrow.svg')}}" height="15"></div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </button>
     </div>
 

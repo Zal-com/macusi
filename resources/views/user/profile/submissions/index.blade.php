@@ -9,7 +9,7 @@
         $localeString = $localesArray[$locale];
     @endphp
 
-    <h1 class="h3-title">Mon Compte</h1>
+    <h1 class="h3-title">{{__('Mon compte')}}</h1>
     <div class="parent mt-5 d-flex justify-content-between">
         <div class="div1 w-25">
             <x-user_sidebar :url="$url"/>

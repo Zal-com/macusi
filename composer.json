@@ -11,6 +11,7 @@
         "backpack/permissionmanager": "^7.0",
         "backpack/theme-coreuiv2": "^1.1",
         "ckhandla94/backpack-import": "^1.0",
+        "codedge/laravel-fpdf": "^1.11",
         "google/cloud-translate": "^1.13",
         "guzzlehttp/guzzle": "^7.2",
         "laraform/laraform-laravel": "^1.2",

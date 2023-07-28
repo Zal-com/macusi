@@ -20,7 +20,7 @@
         $locale = strtoupper(app()->getLocale())
     @endphp
 
-    <h1 class="h3-title">Mon Compte</h1>
+    <h1 class="h3-title">{{__('Mon compte')}}</h1>
     <div class="parent mt-5 d-flex justify-content-between">
         <x-user_sidebar :url="$url"/>
         <div class="right px-5 card border-0 shadow p-3 h-100">

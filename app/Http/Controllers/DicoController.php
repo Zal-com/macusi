@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Mot;
 use App\Models\MotTravail;
 use App\Models\Syllabe;
+use App\Providers\PDFDicoManager;
+use Codedge\Fpdf\Fpdf\Fpdf;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -64,5 +66,28 @@ class DicoController extends Controller
         if ($motTravail->save()) {
             return redirect()->route('user.submission.create', ['lang' => \app()->getLocale(), 'id' => Auth::id()])->with('success', 'Mot soumis avec succès.');
         }
+
+        return redirect()->route('user.submission.create', ['lang' => \app()->getLocale(), 'id' => Auth::id()])->with('error', 'Erreur lors de l\'opération');
     }
+
+    // fonction de génération du PDF
+    public function download($lang, $format){
+
+        $filename = public_path() . '/storage/pdf/Dico' . $format . '_' . strtoupper(app()->getLocale() . '.pdf');
+        if(! file_exists($filename)){
+            $this->generatePDF(app()->getLocale());
+        }
+
+        return \Illuminate\Support\Facades\Response::download($filename, 'Macusi_' . strtoupper(app()->getLocale()) . '.pdf', ['Content-Type: application/pdf']);
+    }
+
+    public function generatePDF($lang){
+
+        $pdm = new PDFDicoManager();
+        $pdm->createPDF($lang);
+        dd('fini');
+
+        return 0;
+    }
+
 }

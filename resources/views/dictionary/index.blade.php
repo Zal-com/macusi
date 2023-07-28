@@ -17,7 +17,7 @@
                 <p>{{__('Explorez notre vaste collection de mots. Téléchargez le PDF en un clic pour découvrir le pouvoir des mots et de notre incroyable dictionnaire en ligne MaCuSi dès maintenant !')}}</p>
             </div>
             <div class="col-md-3 d-flex flex-column text-center">
-                <a href="" class="btn download py-3 px-4 border-0 rounded-pill bg-secondary text-white font-weight-bold align-baseline"><img src="{{Storage::url('img/icon-download.svg')}}" alt="Télécharger" height="23">
+                <a href="{{route('dico.download', ['lang' => app()->getLocale(), 'format' => 'PDF'])}}" class="btn download py-3 px-4 border-0 rounded-pill bg-secondary text-white font-weight-bold align-baseline"><img src="{{Storage::url('img/icon-download.svg')}}" alt="Télécharger" height="23">
                     {{__('Télécharger en PDF')}}</a>
                 <a href="" class="mt-2 text-secondary">{{__('Autres formats')}}</a>
             </div>

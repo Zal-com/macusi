@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 // Variables
 @import 'variables';
 // Bootstrap
@@ -79,6 +81,7 @@ $i : 10;
 .h3-title{
     font-weight: 800;
     color: var(--main-color);
+    font-family: Montserrat;
 }
 
 .h3-title::after{
@@ -356,4 +359,49 @@ input:checked + .slider:before {
 
 .border-secondary{
     border: 3px solid var(--secondary-color) !important;
+}
+
+.page-item.disabled .page-link{
+    color: var(--secondary-color);
+}
+
+.page-link{
+    margin-right: 10px;
+    height: 34px;
+    width: 34px;
+    text-align: center;
+    border-radius: 50% !important;
+}
+
+.page-item.active{
+    background-color: transparent;
+    border: none;
+}
+
+.page-link{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 16px;
+    }
+
+.page-item.active .page-link{
+    background-color: var(--secondary-color);
+
+}
+
+.pagination-end .page-link{
+    display: flex;
+    width: unset;
+    border: none;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+    &.disabled{
+        visibility: hidden;
+    }
 }
