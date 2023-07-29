@@ -405,3 +405,26 @@ input:checked + .slider:before {
         visibility: hidden;
     }
 }
+
+input{
+    border: 2px solid var(--secondary-color) !important;
+}
+
+.remember-me{
+    height: 18px;
+    width: 18px;
+    outline: 1.5px solid var(--secondary-color);
+    background-color: transparent;
+    &:focus, :active{
+        box-shadow: none !important;
+        outline: 1.5px solid var(--secondary-color);
+    }
+    &:checked{
+        background-color: var(--secondary-color);
+        color: white;
+    }
+}
+
+.forgot{
+    font-size: 12px;
+}
