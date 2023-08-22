@@ -20,4 +20,9 @@ class UserVote extends Model
     protected $table = 'user_votes';
 
     public $timestamps = false;
+
+    public function submission(){
+        return $this->belongsTo(MotTravail::class);
+    }
+
 }

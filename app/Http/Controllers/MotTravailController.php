@@ -6,6 +6,7 @@ use App\Models\MotTravail;
 use App\Models\Syllabe;
 use Illuminate\Http\Request;
 use App\Providers\TranslateTrait;
+use Illuminate\Support\Facades\DB;
 
 class MotTravailController extends Controller
 {
@@ -66,7 +67,15 @@ class MotTravailController extends Controller
                     'lang' => app()->getLocale(),
                     'id' => \Auth::id()
                 ])->with('error', __('Erreur lors de la suppression.'));
-
         }
+    }
+
+    public function index(){
+
+        $submissions = MotTravail::all();
+
+        return view('dictionary.submissions', [
+            'submissions' => $submissions,
+        ]);
     }
 }

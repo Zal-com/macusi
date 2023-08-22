@@ -210,7 +210,9 @@
                     <p>
                         <a href="{{route('dico.index', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Dictionnaire')}}</a>
                     </p>
-                    @guest
+                    <p>
+                        <a href="{{route('dico.submissions', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Soumissions de la communauté')}}</a>
+                    </p>@guest
                         <p>
                             <a href="{{route('login', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Login')}}</a>
                         </p>

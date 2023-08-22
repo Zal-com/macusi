@@ -37,6 +37,7 @@ Route::group(['prefix' => '{lang}'], function (){
 
     Route::get('dictionary', [DicoController::class, 'index'])->name('dico.index');
     Route::get('dictionary/download/{format}', [DicoController::class, 'download'])->name('dico.download');
+    Route::get('dictionary/submissions', [MotTravailController::class, 'index'])->name('dico.submissions');
 
     //Route::get('translate',[TranslateController::class, 'translate'])->name('translate');
 

@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-md-3">
                         <select id="nationality" class="form-control @error('nationality') is-invalid @enderror rounded-pill bg-transparent" name="nationality" value="{{ old('nationality') }}" required autocomplete="nationality">
-                            <option default>{{__('Nationalité')}}</option>
+                            <option value="" selected disabled>{{__('Nationalité')}}</option>
                             @foreach($nationalités as $nationalité)
                                 <option value="{{$nationalité->code}}">{{$nationalité->nationalite}}</option>
                             @endforeach

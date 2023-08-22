@@ -436,6 +436,16 @@ select#nationality option{
     color: black;
 }
 
+select#nationality:required:invalid {
+    color: gray;
+}
+option[value=""][disabled] {
+    display: none;
+}
+option {
+    color: black;
+}
+
 button#registerLink:hover,
 button#nav-login:hover,
 button#nav-login i:hover,

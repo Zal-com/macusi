@@ -85,4 +85,8 @@ class MotTravail extends Model
 
         return $formatted;
     }
+
+    public function votes(){
+        return $this->hasMany(UserVote::class);
+    }
 }
