@@ -48,7 +48,7 @@
           if (typeof formObj.submit === 'function') {
             formObj.submit();
           } else {
-            displayErrorMessage(editor, 'Error: Form submit field collision.');
+            displayErrorMessage(editor, 'Error: Login submit field collision.');
           }
         }
         editor.nodeChanged();

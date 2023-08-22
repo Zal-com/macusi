@@ -70,7 +70,7 @@ class TypeSeeder extends Seeder
             ['trads' => '{"FR":"Créature","DE":"Geschöpf","IT":"Creatura","EN":"Creature"}','isValidated'=>'1'],
             ['trads' => '{"FR":"Question","DE":"Frage","IT":"Domanda","EN":"Question"}','isValidated'=>'1'],
             ['trads' => '{"FR":"Etude","DE":"Studieren","IT":"Studiare","EN":"Study"}','isValidated'=>'1'],
-            ['trads' => '{"FR":"Forme","DE":"Form","IT":"Forma","EN":"Shape"}','isValidated'=>'1'],
+            ['trads' => '{"FR":"Forme","DE":"Login","IT":"Forma","EN":"Shape"}','isValidated'=>'1'],
             ['trads' => '{"FR":"Sport","DE":"Sport","IT":"Sport","EN":"Sport"}','isValidated'=>'1'],
             ['trads' => '{"FR":"Phobie","DE":"Phobie","IT":"Fobia","EN":"Phobia"}','isValidated'=>'1'],
             ['trads' => '{"FR":"Ordinateur","DE":"Computer","IT":"Computer","EN":"Computer"}','isValidated'=>'1'],

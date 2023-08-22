@@ -46,7 +46,7 @@ class SyllabeSeeder extends Seeder
             ['syllabe' => 'Fu', 'trads' => '{"FR":"","DE":"","IT":"","EN":""}'],
             ['syllabe' => 'Ga', 'trads' => '{"FR":"Caractère","DE":"Zeichen","IT":"Caratteri","EN":"Character"}'],
             ['syllabe' => 'Ge', 'trads' => '{"FR":"Chiffre","DE":"Nummer","IT":"Cifra","EN":"Digit"}'],
-            ['syllabe' => 'Gi', 'trads' => '{"FR":"Forme","DE":"Form","IT":"Forma","EN":"Form"}'],
+            ['syllabe' => 'Gi', 'trads' => '{"FR":"Forme","DE":"Login","IT":"Forma","EN":"Login"}'],
             ['syllabe' => 'Go', 'trads' => '{"FR":"Son","DE":"Geraüsch","IT":"Suono","EN":"Sound"}'],
             ['syllabe' => 'Gu', 'trads' => '{"FR":"Temps","DE":"Zeit","IT":"Tempo","EN":"Time"}'],
             ['syllabe' => 'Ja', 'trads' => '{"FR":"Objet","DE":"Objekt","IT":"Oggetto","EN":"Object"}'],

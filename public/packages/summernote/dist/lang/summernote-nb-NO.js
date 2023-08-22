@@ -1,5 +1,5 @@
 /*!
- * 
+ *
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -46,10 +46,10 @@ var __webpack_exports__ = {};
         floatLeft: 'Flyt til venstre',
         floatRight: 'Flyt til høyre',
         floatNone: 'Fjern flyt',
-        shapeRounded: 'Form: Rundet',
-        shapeCircle: 'Form: Sirkel',
-        shapeThumbnail: 'Form: Miniatyr',
-        shapeNone: 'Form: Ingen',
+        shapeRounded: 'Login: Rundet',
+        shapeCircle: 'Login: Sirkel',
+        shapeThumbnail: 'Login: Miniatyr',
+        shapeNone: 'Login: Ingen',
         dragImageHere: 'Dra et bilde hit',
         dropImage: 'Drop image or Text',
         selectFromFiles: 'Velg fra filer',

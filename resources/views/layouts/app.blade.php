@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    @livewireStyles
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/f92d7e8a24.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -49,7 +49,12 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link text-secondary text-uppercase font-weight-bold" href="{{ route('login', app()->getLocale()) }}"><i class="fa-solid fa-right-to-bracket text-secondary"></i> {{ __('Login') }}</a>
+                                <button type="button" id="nav-login" class="nav-link text-secondary text-uppercase font-weight-bold border-0 bg-main" style=":hover{ color: #FFBC80 !important}" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" :form="login">
+                                    <i class="fa-solid fa-right-to-bracket text-secondary"><span style="font-family: Inter; font-weight: bold"> {{ __('Login') }}</span></i>
+                                </button>
+                              {{--
+                              <a class="" href="{{ route('login', app()->getLocale()) }}"> </a>
+                            --}}
                             </li>
                         @endif
                     @else
@@ -96,8 +101,86 @@
     <main class="py-4 container">
         @include('flash-message')
         @yield('content')
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style="padding: 0 !important;">
+
+                                {{-- APPEL FORMULAIRE NECESSAIRE --}}
+                                @livewire('form-container')
+
+                                {{--
+                                <h3 class="h3-title text-white p-2 font-weight-bold">{{ __('Login') }}</h3>
+                                <form method="POST" action="{{ route('login', app()->getLocale()) }}">
+                                    @csrf
+                                    <div class="mb-4 mt-4">
+                                        <div class="col-md-10 px-0">
+                                            <input id="email" type="email" class="form-control rounded-pill bg-transparentpx-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email Address') }}" autofocus>
+
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <div class="col-md-10 px-0">
+                                            <input id="password" type="password" class="form-control rounded-pill bg-transparentpx-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
+
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 d-flex">
+                                        <div class="col-md-6">
+                                            <div class="form-check d-inline align-middle">
+                                                <input class="form-check-input border-0 rounded-circle remember-me" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                <label class="form-check-label text-white font-weight-light ml-1" for="remember">
+                                                    {{ __('Remember Me') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="d-block pt-1">
+                                                @if (Route::has('password.request'))
+                                                    <a class="link text-secondary text-decoration-none forgot float-right" href="{{ route('password.request', app()->getLocale()) }}">
+                                                        {{ __('Forgot Your Password?') }}
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-0 mt-4">
+                                        <div class="col-md-10">
+                                            <button type="submit" class="btn download py-2 px-5 border-0 rounded-pill bg-secondary text-white font-weight-700 align-baseline text-uppercase float-right">
+                                                {{ __('Login') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 mt-3" style="font-size: 12px">
+                                        <p class="text-white font-weight-light text-center">Vous ne possédez pas de compte ? <a href="{{route('register', app()->getLocale())}}" class="text-secondary text-decoration-none">{{__('Register')}}</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        --}}
+
+
     </main>
 </div>
+@livewireScripts
 <script src="../../js/custom.js"></script>
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-main border-top mt-auto">
