@@ -72,7 +72,9 @@ class MotTravailController extends Controller
 
     public function index(){
 
-        $submissions = MotTravail::all();
+        $submissions = MotTravail::paginate(25)->sortBy(function($submission){
+            return $submission->ratio();
+        }, 1, true);
 
         return view('dictionary.submissions', [
             'submissions' => $submissions,

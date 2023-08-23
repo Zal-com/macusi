@@ -25,4 +25,7 @@ class UserVote extends Model
         return $this->belongsTo(MotTravail::class);
     }
 
+    public function voter(){
+        return $this->belongsTo(User::class, 'id', 'voter_id');
+    }
 }

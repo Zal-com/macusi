@@ -87,6 +87,18 @@ class MotTravail extends Model
     }
 
     public function votes(){
-        return $this->hasMany(UserVote::class);
+        return $this->hasMany(UserVote::class, 'id_sug', 'id_sug');
+    }
+
+    public function votes_positifs(){
+        return $this->hasMany(UserVote::class, 'id_sug', 'id_sug')->where('vote_type',"=", 1);
+    }
+
+    public function votes_negatifs(){
+        return $this->hasMany(UserVote::class, 'id_sug', 'id_sug')->where('vote_type', "=", 0);
+    }
+
+    public function ratio(){
+        return ($this->votes_positifs()->count() - $this->votes_negatifs()->count()) / $this->votes()->count();
     }
 }

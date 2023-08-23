@@ -33,10 +33,10 @@ $i : 10;
 }
 
 :root{
-    --main-color: #0D0054;
-    --secondary-color: #FF7900;
-    --background-color: #F6F6F6;
-    --accent-color: #FFBC80;
+    --main-color: rgb(13, 0, 84);
+    --secondary-color: rgb(255, 119, 0);
+    --background-color: rgb(246, 246, 246);
+    --accent-color: rgb(255, 188, 128);
 }
 
 .bg-main{
@@ -456,4 +456,8 @@ button#passwordLink:hover,
 
 .forgot{
     font-size: 12px;
+}
+
+button.voted{
+    background: color-mix(in srgb, var(--secondary-color) 20%, transparent) !important;
 }

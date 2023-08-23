@@ -78,4 +78,22 @@ class User extends Authenticatable
     public function dateVerbose(String $date) : String {
         return date('d/m/Y', strtotime($this->$date));
     }
+
+    public function votes(){
+        return $this->hasMany(UserVote::class, 'voter_id', 'id');
+    }
+
+    public function hasVotedPositively($submission_id){
+        return !empty($this->votes()->where('id_sug', '=',$submission_id)
+            ->where('vote_type', '=', 1)
+            ->first());
+    }
+
+    public function hasVotedNegatively($submission_id){
+        return !empty($this->votes()->where([
+                ['id_sug', '=',$submission_id],
+                ['vote_type', '=', 0]
+            ]
+        )->first());
+    }
 }
