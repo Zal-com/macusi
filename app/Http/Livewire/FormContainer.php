@@ -2,11 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Livewire\Component;
 
 class FormContainer extends Component
 {
+
+    use AuthenticatesUsers;
+
     public $form = 'login';
+
     public function render()
     {
         return view("livewire.{$this->form}");
@@ -23,4 +28,5 @@ class FormContainer extends Component
     public function showPassword(){
         $this->form = 'password';
     }
+
 }

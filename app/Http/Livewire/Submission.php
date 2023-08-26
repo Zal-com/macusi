@@ -19,8 +19,24 @@ class Submission extends Component
         return view('livewire.submission');
     }
 
+
     public function addPositive(){
-        //Si un vote positif existe deja -> ne rien faire
-        //Si un vote négatif existe deja -> Supprimer vote négatif + ajouter vote positif
+        $vote = $this->item->votes->where('voter_id', '=', \Auth::user()->id)->first();
+
+        if($vote->vote_type != 1){
+            $vote->vote_type = 1;
+            $vote->save();
+        }
+
+    }
+
+    public function addNegative(){
+        $vote = $this->item->votes->where('voter_id', '=', \Auth::user()->id)->first();
+
+        if($vote->vote_type != 0){
+            $vote->vote_type = 0;
+            $vote->save();
+
+        }
     }
 }

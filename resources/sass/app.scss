@@ -461,3 +461,12 @@ button#passwordLink:hover,
 button.voted{
     background: color-mix(in srgb, var(--secondary-color) 20%, transparent) !important;
 }
+
+button.disabled{
+    background: #77889950 !important;
+    cursor: not-allowed !important;
+    & img{
+        filter: invert(56%) sepia(21%) saturate(344%) hue-rotate(169deg) brightness(90%) contrast(84%) !important;
+    }
+}
+

@@ -26,7 +26,9 @@ Route::group(['prefix' => '{lang}'], function (){
         return view('macusi-expl');
     })->name('home');
 
-    Auth::routes();
+    Route::group(['middleware' => ['web']], function(){
+        Auth::routes();
+    });
 
     Route::get('construction', function (){
         return view('construction');

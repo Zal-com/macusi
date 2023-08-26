@@ -63,7 +63,7 @@
 
                 </div>
                 <div class="modal-body">
-                    <p>{{__('It is built in the same way as the declarative sentence but with the addition of the word [Ze] behind the verb.')}}</p>
+                    <p>{{__('Se construit de la même manière que la phrase déclarative mais avec l’ajout du mot [Ze] derrière le verbe.')}}</p>
                     <p class="demo">
                         <span>{{__('Sujet')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
@@ -79,7 +79,7 @@
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         {{__('Moi Aimer Pas Fruits')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
-                         Sa Da Ze JuMo
+                        Sa Da Ze JuMo
                     </p>
 
                 </div>
@@ -140,7 +140,7 @@
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         {{__('Toi Aimer Fruit ?')}}
                         <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
-                         Se Da JuMo Wa
+                        Se Da JuMo Wa
                     </p>
                 </div>
             </div>
@@ -240,41 +240,217 @@
     <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">{{__('Mots')}}</h3>
 
     <div class="container d-flex justify-content-center flex-wrap mt-4">
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#particularites">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Particularités')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#genres">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Genres')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#pluriel">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Pluriel')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#adjectif">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Adjectif')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#article">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Article')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conjugaison & préposition')}}</div>
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#conjonction">
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conjonction & préposition')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#verbe">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Verbe')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#propre">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Nom propre')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;">
+        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#ponctuation">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Ponctuation')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="particularites" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Particularités')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Les mots en MaCuSi ne comportent pas d’accent, pas de tréma, pas de cédille, pas de trait d’union, pas de ligature, pas d’apostrophe, pas de liaison, pas d’élision. Les lettres H, K, Q, Y ne sont utilisées que pour les noms propres.')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="genres" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Genre du nom')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Contrairement à beaucoup de langues, il n’y a pas de genre en MaCuSi. Les noms ne sont donc ni masculin, ni féminin.')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="pluriel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Pluriel')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Il n’y a pas de pluriel. Le sens de la phrase est déterminé par le contexte. Dans certains rares cas, pour préciser un pluriel, on peut utiliser le nom avec l’adjonction du mot [Si].')}}</p>
+                    <p class="demo"><span>{{__('Un fruit, des fruits')}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px"> {{__('Fruit')}}</span></p>
+                    <p class="demo"><span>{{__('Fruits')}} => JuMo, JuMo</span><span class="ajout">Si</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="adjectif" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Adjectif')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Pas d’accord pour les adjectifs. Il se place toujours derrière le nom.')}}</p>
+                    <p class="demo">
+                        <span>{{__('Un petit citron')}}
+                            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
+                            {{__('Citron Petit')}}
+                            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
+                            JuMoXeGiVu No
+                        </span>
+                    </p>
+                    <p class="demo">
+                        <span>{{__('Une grande banane')}}
+                            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
+                            {{__('Banane Grand')}}
+                            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
+                            JuMoXNu No
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="article" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Article')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('L\'article n\'est pas nécessaire en MaCuSi.')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="conjonction" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Conjonction & préposition')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Ils ne sont pas très utilisés en MaCuSi.')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="verbe" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Verbe')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Le verbe se présente toujours sous sa forme infinitive.')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="propre" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Nom propre')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Le nom propre s’écrit comme dans sa langue d’origine.')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="ponctuation" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Ponctuation')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('Le MaCuSi utilise les signes de ponctuation occidentaux suivant :')}}</p>
+                    <ul>
+                        <li>{{__('Le point [.] pour terminer une phrase ou pour écrire un mot en abrégé;')}}</li>
+                        <li>{{__('Le point-virgule [;] pour séparer des propositions de même nature;')}}</li>
+                        <li>{{__('La virgule [,] pour séparer les éléments semblables, une explication…;')}}</li>
+                        <li>{{__('Le point d\'exclamation [!] pour exprimer une exclamation ou un impératif;')}}</li>
+                        <li>{{__('Les points de suspension […] pour indiquer l\'incomplétude;')}}</li>
+                        <li>{{__('Les deux points [:] pour présenter une citation, une analyse ou une énumération;')}}</li>
+                        <li>{{__('Les guillemets [« »] [\'\'] pour encadrer une citation, un discours…;')}}</li>
+                        <li>{{__('Les parenthèses [()] pour ajouter une indication accessoire.')}}</li>
+                    </ul>
+                    <p>
+                        {{__('Le MaCuSi n’utilise pas le point d’interrogation, le tiret, les crochets, l’astérisque ni l’alinéa.')}}
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -337,13 +513,12 @@
 
                 </div>
                 <div class="modal-body">
-                    <p>[Insérer texte explicatif]</p>
+                    <p>{{__('Le verbe au passé est toujours suivi du terme [We] ou d\'une précision que le temps pendant laquelle se passe l\'action.')}}</p>
                     <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span></p>
                     <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">{{__('Précision sur le temps de l\'action')}}</span></p>
                     <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('Je mangeais un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         {{__('Moi Manger Passé Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We JuMo</p>
-                    <p class="exemple"><span style="color: transparent">{{__('Exemple')}} : </span>{{__('J\'ai mangé un fruit
-                        hier')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> {{__('Moi Manger Fruits Hier')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZeTa</p>
+                    <p class="exemple"><span style="color: transparent">{{__('Exemple')}} : </span>{{__("J'ai mangé un fruit hier")}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> {{__('Moi Manger Fruits Hier')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZeTa</p>
 
                 </div>
             </div>
@@ -360,14 +535,12 @@
 
                 </div>
                 <div class="modal-body">
-                    <p>[Insérer texte explicatif]</p>
+                    <p>{{__('Le verbe au futur est toujours suivi du terme [ZeWe] ou d\'une précision que le temps pendant laquelle se passe l\'action.')}}</p>
                     <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">ZeWe</span></p>
-                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Précision sur le temps de l'action</span></p>
+                    <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">{{__('Précision sur le temps de l\'action')}}</span></p>
                     <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('Je mangerai un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         {{__('Moi Manger Futur Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu ZeWe JuMo</p>
-                    <p class="exemple"><span style="color: transparent">{{__('Exemple')}} : </span>{{__('Je mangerai un fruit
-                        demain')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> {{__('Moi Manger Fruits
-                        Demain')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZaTa</p>
+                    <p class="exemple"><span style="color: transparent">{{__('Exemple')}} : </span>{{__('Je mangerai un fruit demain')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> {{__('Moi Manger Fruits Demain')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu JuMo GuZaTa</p>
 
                 </div>
             </div>
@@ -384,7 +557,7 @@
 
                 </div>
                 <div class="modal-body">
-                    <p>[Insérer texte explicatif]</p>
+                    <p>{{__('Le verbe au conditionnel est toujours suivi du terme [Wi] ou d\'une précision que le temps pendant laquelle se passe l\'action.')}}</p>
                     <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
                     <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">{{__('Précision sur le temps de l\'action')}}</span></p>
                     <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('Je mangerais un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
@@ -407,7 +580,7 @@
 
                 </div>
                 <div class="modal-body">
-                    <p>[Insérer texte explicatif]</p>
+                    <p>{{__('Le verbe au conditionnel passé est toujours suivi des temes [We] et [Wi].')}}</p>
                     <p class="demo"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">We</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span class="ajout">Wi</span></p>
                     <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('J\'aurais mangé un fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         {{__('Moi Manger Passé Condition Fruit')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa BuLu We Wi JuMo</p>

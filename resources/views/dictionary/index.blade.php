@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-
+    <livewire:filters/>
     <div class="language-switch d-flex justify-content-center align-baseline">
         <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> {{ucfirst($localeString)}}</p>
         <div class="form-check form-switch">
@@ -34,14 +34,7 @@
 
 
     <div class="d-flex flex-wrap justify-content-center" id="accordion">
-        @foreach($mots as $mot)
-            @if($mot->typesString() != 'Chiffre')
-                <x-card :mot="$mot" :count="$count"/>
-                @php
-                    $count++;
-                @endphp
-            @endif
-        @endforeach
+        <livewire:results/>
     </div>
     <div class="d-flex justify-content-center mt-4">
         {{ $mots->links() }}

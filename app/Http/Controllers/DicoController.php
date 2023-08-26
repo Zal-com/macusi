@@ -50,7 +50,6 @@ class DicoController extends Controller
             'traduction' => 'required',
         ]);
 
-        //TODO Appel de l'API de traduction REVERSO
         //TODO Ajouter valeur par defaut dateAjout Modele
         $motTravail = new MotTravail();
         $motTravail->mot1_sug = $validated['syllabe_0'];
