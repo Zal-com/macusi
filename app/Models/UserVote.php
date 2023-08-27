@@ -14,7 +14,7 @@ class UserVote extends Model
     protected $fillable = [
         'id_sug',
         'voter_username',
-        'type'
+        'vote_type'
     ];
 
     protected $table = 'user_votes';

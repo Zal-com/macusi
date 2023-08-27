@@ -99,6 +99,9 @@ class MotTravail extends Model
     }
 
     public function ratio(){
-        return ($this->votes_positifs()->count() - $this->votes_negatifs()->count()) / $this->votes()->count();
+        if($this->votes()->count() != 0){
+            return (float) ($this->votes_positifs()->count() / $this->votes()->count())*100;
+        }
+        else return 0;
     }
 }

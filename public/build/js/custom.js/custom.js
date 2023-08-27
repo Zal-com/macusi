@@ -29,8 +29,4 @@ export function previewMacusi() {
     conceptPreview.value = conceptStr.length === 0 ? '---' : conceptStr.substring(0, conceptStr.length-2)
 }
 
-export function test(name){
-    return 'Hello' + name;
-}
-
 

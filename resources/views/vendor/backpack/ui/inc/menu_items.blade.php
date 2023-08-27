@@ -14,3 +14,14 @@
 <x-backpack::menu-item title="Types" icon="la la-question" :link="backpack_url('type')"/>
 <x-backpack::menu-item title="Nationalités" icon="la la-flag" :link="backpack_url('nationalite')"/>
 
+
+<x-backpack::menu-item title="Csv data" icon="la la-question" :link="backpack_url('csv-data')" />
+<x-backpack::menu-item title="Mots" icon="la la-question" :link="backpack_url('mot')" />
+<x-backpack::menu-item title="Mot travails" icon="la la-question" :link="backpack_url('mot-travail')" />
+<x-backpack::menu-item title="Nationalites" icon="la la-question" :link="backpack_url('nationalite')" />
+<x-backpack::menu-item title="Syllabes" icon="la la-question" :link="backpack_url('syllabe')" />
+<x-backpack::menu-item title="Types" icon="la la-question" :link="backpack_url('type')" />
+<x-backpack::menu-item title="Type mots" icon="la la-question" :link="backpack_url('type-mot')" />
+<x-backpack::menu-item title="Type suggestions" icon="la la-question" :link="backpack_url('type-suggestion')" />
+<x-backpack::menu-item title="Users" icon="la la-question" :link="backpack_url('user')" />
+<x-backpack::menu-item title="User votes" icon="la la-question" :link="backpack_url('user-vote')" />
