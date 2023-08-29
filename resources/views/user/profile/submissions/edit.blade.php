@@ -21,38 +21,40 @@
     @endphp
 
     <h1 class="h3-title">{{__('Mon compte')}}</h1>
-    <div class="parent mt-5 d-flex justify-content-between">
+    <div class="parent mt-5 justify-content-between">
         <x-user_sidebar :url="$url"/>
         <div class="right px-5 card border-0 shadow p-3 h-100">
             <h3 class="h3-title mt-2">{{__('Modifier un mot')}}</h3>
-            <form method="POST" action="{{ route('user.submission.update', ['lang' => app()->getLocale(), 'id' => Auth::id(), 'id_sug'=>$submission->id_sug]) }}">
+            <form method="POST" action="{{ route('user.submission.update', ['lang' => app()->getLocale(), 'id' => Auth::id(), 'id_sug'=>$submission->id_sug]) }}" class="submission_form">
                 @csrf
                 @method('PUT')
-                <div class="form-row d-flex align-items-baseline w-100 mt-4">
-                    <label>Syllabes :</label>
-                    @for($i = 1; $i <= 6; $i++)
-                        <div class="form-group col-md-1">
+                <div class="d-inline mt-4">
+                    <span>Syllabes :</span>
+                    <div class="w-100">
+                        @for($i = 1; $i <= 6; $i++)
                             <select name="syllabe_{{$i}}" class="form-control" onchange="previewMacusi()">
                                 <option value="">---</option>
                                 @foreach($syllabes as $syllabe)
                                     <option value="{{$syllabe->syllabe}}" {{$submission->{'mot' . $i . '_sug'} == $syllabe->syllabe ? 'selected' : ''}} data-concept='{{!empty(json_decode($syllabe->trads)->$locale) ? json_decode($syllabe->trads)->$locale:'null'}}'>{{$syllabe->syllabe}} - {{json_decode($syllabe->trads)->$locale}}</option>
                                 @endforeach
                             </select>
-                        </div>
-                    @endfor
+                        @endfor
+                    </div>
                 </div>
 
-                <div class="form-row d-flex">
-                    <div class="form-group col-md-3">
+                <div class="form-row">
+                    <div class="form-group col-9">
                         <label for="enMacusi" class="mx-1">Mot en Macusi : </label>
                         <label>
                             <input type="text" name="enMacusi" id="enMacusi" class="form-control-plaintext w-75" readonly  value="---">
                         </label>
                     </div>
-                    <div class="form-group col-9">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
                         <label  for="concept" class="mx-1">Concept : </label>
                         <label>
-                            <input type="text"  name="concept" class="form-control-plaintext" readonly  value="---">
+                            <input type="text" id="concept" name="concept" class="form-control-plaintext" readonly  value="---">
                         </label>
                     </div>
                 </div>

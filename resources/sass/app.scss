@@ -473,5 +473,26 @@ button.disabled{
     }
 }
 
+.submission_form input{
+    border: 2px solid var(--secondary-color) !important;
+    border-radius: 15px !important;
+    color: black !important;
+}
+
+.submission_form select{
+    border: 2px solid var(--secondary-color) !important;
+    border-radius : 15px !important;
+    background-color: transparent;
+}
+
+.submission_form #enMacusi,
+.submission_form #concept{
+    border: none !important;
+    color: var(--secondary-color) !important;
+    width: 500px;
+    background-color: transparent;
+}
+
+
 
 

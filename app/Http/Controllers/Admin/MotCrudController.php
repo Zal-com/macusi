@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\MotRequest;
+use App\Jobs\GenerateDico;
 use App\Models\Syllabe;
 use App\Models\Type;
 use App\Providers\PDFDicoManager;
@@ -143,6 +144,7 @@ class MotCrudController extends CrudController
         $this->crud->getRequest()['trads'] = $trads;
 
         $macusi = '';
+
         for ($i = 1; $i < 7; $i++) {
             $syllabe = Syllabe::find($this->crud->getRequest()['mot' . $i])->syllabe;
             $macusi .= $syllabe;
@@ -152,6 +154,8 @@ class MotCrudController extends CrudController
         $this->crud->getRequest()['enMacusi'] = $macusi;
 
         $response = $this->TraitStore();
+
+        $this->dispatch(new GenerateDico());
 
         /*
         //Regénération du dictionnaire dans toutes les langues

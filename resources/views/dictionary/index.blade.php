@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    {{-- <livewire:filters/> --}}
+    <livewire:filters/>
     <div class="language-switch d-flex justify-content-center align-baseline">
         <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> {{ucfirst($localeString)}}</p>
         <div class="form-check form-switch">
