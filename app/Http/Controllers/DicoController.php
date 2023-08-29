@@ -23,7 +23,7 @@ class DicoController extends Controller
     public function index()
     {
         return view('dictionary.index', [
-            'mots' => Mot::where('id', '>=', 65)->paginate(24)
+            'mots' => Mot::where('id', '>=', 65)->paginate(24)->onEachSide(1)
         ]);
     }
 

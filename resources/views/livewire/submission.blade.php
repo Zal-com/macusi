@@ -68,4 +68,9 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('load', function(){
+            deSVG('.voted img', true);
+        });
+    </script>
 </div>

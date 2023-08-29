@@ -3,8 +3,8 @@
     $locale = (string) strtoupper(app()->getLocale());
 @endphp
 <div id="{{'heading' . $count}}" class="w-40 my-2 mx-2">
-    <button class="btn border-secondary rounded-4 w-100 text-left" data-bs-toggle="collapse" data-bs-target="{{'#collapse' . $count}}" aria-expanded="true" aria-controls="{{'collapse' . $count}}">
-        <div id="header" class="align-middle font-weight-bold">
+    <button class="btn border-secondary rounded-4 w-100 text-left shadow" data-bs-toggle="collapse" data-bs-target="{{'#collapse' . $count}}" aria-expanded="true" aria-controls="{{'collapse' . $count}}">
+        <div id="header" class="align-middle font-weight-bold" style="font-size: 18px !important;">
             <img src="{{Storage::url('img/icon-comment.svg')}}" class="mx-2"> <span class="LoMa font-weight-bold">{{json_decode($mot->trads)->$locale}} : {{$mot->enMacusi}}</span><span class="MaLo font-weight-bold">{{$mot->enMacusi}} : {{json_decode($mot->trads)->$locale}}</span> <span class="float-right align-middle"><img src="{{Storage::url('img/icon-arrow-right.svg')}}"></span>
         </div>
         <div id="{{'collapse' . $count}}" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">

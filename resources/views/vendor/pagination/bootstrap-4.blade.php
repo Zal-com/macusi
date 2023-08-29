@@ -2,16 +2,11 @@
     <nav>
         <ul class="pagination">
             {{-- Previous Page Link --}}
-            @if ($paginator->onFirstPage())
-                <li class="page-item pagination-end">
-                    <a class="page-link disabled" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"><img src="{{Storage::url('img/icon-arrow-right.svg')}}" alt="test" style="transform: rotate(180deg); margin-right: 5px">@lang('pagination.previous')</a>
-                </li>
-            @else
+            @if (!$paginator->onFirstPage())
                 <li class="page-item pagination-end">
                     <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"><img src="{{Storage::url('img/icon-arrow-right.svg')}}" alt="test" style="transform: rotate(180deg); margin-right: 5px">@lang('pagination.previous')</a>
                 </li>
             @endif
-
             {{-- Pagination Elements --}}
             @foreach ($elements as $element)
                 {{-- "Three Dots" Separator --}}
@@ -35,10 +30,6 @@
             @if ($paginator->hasMorePages())
                 <li class="page-item pagination-end">
                     <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">@lang('pagination.next')<img src="{{Storage::url('img/icon-arrow-right.svg')}}" alt="test" style="margin-left: 5px"></a>
-                </li>
-            @else
-                <li class="page-item pagination-end">
-                    <a class="page-link disabled" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">@lang('pagination.next')<img src="{{Storage::url('img/icon-arrow-right.svg')}}" alt="test" style="margin-left: 5px"></a>
                 </li>
             @endif
         </ul>

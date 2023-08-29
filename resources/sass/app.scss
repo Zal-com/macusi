@@ -459,14 +459,19 @@ button#passwordLink:hover,
 }
 
 button.voted{
-    background: color-mix(in srgb, var(--secondary-color) 20%, transparent) !important;
+    background: var(--secondary-color) !important;
+    & img {
+        filter: grayscale(100%) contrast(100) !important;
+    }
 }
 
 button.disabled{
-    background: #77889950 !important;
+    border: 2px solid #B4B4B4 !important;
     cursor: not-allowed !important;
     & img{
-        filter: invert(56%) sepia(21%) saturate(344%) hue-rotate(169deg) brightness(90%) contrast(84%) !important;
+        filter: invert(74%) sepia(1%) saturate(0%) hue-rotate(299deg) brightness(99%) contrast(88%) !important;
     }
 }
+
+
 

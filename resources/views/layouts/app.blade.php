@@ -11,19 +11,16 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     @livewireStyles
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/f92d7e8a24.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/custom.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body class="d-flex min-vh-100 flex-column">
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-main text-secondary">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-main text-secondary" style="font-size: 16px">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home', app()->getLocale()) }}">
                 <img src="{{Storage::url('img/logo-orange.svg')}}" alt="logo macusi">
@@ -52,9 +49,9 @@
                                 <button type="button" id="nav-login" class="nav-link text-secondary text-uppercase font-weight-bold border-0 bg-main" style=":hover{ color: #FFBC80 !important}" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" :form="login">
                                     <i class="fa-solid fa-right-to-bracket text-secondary"><span style="font-family: Inter; font-weight: bold"> {{ __('Login') }}</span></i>
                                 </button>
-                              {{--
-                              <a class="" href="{{ route('login', app()->getLocale()) }}"> </a>
-                            --}}
+                                {{--
+                                <a class="" href="{{ route('login', app()->getLocale()) }}"> </a>
+                              --}}
                             </li>
                         @endif
                     @else
@@ -81,7 +78,7 @@
                     @endguest
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary font-weight-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           {{strtoupper(App::getLocale())}}
+                            {{strtoupper(App::getLocale())}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end w-auto bg-main">
                             @foreach(config('custom.available_languages') as $language=>$value)
@@ -105,83 +102,10 @@
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" style="padding: 0 !important;">
-
-                                {{-- APPEL FORMULAIRE NECESSAIRE --}}
-                                @livewire('form-container')
-
-                                {{--
-                                <h3 class="h3-title text-white p-2 font-weight-bold">{{ __('Login') }}</h3>
-                                <form method="POST" action="{{ route('login', app()->getLocale()) }}">
-                                    @csrf
-                                    <div class="mb-4 mt-4">
-                                        <div class="col-md-10 px-0">
-                                            <input id="email" type="email" class="form-control rounded-pill bg-transparentpx-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email Address') }}" autofocus>
-
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <div class="col-md-10 px-0">
-                                            <input id="password" type="password" class="form-control rounded-pill bg-transparentpx-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
-
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3 d-flex">
-                                        <div class="col-md-6">
-                                            <div class="form-check d-inline align-middle">
-                                                <input class="form-check-input border-0 rounded-circle remember-me" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                                <label class="form-check-label text-white font-weight-light ml-1" for="remember">
-                                                    {{ __('Remember Me') }}
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="d-block pt-1">
-                                                @if (Route::has('password.request'))
-                                                    <a class="link text-secondary text-decoration-none forgot float-right" href="{{ route('password.request', app()->getLocale()) }}">
-                                                        {{ __('Forgot Your Password?') }}
-                                                    </a>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-0 mt-4">
-                                        <div class="col-md-10">
-                                            <button type="submit" class="btn download py-2 px-5 border-0 rounded-pill bg-secondary text-white font-weight-700 align-baseline text-uppercase float-right">
-                                                {{ __('Login') }}
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10 mt-3" style="font-size: 12px">
-                                        <p class="text-white font-weight-light text-center">Vous ne possédez pas de compte ? <a href="{{route('register', app()->getLocale())}}" class="text-secondary text-decoration-none">{{__('Register')}}</a></p>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        --}}
-
-
+        @livewire('form-container')
     </main>
 </div>
 @livewireScripts
-<script src="../../js/custom.js"></script>
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-main border-top mt-auto">
     <!-- Section: Links  -->
@@ -211,7 +135,7 @@
                         <a href="{{route('dico.index', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Dictionnaire')}}</a>
                     </p>
                     <p>
-                        <a href="{{route('dico.submissions', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Soumissions de la communauté')}}</a>
+                        <a href="{{route('dico.submissions', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Vote')}}</a>
                     </p>@guest
                         <p>
                             <a href="{{route('login', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Login')}}</a>
@@ -257,12 +181,14 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4 text-white" style="background-color: #050021;">
-        <p class="m-0">
-            <a class="text-white text-decoration-none" href="{{route('terms-and-conditions', app()->getLocale())}}">{{__('Conditions d\'utilisation')}}</a>
-        <span class="vertical">|</span>
-        <a class="text-decoration-none text-white" href="{{route('privacy-and-policy', app()->getLocale())}}">{{__('Politique de confidentialité')}}</a>
-        </p>
+    <div class="text-left p-4 text-white" style="background-color: #050021;">
+        <div class="container">
+            <p class="m-0 text-uppercase">
+                <a class="text-white text-decoration-none" href="{{route('terms-and-conditions', app()->getLocale())}}">{{__('Conditions d\'utilisation')}}</a>
+                <span class="vertical">|</span>
+                <a class="text-decoration-none text-white" href="{{route('privacy-and-policy', app()->getLocale())}}">{{__('Politique de confidentialité')}}</a>
+            </p>
+        </div>
     </div>
     <!-- Copyright -->
 </footer>
@@ -270,6 +196,5 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-@vite(['resources/js/custom.js'])
 </body>
 </html>

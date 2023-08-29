@@ -19,7 +19,7 @@
             <div class="col-md-3 d-flex flex-column text-center">
                 <a href="{{route('dico.download', ['lang' => app()->getLocale(), 'format' => 'PDF'])}}" class="btn download py-3 px-4 border-0 rounded-pill bg-secondary text-white font-weight-bold align-baseline"><img src="{{Storage::url('img/icon-download.svg')}}" alt="Télécharger" height="23">
                     {{__('Télécharger en PDF')}}</a>
-                <a href="" class="mt-2 text-secondary">{{__('Autres formats')}}</a>
+               {{-- <a href="" class="mt-2 text-secondary">{{__('Autres formats')}}</a> --}}
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
             @endif
         @endforeach
     </div>
-    <div class="d-flex justify-content-center mt-4">
+    <div class="d-flex justify-content-end mt-4">
         {{ $mots->links() }}
     </div>
     <script>
