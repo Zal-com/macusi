@@ -32,8 +32,8 @@
         <p>{{ucfirst($localeString)}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> MaCuSi</p>
     </div>
 
-
-    <div class="d-flex flex-wrap justify-content-center" id="accordion">
+        <livewire:results/>
+        {{--
         @foreach($mots as $mot)
             @if($mot->typesString() != 'Chiffre')
                 <x-card :mot="$mot" :count="$count"/>
@@ -42,10 +42,7 @@
                 @endphp
             @endif
         @endforeach
-    </div>
-    <div class="d-flex justify-content-end mt-4">
-        {{ $mots->links() }}
-    </div>
+        --}}
     <script>
         $(document).ready(function(){
             $(".MaLo").hide();

@@ -27,12 +27,11 @@ class TranslateController extends Controller
         $available_languages = config('custom.available_languages');
 
         //$mots = Mot::all();
-        //$mots = Syllabe::all();
-        $mots = Type::all();
+        $mots = Syllabe::all();
+        //$mots = Type::all();
         foreach ($mots as $mot) {
             $trads_array = json_decode($mot->trads, flags: JSON_OBJECT_AS_ARRAY);
-
-            foreach ($available_languages as $language){
+            foreach ($available_languages as $language => $key){
                 if(! array_key_exists($language, $trads_array)){
                     $result = $translate->translate($trads_array['FR'], [
                         'target' => $language
