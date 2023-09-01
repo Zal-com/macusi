@@ -11,8 +11,9 @@
                 </div>
             @endif
             <h3 class="h3-title text-white p-2 font-weight-bold">{{ __('Reset Password') }}</h3>
-            <form method="POST" action="{{ route('password.email', app()->getLocale()) }}">
+            <form method="POST" action="{{ route('password.email', ['lang'=> app()->getLocale()]) }}">
                 @csrf
+                @method('POST')
 
                 <div class="mb-4 mt-4">
                     <div class="col-md-10 px-0">

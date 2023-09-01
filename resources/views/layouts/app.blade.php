@@ -136,15 +136,12 @@
                     </p>
                     <p>
                         <a href="{{route('dico.submissions', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Vote')}}</a>
-                    </p>@guest
-                        <p>
-                            <a href="{{route('login', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Login')}}</a>
-                        </p>
-                    @else
+                    </p>
+                    @auth
                         <p>
                             <a href="{{route('user.submission.create', ['lang' => app()->getLocale(),'id' => Auth::id()])}}" class="text-decoration-none text-white">{{__('Soumettre un mot')}}</a>
                         </p>
-                    @endguest
+                    @endauth
                 </div>
                 <!-- Grid column -->
 

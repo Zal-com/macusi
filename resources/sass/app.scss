@@ -493,6 +493,18 @@ button.disabled{
     background-color: transparent;
 }
 
+#filters button.bg-secondary:hover{
+    background: var(--accent-color) !important;
+}
+
+#filters button.bg-secondary:focus{
+    background: var(--secondary-color) !important;
+}
+
+#filters button:hover{
+    background: var(--accent-color);
+}
+
 
 
 

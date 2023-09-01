@@ -1,8 +1,11 @@
-<div id="filters">
-    <input class="rounded-pill px-3 py-1" type="search" placeholder="Rechercher">
-    <button class="rounded-pill border-secondary px-3 py-1" wire:click="order_asc" wire:model="order">Alphabétique A - Z</button>
-    <button class="rounded-pill border-secondary px-3 py-1" wire:click="order_desc" wire:model="filter" name="order" value="desc">Alphabétique Z - A</button>
-    <label id="beginsWith" class="rounded-pill border-secondary px-3 py-1">Commence par :
+<div id="filters" class="mt-4 text-center">
+    {{--
+    <input class="rounded-pill px-3 py-1 text-black" type="search" placeholder="Rechercher" wire:model="search" wire:change.debounce="search">
+    --}}
+    <button class="rounded-pill border-secondary px-3 py-1 @if($filter === 'order_asc') bg-secondary text-white @endif" wire:click="order_asc" wire:model="order">Alphabétique A - Z</button>
+    <button class="rounded-pill border-secondary px-3 py-1 @if($filter === 'order_desc') bg-secondary text-white @endif" wire:click="order_desc" wire:model="filter" name="order" value="desc">Alphabétique Z - A</button>
+   {{--
+   <label id="beginsWith" class="rounded-pill border-secondary px-3 py-1">Commence par :
     <select name="beginsWith" class="border-0 bg-transparent">
         @foreach(\App\Models\Syllabe::all() as $syllabe)
             <option value="{{$syllabe->syllabe}}">{{$syllabe->syllabe}}</option>
@@ -16,5 +19,9 @@
             @endfor
         </select>
     </label>
+    --}}
+    <div wire:loading.delay>
+        Chargement ...
+    </div>
 </div>
 

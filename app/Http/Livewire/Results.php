@@ -19,19 +19,18 @@ class Results extends Component
     protected $mots;
     public $filter = '';
     public $count = 1;
-    public $listeners = ['updateResults'=> 'updateResults'];
+    public $search = '';
+    public $listeners = [
+        'updateResults'=> 'updateResults',
+        'search' => 'updateSearch'
+    ];
 
     public function render()
     {
         switch ($this->filter){
             case 'order_desc' : $this->mots = $this->getDicoDescOrder()->paginate(24);
                 break;
-            /*
-            $dico = Mot::hydrate(
-                    DB::select(
-                        'SELECT *, JSON_EXTRACT(trads, "$.'.strtoupper(app()->getLocale()).'") as trad FROM mots ORDER BY trad DESC'
-                    )
-            );*/
+            case 'search' :$this->mots = $this->search($this->search)->paginate(24);
                 break;
             default : $this->mots = Mot::where('id', '>=', 65)->paginate(24);
                 break;
@@ -40,6 +39,10 @@ class Results extends Component
         return view('livewire.results', [
             'mots' => $this->mots
         ]);
+    }
+
+    public function mount(){
+        $this->filter = '';
     }
 
     public function updateResults($filter){
@@ -63,6 +66,21 @@ class Results extends Component
 
         return $words;
 
+    }
+
+    public function updateSearch($search){
+        $this->search = $search;
+        $this->filter = 'search';
+
+    }
+
+    public function search($searchTerm){
+        $query = DB::select(dd('SELECT *, JSON_UNQUOTE(JSON_EXTRACT(trads, "$.' . strtoupper(app()->getLocale()) . '")) as "trad" FROM `mots` WHERE enMacusi LIKE "' . $searchTerm . '%" OR "trad" LIKE "' . $searchTerm . '%"'));
+
+        dd($query);
+        dd($data->paginate(2));
+
+        return $data;
     }
 
 }

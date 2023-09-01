@@ -19,30 +19,19 @@
             <div class="col-md-3 d-flex flex-column text-center">
                 <a href="{{route('dico.download', ['lang' => app()->getLocale(), 'format' => 'PDF'])}}" class="btn download py-3 px-4 border-0 rounded-pill bg-secondary text-white font-weight-bold align-baseline"><img src="{{Storage::url('img/icon-download.svg')}}" alt="Télécharger" height="23">
                     {{__('Télécharger en PDF')}}</a>
-               {{-- <a href="" class="mt-2 text-secondary">{{__('Autres formats')}}</a> --}}
+                {{-- <a href="" class="mt-2 text-secondary">{{__('Autres formats')}}</a> --}}
             </div>
         </div>
     </div>
     <livewire:filters/>
-    <div class="language-switch d-flex justify-content-center align-baseline">
-        <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> {{ucfirst($localeString)}}</p>
+    <div class="language-switch d-flex justify-content-center align-baseline mt-2">
+        <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px"> {{ucfirst($localeString)}}</p>
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="switch" checked>
         </div>
-        <p>{{ucfirst($localeString)}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}"> MaCuSi</p>
+        <p>{{ucfirst($localeString)}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px"> MaCuSi</p>
     </div>
-
-        <livewire:results/>
-        {{--
-        @foreach($mots as $mot)
-            @if($mot->typesString() != 'Chiffre')
-                <x-card :mot="$mot" :count="$count"/>
-                @php
-                    $count++;
-                @endphp
-            @endif
-        @endforeach
-        --}}
+    <livewire:results/>
     <script>
         $(document).ready(function(){
             $(".MaLo").hide();
