@@ -17,3 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/search/{word}', [\App\Http\Controllers\DicoController::class, 'apiSearch']);
+Route::get('/search/{lang}/{word}', [\App\Http\Controllers\DicoController::class, 'apiLangSearch']);
+Route::get('/basics', function(){
+
+   $words = \App\Models\Syllabe::all();
+
+   foreach ($words as $word){
+       foreach (config('custom.available_languages') as $key => $language){
+
+           $word['traductions'] = json_decode($word->trads);
+           unset($word->id);
+       }
+   }
+   return response()->json($words);
+});

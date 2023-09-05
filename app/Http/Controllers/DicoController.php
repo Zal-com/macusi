@@ -13,6 +13,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\TranslateTrait;
+use function MongoDB\BSON\toJSON;
 
 class DicoController extends Controller
 {
@@ -84,9 +85,30 @@ class DicoController extends Controller
 
         $pdm = new PDFDicoManager();
         $pdm->createPDF($lang);
-        dd('fini');
 
-        return 0;
+    }
+
+    public function apiSearch(String $word){
+
+        $result = Mot::where('enMacusi', 'LIKE', $word)->first();
+
+        if($result == null){
+            return response(404);
+        }
+
+        $result->traductions = json_decode($result->trads);
+
+        for ($i = 1; $i <=6; $i++){
+            if($result->{'mot' . $i} == null) break;
+
+            $result->{'mot' . $i} = Syllabe::select(['syllabe', 'trads'])->where('syllabe', $result->{'mot' . $i})->first();
+            $result->{'mot' . $i}->traductions = json_decode($result->{'mot' . $i}->trads);
+            unset($result->{'mot' . $i}->id);
+        }
+
+        unset($result->id);
+
+        return response()->json($result);
     }
 
 }
