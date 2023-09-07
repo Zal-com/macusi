@@ -5,7 +5,4 @@
  */
 
 import './bootstrap';
-import { previewMacusi } from './custom';
-
-previewMacusi();
 

@@ -24,14 +24,19 @@
         </div>
     </div>
     <livewire:filters/>
+    {{--
     <div class="language-switch d-flex justify-content-center align-baseline mt-2">
         <p>MaCuSi <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px"> {{ucfirst($localeString)}}</p>
+
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="switch" checked>
         </div>
+
         <p>{{ucfirst($localeString)}} <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px"> MaCuSi</p>
     </div>
+       --}}
     <livewire:results/>
+    {{--
     <script>
         $(document).ready(function(){
             $(".MaLo").hide();
@@ -49,5 +54,5 @@
             });
         });
     </script>
-
+--}}
 @endsection

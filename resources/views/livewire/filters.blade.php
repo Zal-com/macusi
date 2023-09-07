@@ -1,4 +1,4 @@
-<div id="filters" class="mt-4 text-center">
+<div id="filters" class="my-4 text-center">
     {{--
     <input class="rounded-pill px-3 py-1 text-black" type="search" placeholder="Rechercher" wire:model="search" wire:change.debounce="search">
     --}}

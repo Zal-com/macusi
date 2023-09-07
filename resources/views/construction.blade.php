@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container construction">
         <h1 class="h3-title">{{__('Construction')}}</h1>
 
         <!----------
@@ -239,43 +239,43 @@
         ------------>
     <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">{{__('Mots')}}</h3>
 
-    <div class="container d-flex justify-content-center flex-wrap mt-4">
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#particularites">
+    <div class="container construction d-flex justify-content-center flex-wrap mt-4">
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#particularites">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Particularités')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#genres">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#genres">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Genres')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#pluriel">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#pluriel">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Pluriel')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#adjectif">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#adjectif">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Adjectif')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#article">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#article">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Article')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#conjonction">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#conjonction">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Conjonction & préposition')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#verbe">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#verbe">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Verbe')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#propre">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#propre">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Nom propre')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
-        <div class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#ponctuation">
+        </button>
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#ponctuation">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Ponctuation')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
-        </div>
+        </button>
     </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="particularites" aria-hidden="true">
@@ -459,7 +459,7 @@
        ------------>
     <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">{{__('Conjugaison')}}</h3>
 
-    <div class="container d-flex justify-content-center flex-wrap mt-4">
+    <div class="container construction d-flex justify-content-center flex-wrap mt-4">
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#present">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Présent')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>

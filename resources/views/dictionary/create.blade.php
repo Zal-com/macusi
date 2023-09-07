@@ -27,7 +27,7 @@
         <div class="div2 w-75">
             <div class="right px-5 card border-0 shadow p-3 h-100">
                 <h3 class="h3-title mt-2">{{__('Soumettre un mot')}}</h3>
-                <form method="POST" action="{{ route('user.submission.store', ['lang' => app()->getLocale(), 'id' => Auth::id()]) }}">
+                <form method="POST" class="submission_form" action="{{ route('user.submission.store', ['lang' => app()->getLocale(), 'id' => Auth::id()]) }}">
                     @csrf
                     <div class="form-row d-flex align-items-baseline w-100">
                         <label>Syllabes :</label>
@@ -53,7 +53,7 @@
                         <div class="form-group col-9">
                             <label  for="concept" class="mx-1">Concept : </label>
                             <label>
-                                <input type="text"  name="concept" class="form-control-plaintext" readonly  value="---">
+                                <input type="text" id="concept"  name="concept" class="form-control-plaintext" readonly  value="---">
                             </label>
                         </div>
                     </div>
@@ -69,9 +69,10 @@
                         <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-2">
                     </div>
                     <div class="form-row">
-                        <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
+                        {{-- <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
+                     --}}
                     </div>
-                    <input type="submit" value="Soumettre" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary border-0 rounded-pill float-right px-4">{{__('Submit')}}</button>
                 </form>
             </div>
         </div>

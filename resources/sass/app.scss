@@ -493,6 +493,29 @@ button.disabled{
     background-color: transparent;
 }
 
+.submission_form .btn{
+    background: var(--secondary-color);
+    color: white !important;
+    font-weight: bold;
+    border-radius: unset;
+}
+
+.submission_form .btn:hover,
+.password_edit_form .btn:hover{
+    background: white !important;
+    outline: 2px solid var(--secondary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.submission_form .btn:focus,
+.password_edit_form .btn:focus{
+    background: white !important;
+    outline: 2px solid var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    border: none;
+    box-shadow: unset;
+}
+
 #filters button.bg-secondary:hover{
     background: var(--accent-color) !important;
 }
@@ -503,6 +526,52 @@ button.disabled{
 
 #filters button:hover{
     background: var(--accent-color);
+}
+
+.password_edit_form input{
+    color: black;
+}
+
+.construction button{
+    border: 2px solid var(--secondary-color) !important;
+}
+
+.construction button::before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -4px;
+    border-radius: 8px;
+    width: calc(100% + 6px);
+    height: calc(100% + 5px);
+    background: #fff;
+    transition: 0.5s ease-in-out;
+    transform: scaleY(1);
+}
+
+.construction button:hover::before{
+    transform: scaleY(0);
+}
+
+.construction button:hover::after{
+    transform: scaleX(0);
+}
+
+.construction button div{
+    position: relative;
+    z-index: 3;
+}
+
+.construction button::after{
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 12px);
+    background: #fff;
+    transition: 0.5s ease-in-out;
+    transform: scalex(1);
 }
 
 
