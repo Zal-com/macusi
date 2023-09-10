@@ -25,7 +25,7 @@
                             <td><input class="rounded-pill text-black px-2" type="password" name="newPassword_" id="newPassword_"></td>
                         </tr>
                     </table>
-                    <button type="submit" class="btn btn-primary border-0 rounded-pill float-right px-4 bg-secondary fw-bold">{{__('Edit')}}</button>
+                    <button type="submit" class="btn btn-primary border-0 rounded-pill float-right px-4 bg-secondary fw-bold">{{__('Modifier')}}</button>
                 </form>
             </div>
         </div>

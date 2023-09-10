@@ -15,8 +15,9 @@ class Syllabe extends Model
 
     protected $fillable = [
         'syllabe',
-        'trads'
-    ];
+        'trads',
+        'phonetique'
+        ];
 
 
 

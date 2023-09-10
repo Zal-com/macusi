@@ -12,6 +12,7 @@ class Filters extends Component
     public $filter = 'order_asc';
     public $order = '';
     public $search = '';
+    public $language = 'LoMa';
 
 
     public function render()
@@ -41,4 +42,10 @@ class Filters extends Component
         $this->filter = 'search';
         $this->emit('search', $this->search);
     }
+
+    public function switch(){
+        $this->emit('language', $this->language == 'LoMa' ? 'MaLo' : 'LoMa');
+        $this->language = $this->language == 'LoMa' ? 'Malo' : 'LoMa';
+    }
+
 }

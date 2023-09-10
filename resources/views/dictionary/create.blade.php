@@ -72,7 +72,7 @@
                         {{-- <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
                      --}}
                     </div>
-                    <button type="submit" class="btn btn-primary border-0 rounded-pill float-right px-4">{{__('Submit')}}</button>
+                    <button type="submit" class="btn btn-primary border-0 rounded-pill float-right px-4">{{__('Soumettre')}}</button>
                 </form>
             </div>
         </div>

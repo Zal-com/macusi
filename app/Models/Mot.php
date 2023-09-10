@@ -91,4 +91,19 @@ class Mot extends Model
         return substr($str, 0, strlen($str)-2);
     }
 
+    public function phonetiqueString() : String {
+
+        $str = '[';
+        for($i = 1; $i <=6; $i++){
+            $syllabe = Syllabe::where('syllabe', $this->{'mot' . $i})->first();
+            if($syllabe == null) break;
+           $str .= $syllabe->phonetique;
+        }
+
+        $str .= ']';
+
+
+        return $str;
+    }
+
 }
