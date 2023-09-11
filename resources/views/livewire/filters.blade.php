@@ -2,22 +2,21 @@
     <input class="rounded-pill px-3 py-1 text-black" type="search" placeholder="Rechercher" wire:model="search" wire:change.debounce="search">
     <button class="rounded-pill border-secondary px-3 py-1 @if($filter === 'order_asc') bg-secondary text-white @endif" wire:click="order_asc" wire:model="order">Alphabétique A - Z</button>
     <button class="rounded-pill border-secondary px-3 py-1 @if($filter === 'order_desc') bg-secondary text-white @endif" wire:click="order_desc" wire:model="filter" name="order" value="desc">Alphabétique Z - A</button>
-   {{--
-   <label id="beginsWith" class="rounded-pill border-secondary px-3 py-1">Commence par :
-    <select name="beginsWith" class="border-0 bg-transparent">
+   <label id="beginsWith" class="rounded-pill border-secondary px-3 py-1 @if($filter === 'beginsWith')) bg-secondary text-white @endif ">Commence par :
+    <select name="beginsWith" class="border-0 bg-transparent @if($filter === 'beginsWith') text-white @endif" wire:model="beginsWith" wire:change.debounce="beginsWith">
         @foreach(\App\Models\Syllabe::all() as $syllabe)
             <option value="{{$syllabe->syllabe}}">{{$syllabe->syllabe}}</option>
         @endforeach
     </select>
     </label>
-    <label class="rounded-pill border-secondary px-3 py-1">Nombre de syllabes :
-        <select name="nbreSyllabes" class="border-0 bg-transparent">
+    <label id="nbreSyllabes" class="rounded-pill border-secondary px-3 py-1 @if($filter === 'nbreSyllabes') bg-secondary text-white @endif">Nombre de syllabes :
+        <select name="nbreSyllabes" class="border-0 bg-transparent @if($filter === 'nbreSyllabes') text-white @endif " wire:model="nbreSyllabes" wire:change.debounce="nbreSyllabes">
             @for($i = 1; $i<=6; $i++)
                 <option value="{{$i}}">{{$i}}</option>
             @endfor
         </select>
     </label>
-    --}}
+
     <div class="language-switch d-flex justify-content-center align-baseline mt-2">
 
         <p>MaCuSi

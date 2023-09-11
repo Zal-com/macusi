@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Mot;
+use App\Models\Syllabe;
 use Database\Seeders\MotSeeder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -20,7 +21,7 @@ class Results extends Component
     protected $paginationTheme = 'bootstrap';
 
     protected $mots;
-    public $filter = 'order_asc';
+    public $filter = '';
     public $count = 1;
     public $search = '';
     public $language = 'LoMa'; //LoMa -> Locale to MaCuSi | MaLo -> Macusi to Locale
@@ -32,16 +33,26 @@ class Results extends Component
 
     public function render()
     {
+        if(preg_match('/^beginsWith_[A-Z][a-z]$/', $this->filter)){
+            $this->mots = $this->beginsWith(explode('_', $this->filter)[1])->paginate(24);
+        }
+        else if(preg_match('/nbreSyllabes_[1-6]$/', $this->filter)) {
+            $this->mots = $this->nbreSyllabes(explode('_', $this->filter)[1])->paginate(24);
+        }
+        else{
 
-        switch ($this->filter){
-            case 'order_desc' : $this->mots = $this->getDicoDescOrder()->paginate(24);
-                break;
-            case 'order_asc' : $this->mots = $this->getDicoAscOrder()->paginate(24);
-                break;
-            case 'search' :$this->mots = $this->search($this->search) == null ? Mot::where('id', '>=', 65)->paginate(24) : $this->search($this->search);
-                break;
-            default : $this->mots = Mot::where('id', '>=', 65)->paginate(24);
-                break;
+            switch ($this->filter) {
+                case 'order_desc' :
+                    $this->mots = $this->getDicoDescOrder()->paginate(24);
+                    break;
+                case 'search' :
+                    $this->mots = $this->search($this->search) == null ? Mot::where('id', '>=', 65)->paginate(24) : $this->search($this->search)->paginate(24);
+                    break;
+                case 'order_asc':
+                default :
+                    $this->mots = $this->getDicoAscOrder()->paginate(24);
+                    break;
+            }
         }
 
         return view('livewire.results', [
@@ -63,7 +74,7 @@ class Results extends Component
             $words->orderBy(DB::raw(' JSON_EXTRACT(trads, "$.'.strtoupper(app()->getLocale()).'")'), 'asc')->get();
         }
         else {
-            $words = Mot::query(DB::raw('SELECT * FROM mots'));
+            $words = Mot::query(DB::raw('SELECT * FROM mots ORDER BY enMacusi ASC'));
             $words->orderBy('enMacusi', 'asc')->get();
         }
 
@@ -97,17 +108,31 @@ class Results extends Component
             $this->search = '';
             return null;
         }
-        $query = DB::select('SELECT * FROM `mots` WHERE enMacusi LIKE "' . ucfirst($searchTerm) . '%"');
 
-        $query2 = DB::select('SELECT * FROM `mots` WHERE JSON_VALUE(trads, "$.'. strtoupper(app()->getLocale()) .'") LIKE "' . ucfirst($searchTerm) . '%"');
+        $resultsMacusi = Mot::where('enMacusi', 'like', ucfirst($searchTerm));
+        $resultsLocale = Mot::whereRaw('JSON_VALUE(trads, "$.'. strtoupper(app()->getLocale()) .'") LIKE "' . ucfirst($searchTerm) . '%"');
 
-        $results = array_merge($query, $query2);
-
-        return new LengthAwarePaginator(Mot::hydrate($results), count($results), 24);
+        return $resultsLocale->unionAll($resultsMacusi);
     }
 
     public function updateLanguage($language){
         $this->language = $language;
     }
 
+    public function beginsWith($syllabe)
+    {
+        try {
+            return Mot::where('mot1', '=', $syllabe);
+        } catch (\Exception $e) {
+            return redirect()->route('dico.index', app()->getLocale())->with('error', __('validation.exists', ['attribute' => '']));
+        }
+    }
+
+    public function nbreSyllabes($nbre){
+        try{
+            return Mot::whereRaw('LENGTH(enMacusi) = ' . $nbre*2);
+        }catch(\Exception $e){
+            return redirect()->route('dico.index', app()->getLocale())->with('error', __('validation.exists', ['attribute' => '']));
+        }
+    }
 }

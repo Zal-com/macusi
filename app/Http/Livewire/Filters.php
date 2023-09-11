@@ -13,6 +13,8 @@ class Filters extends Component
     public $order = '';
     public $search = '';
     public $language = 'LoMa';
+    public $beginsWith;
+    public $nbreSyllabes;
 
 
     public function render()
@@ -46,6 +48,16 @@ class Filters extends Component
     public function switch(){
         $this->emit('language', $this->language == 'LoMa' ? 'MaLo' : 'LoMa');
         $this->language = $this->language == 'LoMa' ? 'Malo' : 'LoMa';
+    }
+
+    public function beginsWith(){
+        $this->filter = 'beginsWith';
+        $this->emit('updateResults', 'beginsWith_'.$this->beginsWith);
+    }
+
+    public function nbreSyllabes(){
+        $this->filter = 'nbreSyllabes';
+        $this->emit('updateResults', 'nbreSyllabes_' . $this->nbreSyllabes);
     }
 
 }
