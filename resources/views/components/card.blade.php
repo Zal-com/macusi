@@ -3,16 +3,16 @@
     $locale = (string) strtoupper(app()->getLocale());
 @endphp
 <div id="{{'heading' . $count}}" class="w-40 my-2 mx-2">
-    <button class="btn border-secondary rounded-4 w-100 text-left shadow" data-bs-toggle="collapse" data-bs-target="{{'#collapse' . $count}}" aria-expanded="true" aria-controls="{{'collapse' . $count}}" onclick="rotate({{"fleche_{$count}"}})">
+    <button class="btn border-secondary rounded-4 w-100 text-left shadow bg-white" data-bs-toggle="collapse" data-bs-target="{{'#collapse' . $count}}" aria-expanded="true" aria-controls="{{'collapse' . $count}}" onclick="rotate({{"fleche_{$count}"}})">
         <div id="header" class="align-middle font-weight-bold py-1" style="font-size: 18px !important;">
-            <img src="{{Storage::url('img/icon-comment.svg')}}" class="mx-2">
+            <img src="{{Storage::url('img/icon-comment.svg')}}" class="mx-2" alt="decorative icon comment bubble">
             @if($this->language == 'LoMa')
                 <span class="LoMa font-weight-bold">{{json_decode($mot->trads)->$locale}} : {{$mot->enMacusi}} {{$mot->phonetiqueString()}}</span>
             @else
                 <span class="MaLo font-weight-bold">{{$mot->enMacusi}} {{$mot->phonetiqueString()}} : {{json_decode($mot->trads)->$locale}}</span>
             @endif
             <span class="float-right align-middle">
-                <img id="{{"fleche_{$count}"}}" src="{{Storage::url('img/icon-arrow-right.svg')}}" style="rotate: 90deg">
+                <img id="{{"fleche_{$count}"}}" src="{{Storage::url('img/icon-arrow-right.svg')}}" style="rotate: 90deg" alt="decorative arrow right">
             </span>
         </div>
         <div id="{{'collapse' . $count}}" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">

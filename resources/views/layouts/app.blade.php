@@ -80,12 +80,12 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary font-weight-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{strtoupper(App::getLocale())}}
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end w-auto bg-main">
+                        <div class="dropdown-menu bg-main">
                             @foreach(config('custom.available_languages') as $language=>$value)
                                 @if($language == 'EN')
-                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"> EN</a>
+                                    <a class="dropdown-item text-secondary font-weight-bold" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>'en']))}}"> EN</a>
                                 @else
-                                    <a class="dropdown-item text-secondary" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>strtolower($language)]))}}"> {{$language}}</a>
+                                    <a class="dropdown-item text-secondary font-weight-bold" href="{{route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['lang'=>strtolower($language)]))}}"> {{$language}}</a>
 
                                 @endif
                             @endforeach
@@ -150,11 +150,11 @@
                     <!-- Links -->
                     <h6 class="fw-bold mb-4 text-secondary fs-18">{{__('Contact')}}</h6>
                     <p class="text-white">
-                        <i class="fas fa-envelope me-3 text-white"></i>
+                        <i class="fas fa-envelope me-1 text-white"></i>
                         contact@macusi.be
                     </p>
                     <p class="text-white">
-                        <i class="fas fa-envelope me-3 text-white"></i>
+                        <i class="fas fa-envelope me-1 text-white"></i>
                         dev@macusi.be
                     </p>
                 </div>
@@ -163,11 +163,15 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-secondary fw-bold mb-4 fs-18">{{__('Réseaux')}}</h6>
-                    <a href="https://www.facebook.com/profile.php?id=100087166600089" target="_blank" class="me-4 text-reset text-decoration-none">
-                        <i class="fab fa-facebook-f text-white"></i>
-                        <a href="https://youtube.com/" target="_blank" class="me-4 text-white text-decoration-none">
-                            <i class="fab fa-youtube text-white"></i>
+                    <p>
+                        <a href="https://www.facebook.com/profile.php?id=100087166600089" target="_blank" class="me-4 text-white text-decoration-none">
+                            <i class="fab fa-facebook-f me-1 text-white"></i>
+                            Facebook
                         </a>
+                    </p>
+                    <a href="https://youtube.com/" target="_blank" class="me-1 text-white text-decoration-none">
+                        <i class="fab fa-youtube text-white"></i>
+                        Youtube
                     </a>
                 </div>
                 <!-- Grid column -->
