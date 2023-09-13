@@ -59,6 +59,24 @@
                     </div>
 
                     <div class="form-row d-flex align-items-baseline">
+                        <label>Types :</label>
+                        <select name="type_1" class="form-group form-control col-md-1">
+                            <option value="">---</option>
+                            @foreach(\App\Models\Type::all() as $type)
+                                <option value={{$type->id}}>{{json_decode($type->trads)->$locale}}</option>
+                            @endforeach
+                        </select>
+                        <select name="type_2" class="form-group form-control col-md-1">
+                            <option value="">---</option>
+                            @foreach(\App\Models\Type::all() as $type)
+                                <option value={{$type->id}}>{{json_decode($type->trads)->$locale}}</option>
+                            @endforeach
+                        </select>
+                        {{-- <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
+                     --}}
+                    </div>
+
+                    <div class="form-row d-flex align-items-baseline">
                         <label>Traduction :</label>
                         <select name="language" class="form-group form-control col-md-1">
                             <option value="GE">Deutsch</option>
@@ -68,10 +86,7 @@
                         </select>
                         <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-2">
                     </div>
-                    <div class="form-row">
-                        {{-- <input type="textarea" name="contextSentence" placeholder="Put {{ $word = 'word' }} in a sentence." class="form-group form-control col-md-6">
-                     --}}
-                    </div>
+
                     <button type="submit" class="btn btn-primary border-0 rounded-pill float-right px-4">{{__('Soumettre')}}</button>
                 </form>
             </div>

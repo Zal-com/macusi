@@ -45,6 +45,8 @@ class DicoController extends Controller
             'syllabe_3' => 'required_with:syllabe_4',
             'syllabe_4' => 'required_with:syllabe_5',
             'syllabe_5' => 'nullable',
+            'type_1' => 'required',
+            'type_2' => 'nullable',
             'enMacusi' => 'required|max:12',
             'concept' => 'required',
             'language' => 'required',
@@ -62,6 +64,8 @@ class DicoController extends Controller
         $motTravail->enMacusi_sug = $validated['enMacusi'];
         $motTravail->trads_sug =  json_encode($this->translate($validated['language'], $validated['traduction']));
         $motTravail->submitter_sug = Auth::user()->id;
+
+
 
         if ($motTravail->save()) {
             return redirect()->route('user.submission.create', ['lang' => \app()->getLocale(), 'id' => Auth::id()])->with('success', 'Mot soumis avec succès.');
