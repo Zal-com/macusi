@@ -6,15 +6,20 @@
         <div class="vr" style="height: inherit; opacity: 50%; color: white; padding: 0; margin-top: 50px; margin-bottom: 50px; width: 1.5px;"></div>
         <div class="col-md-7 py-5 px-5">
             <h3 class="h3-title text-white p-2 font-weight-bold">{{ __('Login') }}</h3>
-            <form method="POST" action="{{ route('login', app()->getLocale()) }}">
+            @error('fail')
+            <span class="error">
+                <strong class="font-weight-bold text-danger">{{ $message }}</strong>
+            </span>
+            @enderror
+            <form method="POST" wire:submit.prevent="submit" action="{{ route('login', app()->getLocale()) }}">
                 @csrf
 
                 <div class="mb-4 mt-4">
                     <div class="col-md-10 px-0">
-                        <input id="email" type="email" class="form-control rounded-pill bg-transparent px-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email Address') }}" autofocus>
+                        <input wire:model="email" id="email" type="email" class="form-control rounded-pill bg-transparent px-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email Address') }}" autofocus>
 
                         @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback error" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                         @enderror
@@ -23,10 +28,10 @@
 
                 <div class="mb-4">
                     <div class="col-md-10 px-0">
-                        <input id="password" type="password" class="form-control rounded-pill bg-transparent px-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
+                        <input wire:model="password" id="password" type="password" class="form-control rounded-pill bg-transparent px-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
 
                         @error('password')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback error" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                         @enderror
@@ -53,7 +58,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row mb-0 mt-4">
                     <div class="col-md-10">
                         <button type="submit" class="btn download py-2 px-5 border-0 rounded-pill bg-secondary text-white font-weight-700 align-baseline text-uppercase float-right">
