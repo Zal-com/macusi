@@ -55,5 +55,6 @@
     "Verify Your Email Address": "Vérifiez votre adresse e-mail",
     "Whoops!": "Oups !",
     "You are logged in!": "Vous êtes connecté·e !",
-    "You are receiving this email because we received a password reset request for your account.": "Vous recevez cet e-mail car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte."
+    "You are receiving this email because we received a password reset request for your account.": "Vous recevez cet e-mail car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.",
+    "from " : "en "
 }

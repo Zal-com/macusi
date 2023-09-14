@@ -10,7 +10,7 @@
 <x-backpack::menu-item title="Dictionnaire" icon="la la-book-open" :link="backpack_url('mot')" />
 <x-backpack::menu-item title="Soumissions" icon="la la-inbox" :link="backpack_url('mot-travail')"/>
 <x-backpack::menu-item title="Syllabes" icon="la la-spell-check" :link="backpack_url('syllabe')"/>
-<x-backpack::menu-item title="Votes" icon="la la-poll" :link="backpack_url('user-votes')"/>
+<x-backpack::menu-item title="Votes" icon="la la-poll" :link="backpack_url('user-vote')"/>
 <x-backpack::menu-item title="Types" icon="la la-question" :link="backpack_url('type')"/>
 <x-backpack::menu-item title="Nationalités" icon="la la-flag" :link="backpack_url('nationalite')"/>
 <x-backpack::menu-item title="Csv data" icon="la la-question" :link="backpack_url('csv-data')" />

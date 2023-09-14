@@ -58,7 +58,8 @@ class MotTravailController extends Controller
     public function delete(Request $request){
         $submission = MotTravail::find($request->get('id'));
         if($request->get('submitter_id') == \Auth::id()){
-            return $submission->delete()
+            $submission->isValidated_sug = -1;
+            return $submission->save()
                 ? redirect()->route('user.profile.submissions.index', [
                     'lang' => app()->getLocale(),
                     'id' => \Auth::id()

@@ -46,7 +46,10 @@ class ProfileController
 
     public function submissionsIndex($id){
         return view('user.profile.submissions.index', [
-            'submissions' => MotTravail::all()->where('submitter_sug', '=', Auth::id()),
+            'submissions' => MotTravail::where([
+                ['submitter_sug', '=', Auth::id()],
+                ['isValidated_sug', '!=', -1]
+            ])->get(),
             'url' => 'submissions'
         ]);
     }

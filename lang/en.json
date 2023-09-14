@@ -176,5 +176,7 @@
     "Vous ne possédez pas de compte ?": "Don't have an account?",
     "Whoops!": "Whoops!",
     "You are logged in!": "You are logged in!",
-    "You are receiving this email because we received a password reset request for your account.": "You are receiving this email because we received a password reset request for your account."
+    "You are receiving this email because we received a password reset request for your account.": "You are receiving this email because we received a password reset request for your account.",
+    "Rechercher" : "Search",
+    "Pas de résultats" : "No results found"
 }

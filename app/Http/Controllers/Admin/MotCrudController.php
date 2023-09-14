@@ -6,12 +6,14 @@ use App\Http\Requests\MotRequest;
 use App\Jobs\GenerateDico;
 use App\Models\Syllabe;
 use App\Models\Type;
+use App\Models\TypeMot;
 use App\Providers\PDFDicoManager;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use BackpackImport\ImportOperation;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class MotCrudController
@@ -25,7 +27,7 @@ class MotCrudController extends CrudController
         store as TraitStore;
     }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation { destroy as traitDestroy; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use ImportOperation;
 
@@ -62,6 +64,9 @@ class MotCrudController extends CrudController
             'type' => 'custom_type',
         ]);
 
+        CRUD::removeButton('delete');
+
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -92,18 +97,25 @@ class MotCrudController extends CrudController
             ->tab('Mot');
 
         CRUD::field([
-            'label' => 'Types',
+            'label' => 'Type',
             'type' => 'select_multiple',
-            'name' => 'id',
+            'name' => 'types',
             'entity' => 'types',
             'model' => 'App\Models\Type',
-            'attribute' => 'trads'
+            'attribute' => 'trads',
+            'pivot' => true
         ])
+
             ->validationRules('required')
             ->tab('Type.s');
 
+
         CRUD::field('trads')
             ->type('hidden');
+
+        for ($i = 1; $i <= 6 ; $i++) {
+            CRUD::field('mot' . $i)->type('hidden');
+        }
 
         foreach (config('custom.available_languages') as $language=>$value) {
             CRUD::field([
@@ -143,17 +155,33 @@ class MotCrudController extends CrudController
         $trads = json_encode($tradsArray);
         $this->crud->getRequest()['trads'] = $trads;
 
-        $macusi = '';
+        $macusi = $this->crud->getRequest()['enMacusi'];
+        $macusi = str_split($macusi, 2);
 
-        for ($i = 1; $i < 7; $i++) {
-            $syllabe = Syllabe::find($this->crud->getRequest()['mot' . $i])->syllabe;
-            $macusi .= $syllabe;
-            $this->crud->getRequest()['mot' . $i] = $syllabe;
+        for ($i = 1; $i <= 6 ; $i++) {
+
+            if(! array_key_exists($i-1, $macusi)){
+                $this->crud->getRequest()['mot' . $i] = null;
+            }
+            else{
+                $syllabe = Syllabe::where('syllabe', '=', $macusi[$i-1])->first();
+                $this->crud->getRequest()['mot' . $i] = $syllabe->syllabe;
+            }
+
         }
 
-        $this->crud->getRequest()['enMacusi'] = $macusi;
 
         $response = $this->TraitStore();
+
+        $id_mot = DB::getPdo()->lastInsertId();
+
+        foreach ($this->crud->getRequest()['types'] as $type) {
+            $insert = new TypeMot();
+            $insert->id_mot = $id_mot;
+            $insert->id_type = $type;
+
+            $insert->save();
+        }
 
         $this->dispatch(new GenerateDico());
 
@@ -183,5 +211,6 @@ class MotCrudController extends CrudController
             'trads' => 'required',
         ];
     }
+
 }
 

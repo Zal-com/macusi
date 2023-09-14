@@ -19,7 +19,7 @@ Route::group([
     Route::crud('mot', 'MotCrudController');
     Route::crud('mot-travail', 'MotTravailCrudController');
     Route::crud('syllabe', 'SyllabeCrudController');
-    Route::crud('user-vote', 'UserVoteCrudController');
+    Route::crud('user-votes', 'UserVoteCrudController');
     Route::crud('nationalite', 'NationaliteCrudController');
     Route::crud('type', 'TypeCrudController');
     Route::crud('csv-data', 'CsvDataCrudController');

@@ -46,9 +46,13 @@ class MotTravailCrudController extends CrudController
         CRUD::column('mot5_sug')->label('Mot 5');
         CRUD::column('mot6_sug')->label('Mot 5');
         CRUD::column('enMacusi_sug')->label('Macusi');
-        CRUD::column('dateAjout_sug')->label('Date d\'ajout');
-        CRUD::column('explication_sug')->label('Contexte');
         CRUD::column('trads_sug')->label('Traductions');
+        $this->crud->addColumn([
+            'name' => 'votes',
+            'label' => 'Votes',
+            'type'=> 'model_function',
+            'function_name' => 'getVotesString'
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

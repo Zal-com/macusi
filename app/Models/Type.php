@@ -36,4 +36,8 @@ class Type extends Model
         return $this->belongsToThrough(MotTravail::class, TypeSuggestion::class);
     }
 
+    public function mots() : BelongsToThrough{
+        return $this->belongsToThrough(Mot::class, TypeMot::class);
+    }
+
 }

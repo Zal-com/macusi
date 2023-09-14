@@ -60,7 +60,7 @@ class MotTravail extends Model
     }
 
     public function types() : HasManyThrough{
-        return $this->hasManyThrough(Type::class, TypeSuggestion::class , 'id_sug' ,'id', 'id_sug', 'id_sug');
+        return $this->hasManyThrough(Type::class, TypeSuggestion::class , 'id_sug' ,'id', 'id_sug', 'id_type');
     }
 
     public function TypesString() : String{
@@ -103,5 +103,9 @@ class MotTravail extends Model
             return (float) ($this->votes_positifs()->count() / $this->votes()->count())*100;
         }
         else return 0;
+    }
+
+    public function getVotesString(){
+        return 'Pos. : ' . $this->votes_positifs()->count() . ' | Neg. : ' . $this->votes_positifs()->count();
     }
 }

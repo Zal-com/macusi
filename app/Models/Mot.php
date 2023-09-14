@@ -28,6 +28,7 @@ class Mot extends Model
         'dateAjout',
         'explication',
         'trads',
+        'status'
     ];
 
     protected $table = 'mots';

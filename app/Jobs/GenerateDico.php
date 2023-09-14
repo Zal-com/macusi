@@ -32,11 +32,9 @@ class GenerateDico implements ShouldQueue, ShouldBeUnique
     public function handle(): void
     {
         foreach (config('custom.available_languages') as $language){
-            PDFDicoManager::createPDF($language);
+            $pdm = new PDFDicoManager();
+            $pdm->createPDF($language);
         }
     }
 
-    public function uniqueId() : string {
-        return $this->mot->id;
-    }
 }

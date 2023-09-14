@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Mot;
 use App\Models\MotTravail;
 use App\Models\Syllabe;
+use App\Models\Type;
+use App\Models\TypeSug;
+use App\Models\TypeSuggestion;
 use App\Providers\PDFDicoManager;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use http\Env\Response;
@@ -13,6 +16,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\TranslateTrait;
+use Illuminate\Support\Facades\DB;
 use function MongoDB\BSON\toJSON;
 
 class DicoController extends Controller
@@ -54,6 +58,7 @@ class DicoController extends Controller
         ]);
 
         //TODO Ajouter valeur par defaut dateAjout Modele
+
         $motTravail = new MotTravail();
         $motTravail->mot1_sug = $validated['syllabe_0'];
         $motTravail->mot2_sug = $validated['syllabe_1'];
@@ -65,10 +70,24 @@ class DicoController extends Controller
         $motTravail->trads_sug =  json_encode($this->translate($validated['language'], $validated['traduction']));
         $motTravail->submitter_sug = Auth::user()->id;
 
-
-
         if ($motTravail->save()) {
-            return redirect()->route('user.submission.create', ['lang' => \app()->getLocale(), 'id' => Auth::id()])->with('success', 'Mot soumis avec succès.');
+
+            $motTravail->id = DB::getPdo()->lastInsertId();
+
+            if($validated['type_2'] != null){
+                $type_2 = new TypeSuggestion();
+                $type_2->id_type = $validated['type_2'];
+                $type_2->id_sug = $motTravail->id;
+                $type_2->save();
+            }
+
+            $type_1 = new TypeSuggestion();
+            $type_1->id_type = $validated['type_1'];
+            $type_1->id_sug = $motTravail->id;
+
+            if($type_1->save()){
+                return redirect()->route('user.submission.create', ['lang' => \app()->getLocale(), 'id' => Auth::id()])->with('success', 'Mot soumis avec succès.');
+            }
         }
 
         return redirect()->route('user.submission.create', ['lang' => \app()->getLocale(), 'id' => Auth::id()])->with('error', 'Erreur lors de l\'opération');
