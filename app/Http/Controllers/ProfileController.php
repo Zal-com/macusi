@@ -34,11 +34,15 @@ class ProfileController
         $user = User::find(Auth::id());
 
         request()->validate([
-            'email' => ['required', 'string']
+            'email' => ['required', 'string', 'email'],
+            'name' => ['required', 'string'],
+            'nationality' => ['required', 'string', 'min:2', 'max:2'],
         ]);
 
         $user->update([
-            'email' => request('email')
+            'email' => request('email'),
+            'name' => request('name'),
+            'code_nationalite' => request('nationality')
         ]);
 
         return redirect()->back()->with('success', 'Informations mises à jour avec succès');

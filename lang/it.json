@@ -182,5 +182,8 @@
     "You are receiving this email because we received a password reset request for your account.": "Hai ricevuto questa email perché abbiamo ricevuto una richiesta di reset della password per il tuo account.",
     "Rechercher" : "Cerca",
     "from " : "dall'",
-    "Pas de résultats" : "Nessun risultato trovato"
+    "Pas de résultats" : "Nessun risultato trovato",
+    "Bases de la langue" : "Nozioni di base sulla lingua",
+    "La base de MaCuSi se tient dans une courte liste de syllabes ayant comme traduction les concepts les plus basiques possibles afin de les rendre modulable." : "La base di MaCuSi è un breve elenco di sillabe che traducono i concetti più elementari possibili in modo da renderli modulari.",
+    "Liste des mots formant la base de MaCuSi" : "Elenco di parole che costituiscono la base di MaCuSi"
 }

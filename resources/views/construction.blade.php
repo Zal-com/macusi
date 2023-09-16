@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@php
+    $locale = strtoupper(app()->getLocale());
+@endphp
 
 @section('content')
     <div class="container construction">
@@ -240,6 +243,10 @@
     <h3 class="text-center mt-5" style="color: #575757; font-size: 30px; font-weight: 600;">{{__('Mots')}}</h3>
 
     <div class="container construction d-flex justify-content-center flex-wrap mt-4">
+        <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#basics">
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Bases de la langue')}}</div>
+            <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
+        </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#particularites">
             <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Particularités')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
@@ -278,6 +285,32 @@
         </button>
     </div>
 
+    <div class="modal" tabindex="-1" role="dialog" id="basics" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{__('Bases de la langue')}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+                        <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <p>{{__('La base de MaCuSi se tient dans une courte liste de syllabes ayant comme traduction les concepts les plus basiques possibles afin de les rendre modulable.')}}</p>
+                <div>
+                    <p>{{__('Liste des mots formant la base de MaCuSi')}}:</p>
+                    <ul>
+                        @foreach(\App\Models\Syllabe::all() as $syllabe)
+                            @if(json_decode($syllabe->trads)->$locale != "")
+                                <li>{{$syllabe->syllabe}} <img style="height: 15px" src="{{\Illuminate\Support\Facades\Storage::url('img/icon-simple-arrow.svg')}}"> {{json_decode($syllabe->trads)->$locale}}</li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal" tabindex="-1" role="dialog" id="particularites" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

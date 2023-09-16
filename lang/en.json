@@ -178,5 +178,8 @@
     "You are logged in!": "You are logged in!",
     "You are receiving this email because we received a password reset request for your account.": "You are receiving this email because we received a password reset request for your account.",
     "Rechercher" : "Search",
-    "Pas de résultats" : "No results found"
+    "Pas de résultats" : "No results found",
+    "Bases de la langue" : "Language basics",
+    "La base de MaCuSi se tient dans une courte liste de syllabes ayant comme traduction les concepts les plus basiques possibles afin de les rendre modulable." : "The basis of MaCuSi is a short list of syllables translating the most basic concepts possible in order to make them modular.",
+    "Liste des mots formant la base de MaCuSi" : "List of words forming the basis of MaCuSi"
 }

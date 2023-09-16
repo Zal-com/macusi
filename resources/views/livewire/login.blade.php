@@ -41,7 +41,7 @@
                 <div class="row mb-3 d-flex">
                     <div class="col-md-6">
                         <div class="form-check d-inline align-middle">
-                            <input class="form-check-input border-0 rounded-circle remember-me" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <input wire:model="remember" class="form-check-input border-0 rounded-circle remember-me" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                             <label class="form-check-label text-white font-weight-light ml-1" for="remember">
                                 {{ __('Remember Me') }}

@@ -9,6 +9,11 @@
         <div class="vr" style="height: inherit; opacity: 50%; color: white; padding: 0; margin-top: 50px; margin-bottom: 50px; width: 1.5px;"></div>
         <div class="col-md-7 py-5 px-5">
             <h3 class="h3-title text-white p-2 font-weight-bold">{{ __('Register') }}</h3>
+            @error('fail')
+            <span class="error">
+                <strong class="font-weight-bold text-danger">{{ $message }}</strong>
+            </span>
+            @enderror
             <form method="POST" wire:submit.prevent="register" action="{{ route('register', app()->getLocale())}}">
                 @csrf
                 <div class="container-fluid">
@@ -83,7 +88,7 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-10">
-                        <input wire:model="password_confirm" id="password_confirm" type="password" class="form-control bg-transparent rounded-pill " name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required autocomplete="new-password">
+                        <input wire:model="password_confirmation" id="password_confirmation" type="password" class="form-control bg-transparent rounded-pill " name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required autocomplete="new-password">
                     </div>
                 </div>
                 <div class="row mb-4">

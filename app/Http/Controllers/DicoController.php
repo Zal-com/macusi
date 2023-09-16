@@ -96,7 +96,7 @@ class DicoController extends Controller
     // fonction de génération du PDF
     public function download($lang, $format){
 
-        dd($filename = public_path() . '/storage/pdf/Dico' . $format . '_' . strtoupper(app()->getLocale() . '.pdf'));
+        $filename = public_path() . '/storage/pdf/Dico' . $format . '_' . strtoupper(app()->getLocale()) . '.pdf';
         if(! file_exists($filename)){
             $this->generatePDF(app()->getLocale());
         }

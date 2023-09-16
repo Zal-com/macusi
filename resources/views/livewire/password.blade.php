@@ -17,7 +17,7 @@
 
                 <div class="mb-4 mt-4">
                     <div class="col-md-10 px-0">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror bg-transparent rounded-pill" placeholder="{{__('Email')}}" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                        <input wire:model="email" id="email" type="email" class="form-control @error('email') is-invalid @enderror bg-transparent rounded-pill" placeholder="{{__('Email')}}" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
                         <span class="invalid-feedback" role="alert">

@@ -21,7 +21,8 @@ class FormContainer extends Component
     public $firstname;
     public $lastname;
     public $nationality;
-    public $password_confirm;
+    public $password_confirmation;
+    public $remember;
 
     public $rules = [];
 
@@ -31,7 +32,7 @@ class FormContainer extends Component
 
     public function submit(){
         $validatedData = $this->validate($this->rules);
-        if($this->attemptLogin(Request::create('', 'GET', ['email' => $this->email, 'password' => $this->password]))){
+        if($this->attemptLogin(Request::create('', 'GET', ['email' => $this->email, 'password' => $this->password, 'remember' => $this->remember]))){
             return redirect()->route('home', app()->getLocale());
         }
         else{
@@ -41,7 +42,8 @@ class FormContainer extends Component
     }
 
     public function register(){
-        $validated = $this->validate($this->rules);
+
+        $this->validate($this->rules);
 
         User::create([
             'name' => $validated['name'],
@@ -69,17 +71,22 @@ class FormContainer extends Component
         switch ($this->form){
             case 'login' : $this->rules = [
                 'email' => 'required|email|min:8',
-                'password' => 'required'
+                'password' => 'required',
+                'remember' => 'nullable'
             ];
             break;
             case 'register'  : $this->rules = [
                 'email' => 'required|email|unique:users',
-                'password' => 'required|string|min:8',
+                'password' => 'required|string|min:8|confirmed',
                 'name' => 'required|string|unique:users',
                 'firstname'=> 'required|string',
                 'lastname' => 'required|string',
                 'nationality' => 'required|min:2|max:2',
-                'password_confirm' => 'required|same:password'
+                'password_confirmation' => 'required'
+            ];
+            break;
+            case 'password' : $this->rules = [
+                'email' => 'required|email'
             ];
             break;
         }
@@ -103,6 +110,5 @@ class FormContainer extends Component
     public function showPassword(){
         $this->form = 'password';
     }
-
 
 }
