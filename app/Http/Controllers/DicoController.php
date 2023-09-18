@@ -111,27 +111,49 @@ class DicoController extends Controller
 
     }
 
-    public function apiSearch(String $word){
+    public function apiSearch(Request $request){
 
-        $result = Mot::where('enMacusi', 'LIKE', $word)->first();
+        $results = Mot::where('enMacusi', 'LIKE', $request->get('searchTerm'))->get();
 
-        if($result == null){
+        if($results == null){
             return response(404);
         }
 
-        $result->traductions = json_decode($result->trads);
+        foreach ($results as $result) {
+            $result->traductions = json_decode($result->trads);
 
-        for ($i = 1; $i <=6; $i++){
-            if($result->{'mot' . $i} == null) break;
+            for ($i = 1; $i <= 6; $i++) {
+                if ($result->{'mot' . $i} == null) break;
 
-            $result->{'mot' . $i} = Syllabe::select(['syllabe', 'trads'])->where('syllabe', $result->{'mot' . $i})->first();
-            $result->{'mot' . $i}->traductions = json_decode($result->{'mot' . $i}->trads);
-            unset($result->{'mot' . $i}->id);
+                $result->{'mot' . $i} = Syllabe::select(['syllabe', 'trads'])->where('syllabe', $result->{'mot' . $i})->first();
+                $result->{'mot' . $i}->traductions = json_decode($result->{'mot' . $i}->trads);
+                unset($result->{'mot' . $i}->id);
+            }
+
+            unset($result->id);
         }
 
-        unset($result->id);
+        return response()->json($results);
+    }
 
-        return response()->json($result);
+    public function apiLangSearch(String $lang, Request $request){
+        $results = Mot::query()->whereRaw('JSON_VALUE(trads, "$.'. strtoupper($lang) .'") LIKE "' . $request->get('searchTerm') . '%"')->get();
+
+        foreach ($results as $result) {
+            $result->traductions = json_decode($result->trads);
+
+            for ($i = 1; $i <= 6; $i++) {
+                if ($result->{'mot' . $i} == null) break;
+
+                $result->{'mot' . $i} = Syllabe::select(['syllabe', 'trads'])->where('syllabe', $result->{'mot' . $i})->first();
+                $result->{'mot' . $i}->traductions = json_decode($result->{'mot' . $i}->trads);
+                unset($result->{'mot' . $i}->id);
+            }
+
+            unset($result->id);
+        }
+
+        return response()->json($results);
     }
 
 }

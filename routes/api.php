@@ -22,10 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 /**
  * Returns informations about a word in MaCuSi. Input is case insensitive.
  */
-Route::get('/search/{word}', [\App\Http\Controllers\DicoController::class, 'apiSearch']);
+Route::get('dictionary/search', [\App\Http\Controllers\DicoController::class, 'apiSearch']);
 
 
-//Route::get('/search/{lang}/{word}', [\App\Http\Controllers\DicoController::class, 'apiLangSearch']);
+Route::get('dictionary/{lang}/search', [\App\Http\Controllers\DicoController::class, 'apiLangSearch']);
 
 /**
  * Returns informations about the 85 basic words of MaCuSi
