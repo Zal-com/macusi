@@ -16,7 +16,7 @@
     "C'est quoi?": "Che cosa è?",
     "Citron Petit": "Limone Piccolo",
     "click here to request another": "clicca qui per richiederne un altro",
-    "Complément": "Complemento",
+    "Compléments": "Complementi",
     "Complément de lieu": "Complemento di luogo",
     "Complément de temps": "Complemento di tempo",
     "Conditionnel": "Condizionale",
@@ -125,7 +125,7 @@
     "of": "di",
     "Page Expired": "Pagina scaduta",
     "Pagination Navigation": "Navigazione della Paginazione",
-    "Particularités": "Particolarità",
+    "Précisions": "Dettagli",
     "Pas d’accord pour les adjectifs. Il se place toujours derrière le nom.": "Nessuna concordanza per gli aggettivi. Essi si collocano sempre dopo il sostantivo.",
     "Password": "Password",
     "Passé": "Passato",
@@ -183,7 +183,7 @@
     "Rechercher" : "Cerca",
     "from " : "dall'",
     "Pas de résultats" : "Nessun risultato trovato",
-    "Bases de la langue" : "Nozioni di base sulla lingua",
+    "Base de la langue" : "Base della lingua",
     "La base de MaCuSi se tient dans une courte liste de syllabes ayant comme traduction les concepts les plus basiques possibles afin de les rendre modulable." : "La base di MaCuSi è un breve elenco di sillabe che traducono i concetti più elementari possibili in modo da renderli modulari.",
     "Liste des mots formant la base de MaCuSi" : "Elenco di parole che costituiscono la base di MaCuSi"
 }

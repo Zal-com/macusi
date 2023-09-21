@@ -3,7 +3,7 @@
 @section('content')
     @if(app()->getLocale() == 'fr')
         <h3 class="h3-title mb-28 mt-50">Introduction</h3>
-        <p class="mb-28 text-justify">Le <span class='MaCuSi'>MaCuSi</span> est une langue construite minimaliste aux niveaux phonologique et grammatical
+        <p class="mb-28 text-justify">Le <span class='MaCuSi'>MaCuSi</span> est une idéolangue minimaliste aux niveaux phonologique et grammatical
             mais pas de manière lexicale. En effet, beaucoup de langues construites sont centrées sur un
             thème unique. Le <span class='MaCuSi'>MaCuSi</span> a été conçu pour permettre la génération de tous les mots d'une
             langue.</p>
@@ -48,7 +48,6 @@
         </div>
         <h3 class="h3-title mb-28">En résumé</h3>
         <ul>
-            <li>Auxiliaire conçue pour être simple afin de faciliter la communication;</li>
             <li>Logique conçue avec un raisonnement et sans irrégularité;</li>
             <li>Tous les mots sont construits au moyen d'un nombre
                 réduit de racines qui se regroupent pour former les mots;</li>
@@ -56,7 +55,7 @@
         </ul>
     @elseif(app()->getLocale() == 'en')
         <h3 class="h3-title mb-28 mt-50">Introduction</h3>
-        <p class="mb-28 text-justify">The <span class='MaCuSi'>MaCuSi</span> is a minimalist constructed language in terms of phonology and grammar,
+        <p class="mb-28 text-justify">The <span class='MaCuSi'>MaCuSi</span> is a minimalist ideolanguage in terms of phonology and grammar,
             but not lexically. Indeed, many constructed languages are centered around a single theme. The
             <span class='MaCuSi'>MaCuSi</span> was designed to allow the generation of all the words of a language.</p>
         <p class="mb-28 text-justify">Phonologically, the <span class='MaCuSi'>MaCuSi</span> uses seventeen consonants (b, c, d, f, g, j, l, m, n, p, r, s, t, v, w,
@@ -96,7 +95,6 @@
         </div>
         <h3 class="h3-title mb-28">In Summary</h3>
         <ul>
-            <li>An auxiliary language designed to be simple to facilitate communication;</li>
             <li>Logically designed with reasoning and without irregularities;</li>
             <li>All words are constructed using a reduced number
                 of roots that group together to form words;</li>
@@ -104,7 +102,7 @@
         </ul>
     @elseif(app()->getLocale() == 'it')
         <h3 class="h3-title mb-28 mt-50">Introduzione</h3>
-        <p class="mb-28 text-justify">Il <span class='MaCuSi'>MaCuSi</span> è una lingua costruita minimalista a livello fonologico e grammaticale,
+        <p class="mb-28 text-justify">Il <span class='MaCuSi'>MaCuSi</span> è una ideolinguaggio minimalista a livello fonologico e grammaticale,
             ma non a livello lessicale. Infatti, molte lingue costruite sono incentrate su un singolo tema. Il
             <span class='MaCuSi'>MaCuSi</span> è stato progettato per consentire la generazione di tutte le parole di una lingua.</p>
         <p class="mb-28 text-justify">Dal punto di vista fonologico, il <span class='MaCuSi'>MaCuSi</span> utilizza diciassette consonanti (b, c, d, f, g, j, l, m, n, p, r, s, t, v, w,
@@ -142,7 +140,6 @@
         </div>
         <h3 class="h3-title mb-28">In Sintesi</h3>
         <ul>
-            <li>Una lingua ausiliaria progettata per essere semplice al fine di facilitare la comunicazione;</li>
             <li>Logica progettata con ragionamento e senza irregolarità;</li>
             <li>Tutte le parole sono costruite utilizzando un numero
                 ridotto di radici che si raggruppano per formare le parole;</li>
@@ -150,7 +147,7 @@
         </ul>
     @elseif(app()->getLocale() == 'de')
         <h3 class="h3-title mb-28 mt-50">Einführung</h3>
-        <p class="mb-28 text-justify">Das <span class='MaCuSi'>MaCuSi</span> ist eine minimalistische konstruierte Sprache in Bezug auf Phonetik und Grammatik,
+        <p class="mb-28 text-justify">Das <span class='MaCuSi'>MaCuSi</span> ist eine minimalistische Ideosprache in Bezug auf Phonetik und Grammatik,
             aber nicht lexikalisch. Viele konstruierte Sprachen sind auf ein einziges Thema ausgerichtet. Das
             <span class='MaCuSi'>MaCuSi</span> wurde entwickelt, um die Generierung aller Wörter einer Sprache zu ermöglichen.</p>
         <p class="mb-28 text-justify">Phonetisch verwendet das <span class='MaCuSi'>MaCuSi</span> siebzehn Konsonanten (b, c, d, f, g, j, l, m, n, p, r, s, t, v, w,
@@ -177,7 +174,6 @@
         </div>
         <h3 class="h3-title mb-28">Zusammenfassung</h3>
         <ul>
-            <li>Eine Hilfssprache, die entwickelt wurde, um die Kommunikation zu erleichtern;</li>
             <li>Logisch gestaltet mit Vernunft und ohne Unregelmäßigkeiten;</li>
             <li>Alle Wörter werden unter Verwendung einer begrenzten Anzahl von Wurzeln konstruiert, die sich zu Wörtern zusammenschließen;</li>
             <li>Greift nicht auf den Wortschatz einer bestehenden Sprache zurück.</li>

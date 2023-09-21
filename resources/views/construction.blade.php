@@ -47,7 +47,7 @@
                 </div>
                 <div class="modal-body">
                     <p>{{__('Elle se construit de la manière suivante : le sujet se met en début de phrase suivi par le verbe et ensuite viennent les différents compléments.')}}</p>
-                    <p class="demo"><span>{{__('Sujet')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>{{__('Complément')}}</span></p>
+                    <p class="demo"><span>{{__('Sujet')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>{{__('Verbe')}}</span><img src="{{asset('storage/img/icon-plus.svg')}}"><span>{{__('Compléments')}}</span></p>
                     <p class="exemple"><span>{{__('Exemple')}} : </span>{{__('J\'aime les fruits')}}<img src="{{asset('storage/img/icon-arrow-right-left.svg')}}">
                         {{__('Moi Aimer Fruits')}} <img src="{{asset('storage/img/icon-arrow-right-left.svg')}}"> Sa Da JuMo</p>
 
@@ -74,7 +74,7 @@
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout">Ze</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>{{__('Complément')}}</span>
+                        <span>{{__('Compléments')}}</span>
                     </p>
                     <p class="exemple">
                         <span>{{__('Exemple')}} : </span>
@@ -106,7 +106,7 @@
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>{{__('Complément')}}</span>
+                        <span>{{__('Compléments')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout">Wa</span>
                     </p>
@@ -117,7 +117,7 @@
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout">Wa</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>{{__('Complément')}}</span>
+                        <span>{{__('Compléments')}}</span>
                     </p>
                     <p class="demo">
                         <span>{{__('Sujet')}}</span>
@@ -126,7 +126,7 @@
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>{{__('Complément')}}</span>
+                        <span>{{__('Compléments')}}</span>
                     </p>
                     <p class="demo">
                         <span class="ajout">Wa</span>
@@ -135,7 +135,7 @@
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>{{__('Complément')}}</span>
+                        <span>{{__('Compléments')}}</span>
                     </p>
                     <p class="exemple">
                         <span>{{__('Exemple')}} : </span>
@@ -166,7 +166,7 @@
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span>{{__('Verbe')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
-                        <span>{{__('Complément')}}</span>
+                        <span>{{__('Compléments')}}</span>
                         <img src="{{asset('storage/img/icon-plus.svg')}}">
                         <span class="ajout"> !</span>
                     </p>
@@ -244,11 +244,11 @@
 
     <div class="container construction d-flex justify-content-center flex-wrap mt-4">
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#basics">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Bases de la langue')}}</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Base de la langue')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#particularites">
-            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Particularités')}}</div>
+            <div style="color: var(--secondary-color); font-size: 18px; line-height: 24px;">{{__('Précisions')}}</div>
             <div><img src="{{asset('storage/img/icon-arrow-right.svg')}}" height="15"></div>
         </button>
         <button class="card d-flex flex-row justify-content-between border-0 shadow p-3 mx-3 my-2" style="cursor: pointer; width: 460px !important; border-radius: 8px  !important;" data-bs-toggle="modal" data-bs-target="#genres">
@@ -289,7 +289,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{__('Bases de la langue')}}</h5>
+                    <h5 class="modal-title">{{__('Base de la langue')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
@@ -299,10 +299,10 @@
                     <p>{{__('La base de MaCuSi se tient dans une courte liste de syllabes ayant comme traduction les concepts les plus basiques possibles afin de les rendre modulable.')}}</p>
                 <div>
                     <p>{{__('Liste des mots formant la base de MaCuSi')}}:</p>
-                    <ul>
+                    <ul class="basics" style="list-style-type: disc; -webkit-columns: 2; -moz-columns: 2; columns: 2; list-style-position: inside">
                         @foreach(\App\Models\Syllabe::all() as $syllabe)
                             @if(json_decode($syllabe->trads)->$locale != "")
-                                <li>{{$syllabe->syllabe}} <img style="height: 15px" src="{{\Illuminate\Support\Facades\Storage::url('img/icon-simple-arrow.svg')}}"> {{json_decode($syllabe->trads)->$locale}}</li>
+                                <li style="display: inline-block; width: 50%"><span style="float: left; width: 1.3em">{{$syllabe->syllabe}}</span><img style="height: 15px" class="mx-2" src="{{\Illuminate\Support\Facades\Storage::url('img/icon-simple-arrow.svg')}}">{{json_decode($syllabe->trads)->$locale}}</li>
                             @endif
                         @endforeach
                     </ul>
@@ -315,7 +315,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{__('Particularités')}}</h5>
+                    <h5 class="modal-title">{{__('Précisions')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                         <img src="{{asset('storage/img/icon-close.svg')}}" alt="fermer le popup">
                     </button>
@@ -386,7 +386,7 @@
                             <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
                             {{__('Banane Grand')}}
                             <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
-                            JuMoXNu No
+                            JuMoXeNu Nu
                         </span>
                     </p>
                 </div>
