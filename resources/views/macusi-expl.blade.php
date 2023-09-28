@@ -47,7 +47,9 @@
             </div>
         </div>
         <h3 class="h3-title mb-28">En résumé</h3>
+        <p>Le MaCuSi est une langue :</p>
         <ul>
+            <li>Auxiliaire conçue pour être simple afin de faciliter la communication;</li>
             <li>Logique conçue avec un raisonnement et sans irrégularité;</li>
             <li>Tous les mots sont construits au moyen d'un nombre
                 réduit de racines qui se regroupent pour former les mots;</li>
@@ -94,7 +96,9 @@
             </div>
         </div>
         <h3 class="h3-title mb-28">In Summary</h3>
+        <p>MaCuSi is :</p>
         <ul>
+            <li>An auxiliary language designed to be simple to facilitate communication;</li>
             <li>Logically designed with reasoning and without irregularities;</li>
             <li>All words are constructed using a reduced number
                 of roots that group together to form words;</li>
@@ -139,7 +143,9 @@
             </div>
         </div>
         <h3 class="h3-title mb-28">In Sintesi</h3>
+        <p>MaCuSi è un linguaggio :</p>
         <ul>
+            <li>Ausiliario progettato per essere semplice per facilitare la comunicazione;</li>
             <li>Logica progettata con ragionamento e senza irregolarità;</li>
             <li>Tutte le parole sono costruite utilizzando un numero
                 ridotto di radici che si raggruppano per formare le parole;</li>
@@ -173,7 +179,9 @@
             </div>
         </div>
         <h3 class="h3-title mb-28">Zusammenfassung</h3>
+        <p>MaCuSi ist eine Hilfssprache : </p>
         <ul>
+            <li>Die einfach gestaltet ist, um die Kommunikation zu erleichtern;</li>
             <li>Logisch gestaltet mit Vernunft und ohne Unregelmäßigkeiten;</li>
             <li>Alle Wörter werden unter Verwendung einer begrenzten Anzahl von Wurzeln konstruiert, die sich zu Wörtern zusammenschließen;</li>
             <li>Greift nicht auf den Wortschatz einer bestehenden Sprache zurück.</li>
