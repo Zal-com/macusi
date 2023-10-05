@@ -22,7 +22,7 @@
 
     <div class="d-flex justify-content-center align-items-center mt-3">
         <p class="pr-2 mb-0">MaCuSi
-            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
+            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px" alt="arrow right">
             {{config('custom.available_languages')[strtoupper(app()->getLocale())]}}
         </p>
 
@@ -33,7 +33,7 @@
 
         <p class="pl-2 mb-0">
             {{config('custom.available_languages')[strtoupper(app()->getLocale())]}}
-            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px">
+            <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px" alt="arrow right">
             MaCuSi
         </p>
     </div>

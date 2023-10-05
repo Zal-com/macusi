@@ -9,6 +9,8 @@
     $count = 0;
 @endphp
 
+@section('description', __('Explorez notre vaste collection de mots. Téléchargez le PDF en un clic pour découvrir le pouvoir des mots et de notre incroyable dictionnaire en ligne MaCuSi dès maintenant !'))
+
 @section('content')
     <h1 class="h3-title">{{__('Bienvenue sur le dictionnaire !')}}</h1>
     <div class="container-fluid">

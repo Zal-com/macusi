@@ -181,5 +181,7 @@
     "Pas de résultats" : "No results found",
     "Base de la langue" : "Language basic",
     "La base de MaCuSi se tient dans une courte liste de syllabes ayant comme traduction les concepts les plus basiques possibles afin de les rendre modulable." : "The basis of MaCuSi is a short list of syllables translating the most basic concepts possible in order to make them modular.",
-    "Liste des mots formant la base de MaCuSi" : "List of words forming the basis of MaCuSi"
+    "Liste des mots formant la base de MaCuSi" : "List of words forming the basis of MaCuSi",
+    "Votes des soumissions !" : "Voting for submissions!",
+    "Veuillez voter ici pour vos mots préférés. Vous pouvez voter pour autant de mots que vous le souhaitez. Les mots avec le plus de votes seront ajoutés au dictionnaire officiel." : "Please vote here for your favorite words. You can vote for as many words as you want. The words with the most votes will be added to the official dictionary."
 }

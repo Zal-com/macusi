@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
+<head Str>
     <meta charset="utf-8">
+    <meta name="description" content="@yield('description')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{Storage::url('img/favicon.svg')}}">
 
@@ -23,7 +24,7 @@
     <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-main text-secondary" style="font-size: 16px">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home', app()->getLocale()) }}">
-                <img src="{{Storage::url('img/logo-orange.svg')}}" alt="logo macusi">
+                <img src="{{Storage::url('img/logo-orange.svg')}}" alt="logo macusi" height="59px" width="135px">
             </a>
             <button class="navbar-toggler text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <i class="fa-solid fa-bars fa-xl text-secondary"></i>
@@ -115,16 +116,16 @@
             <div class="row mt-3">
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <img src="{{Storage::url('img/logo-orange.svg')}}" alt="logo macusi">
+                    <img src="{{Storage::url('img/logo-orange.svg')}}" alt="logo macusi" height="59px" width="135px">
                 </div>
                 <!-- Grid column -->
 
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
-                    <h6 class="fw-bold text-secondary mb-4 fs-18">
+                    <p class="fw-bold text-secondary mb-4 fs-18">
                         {{__('Liens utiles')}}
-                    </h6>
+                    </p>
                     <p>
                         <a href="{{route('c-est-quoi', app()->getLocale()) }}" class="text-decoration-none text-white">Macusi, {{__('c\'est quoi ?')}} </a>
                     </p>
@@ -148,7 +149,7 @@
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
-                    <h6 class="fw-bold mb-4 text-secondary fs-18">{{__('Contact')}}</h6>
+                    <p class="fw-bold mb-4 text-secondary fs-18">{{__('Contact')}}</p>
                     <p class="text-white">
                         <i class="fas fa-envelope me-1 text-white"></i>
                         contact@macusi.be
@@ -162,7 +163,7 @@
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
-                    <h6 class="text-secondary fw-bold mb-4 fs-18">{{__('Réseaux')}}</h6>
+                    <p class="text-secondary fw-bold mb-4 fs-18">{{__('Réseaux')}}</p>
                     <p>
                         <a href="https://www.facebook.com/profile.php?id=100087166600089" target="_blank" class="me-4 text-white text-decoration-none">
                             <i class="fab fa-facebook-f me-1 text-white"></i>

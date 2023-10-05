@@ -2,6 +2,7 @@
 
 @section('content')
     @if(app()->getLocale() == 'fr')
+        @section('description', 'Le MaCuSi est une idéolangue minimaliste aux niveaux phonologique et grammatical mais pas de manière lexicale. En effet, beaucoup de langues construites sont centrées sur un thème unique. Le MaCuSi a été conçu pour permettre la génération de tous les mots d\'une langue.')
         <h3 class="h3-title mb-28 mt-50">Introduction</h3>
         <p class="mb-28 text-justify">Le <span class='MaCuSi'>MaCuSi</span> est une idéolangue minimaliste aux niveaux phonologique et grammatical
             mais pas de manière lexicale. En effet, beaucoup de langues construites sont centrées sur un
@@ -56,6 +57,7 @@
             <li>Ne puise pas son vocabulaire dans une langue existante.</li>
         </ul>
     @elseif(app()->getLocale() == 'en')
+        @section('description', 'The MaCuSi is a minimalist ideolanguage in terms of phonology and grammar, but not lexically. Indeed, many constructed languages are centered around a single theme. The MaCuSi was designed to allow the generation of all the words of a language.')
         <h3 class="h3-title mb-28 mt-50">Introduction</h3>
         <p class="mb-28 text-justify">The <span class='MaCuSi'>MaCuSi</span> is a minimalist ideolanguage in terms of phonology and grammar,
             but not lexically. Indeed, many constructed languages are centered around a single theme. The
@@ -105,6 +107,7 @@
             <li>Does not draw its vocabulary from an existing language.</li>
         </ul>
     @elseif(app()->getLocale() == 'it')
+        @section('description', 'Il MaCuSi è una ideolinguaggio minimalista a livello fonologico e grammaticale, ma non a livello lessicale. Infatti, molte lingue costruite sono incentrate su un singolo tema. Il è stato progettato per consentire la generazione di tutte le parole di una lingua.')
         <h3 class="h3-title mb-28 mt-50">Introduzione</h3>
         <p class="mb-28 text-justify">Il <span class='MaCuSi'>MaCuSi</span> è una ideolinguaggio minimalista a livello fonologico e grammaticale,
             ma non a livello lessicale. Infatti, molte lingue costruite sono incentrate su un singolo tema. Il
@@ -152,6 +155,7 @@
             <li>Non attinge al suo vocabolario da una lingua esistente.</li>
         </ul>
     @elseif(app()->getLocale() == 'de')
+        @section('description', 'Das MaCuSi ist eine minimalistische Ideosprache in Bezug auf Phonetik und Grammatik, aber nicht lexikalisch. Viele konstruierte Sprachen sind auf ein einziges Thema ausgerichtet. Das MaCuSi wurde entwickelt, um die Generierung aller Wörter einer Sprache zu ermöglichen.')
         <h3 class="h3-title mb-28 mt-50">Einführung</h3>
         <p class="mb-28 text-justify">Das <span class='MaCuSi'>MaCuSi</span> ist eine minimalistische Ideosprache in Bezug auf Phonetik und Grammatik,
             aber nicht lexikalisch. Viele konstruierte Sprachen sind auf ein einziges Thema ausgerichtet. Das

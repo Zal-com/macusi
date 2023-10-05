@@ -2,7 +2,7 @@
 @php
     $locale = (string) strtoupper(app()->getLocale());
 @endphp
-<div class="card shadow border-0 w-30 mx-3">
+<div class="card shadow border-0 w-30 mx-3 my-3">
     <div>
         <div id="header" class="align-middle text-center pt-3">
             <h4 class="font-weight-bold text-secondary">{{$item->enMacusi_sug}} : {{json_decode($item->trads_sug)->$locale}}</h4>

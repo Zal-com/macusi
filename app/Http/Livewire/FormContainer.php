@@ -43,7 +43,7 @@ class FormContainer extends Component
 
     public function register(){
 
-        $this->validate($this->rules);
+       $validated = $this->validate($this->rules);
 
         User::create([
             'name' => $validated['name'],
@@ -77,12 +77,12 @@ class FormContainer extends Component
             break;
             case 'register'  : $this->rules = [
                 'email' => 'required|email|unique:users',
-                'password' => 'required|string|min:8|confirmed',
                 'name' => 'required|string|unique:users',
                 'firstname'=> 'required|string',
                 'lastname' => 'required|string',
                 'nationality' => 'required|min:2|max:2',
-                'password_confirmation' => 'required'
+                'password' => 'required|min:8',
+                'password_confirmation' => 'required|same:password'
             ];
             break;
             case 'password' : $this->rules = [

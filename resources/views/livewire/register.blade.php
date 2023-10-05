@@ -1,7 +1,7 @@
 @php
     $nationalités = \App\Models\Nationalite::all();
 @endphp
-<div class="bg-main rounded-4">
+<div class="bg-main rounded-4" wire:ignore.self>
     <div class="row">
         <div class="col-md-4 d-flex justify-content-center m-auto">
             <img class="h-60 w-60" src="{{Storage::url('img/logo-orange.svg')}}" alt="logo">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-md-3">
                         <select wire:model="nationality" id="nationality" class="form-control @error('nationality') is-invalid @enderror rounded-pill bg-transparent" name="nationality" value="{{ old('nationality') }}" required autocomplete="nationality">
-                            <option value="" selected disabled>{{__('Nationalité')}}</option>
+                            <option value="" selected>{{__('Nationalité')}}</option>
                             @foreach($nationalités as $nationalité)
                                 <option value="{{$nationalité->code}}">{{$nationalité->nationalite}}</option>
                             @endforeach
@@ -88,7 +88,12 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-10">
-                        <input wire:model="password_confirmation" id="password_confirmation" type="password" class="form-control bg-transparent rounded-pill " name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required autocomplete="new-password">
+                        <input wire:model="password_confirmation" id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror bg-transparent rounded-pill " name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required autocomplete="new-password">
+                        @error('password_confirmation')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="row mb-4">
