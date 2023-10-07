@@ -35,8 +35,8 @@
         </div>
     </div>
 
-    <div class="modal" tabindex="-1" role="dialog" id="declarative" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="declarative" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('La phrase déclarative')}}</h5>
@@ -55,8 +55,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="negative" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="negative" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('La phrase négative')}}</h5>
@@ -89,8 +89,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="interrogative" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="interrogative" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('La phrase interrogative')}}</h5>
@@ -149,8 +149,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="exclamative" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="exclamative" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('La phrase exclamative')}}</h5>
@@ -183,8 +183,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="complements" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="complements" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('L\'ordre des compléments')}}</h5>
@@ -285,8 +285,8 @@
         </button>
     </div>
 
-    <div class="modal" tabindex="-1" role="dialog" id="basics" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="basics" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Base de la langue')}}</h5>
@@ -311,8 +311,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="particularites" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="particularites" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Précisions')}}</h5>
@@ -327,8 +327,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="genres" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="genres" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Genre du nom')}}</h5>
@@ -343,8 +343,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="pluriel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="pluriel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Pluriel')}}</h5>
@@ -361,8 +361,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="adjectif" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="adjectif" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Adjectif')}}</h5>
@@ -393,8 +393,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="article" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="article" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Article')}}</h5>
@@ -409,8 +409,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="conjonction" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="conjonction" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Conjonction & préposition')}}</h5>
@@ -425,8 +425,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="verbe" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="verbe" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Verbe')}}</h5>
@@ -441,8 +441,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="propre" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="propre" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Nom propre')}}</h5>
@@ -457,8 +457,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="ponctuation" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="ponctuation" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Ponctuation')}}</h5>
@@ -515,8 +515,8 @@
         </button>
     </div>
 
-    <div class="modal" tabindex="-1" role="dialog" id="present" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="present" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Présent')}}</h5>
@@ -535,8 +535,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="passe" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="passe" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Passé')}}</h5>
@@ -557,8 +557,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="futur" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="futur" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Futur')}}</h5>
@@ -579,8 +579,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="conditionnel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="conditionnel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Conditionnel')}}</h5>
@@ -602,8 +602,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="condpasse" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" role="dialog" id="condpasse" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Conditionnel passé')}}</h5>

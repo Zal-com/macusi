@@ -63,6 +63,7 @@
 
                             <div class="dropdown-menu dropdown-menu-end bg-main" aria-labelledby="navbarDropdown">
                                 <a href="{{route('user.profile.index', ['lang' => app()->getLocale(),'id' => Auth::user()->id])}}" class="dropdown-item text-secondary"><i class="fa-solid fa-user"></i> {{ __('Profil') }}</a>
+                                <a href="{{route('user.submission.create', ['lang' => app()->getLocale(),'id' => Auth::id()])}}" class="dropdown-item text-secondary"><img src="{{Storage::url('img/icon-submit.svg')}}" class="mr-1" height="18px" width="18px">{{__('Soumettre un mot')}}</a>
                                 @if(Auth::user()->isAdmin())
                                     <a href="{{route('backpack.dashboard')}}" class="dropdown-item text-secondary"><i class="fa-solid fa-toolbox text-secondary"></i> {{'Administration'}}</a>
                                 @endif
@@ -138,11 +139,6 @@
                     <p>
                         <a href="{{route('dico.submissions', app()->getLocale())}}" class="text-decoration-none text-white">{{__('Vote')}}</a>
                     </p>
-                    @auth
-                        <p>
-                            <a href="{{route('user.submission.create', ['lang' => app()->getLocale(),'id' => Auth::id()])}}" class="text-decoration-none text-white">{{__('Soumettre un mot')}}</a>
-                        </p>
-                    @endauth
                 </div>
                 <!-- Grid column -->
 
@@ -170,10 +166,12 @@
                             Facebook
                         </a>
                     </p>
+                    {{--
                     <a href="https://youtube.com/" target="_blank" class="me-1 text-white text-decoration-none">
                         <i class="fab fa-youtube text-white"></i>
                         Youtube
                     </a>
+                    --}}
                 </div>
                 <!-- Grid column -->
             </div>

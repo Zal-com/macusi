@@ -26,20 +26,18 @@
         </div>
         <div class="div2 w-75">
             <div class="right px-5 card border-0 shadow p-3 h-100">
-                <h3 class="h3-title mt-2">{{__('Soumettre un mot')}}</h3>
+                <h3 class="h3-title mt-2 mb-4">{{__('Soumettre un mot')}}</h3>
                 <form method="POST" class="submission_form" action="{{ route('user.submission.store', ['lang' => app()->getLocale(), 'id' => Auth::id()]) }}">
                     @csrf
-                    <div class="form-row d-flex align-items-baseline w-100">
-                        <label>Syllabes :</label>
+                    <div class="form-row d-inline-flex flex-nowrap overflow-scroll align-items-baseline w-100" style="overflow-y: clip !important;">
+                        <label class="mr-1" style="min-width: fit-content">Syllabes :</label>
                         @for($i = 0; $i < 6; $i++)
-                            <div class="form-group col-md-1">
-                                <select name="syllabe_{{$i}}" class="form-control" onchange="previewMacusi()">
+                                <select name="syllabe_{{$i}}" class="form-control mx-1" style="width: fit-content" onchange="previewMacusi()">
                                     <option value="">---</option>
                                     @foreach($syllabes as $syllabe)
                                         <option value="{{old('syllabe_' . $i) ? old('syllabe_' . $i) : $syllabe->syllabe}}" data-concept='{{!empty(json_decode($syllabe->trads)->$locale) ? json_decode($syllabe->trads)->$locale:'null'}}'>{{$syllabe->syllabe}} - {{json_decode($syllabe->trads)->$locale}}</option>
                                     @endforeach
                                 </select>
-                            </div>
                         @endfor
                     </div>
 
@@ -59,14 +57,14 @@
                     </div>
 
                     <div class="form-row d-flex align-items-baseline">
-                        <label>Types :</label>
-                        <select name="type_1" class="form-group form-control col-md-1">
+                        <label class="mr-1">Types :</label>
+                        <select name="type_1" class="form-group form-control mr-1" style="width: fit-content !important;">
                             <option value="">---</option>
                             @foreach(\App\Models\Type::all() as $type)
                                 <option value={{$type->id}}>{{json_decode($type->trads)->$locale}}</option>
                             @endforeach
                         </select>
-                        <select name="type_2" class="form-group form-control col-md-1">
+                        <select name="type_2" class="form-group form-control" style="width: fit-content !important;">
                             <option value="">---</option>
                             @foreach(\App\Models\Type::all() as $type)
                                 <option value={{$type->id}}>{{json_decode($type->trads)->$locale}}</option>
@@ -77,14 +75,13 @@
                     </div>
 
                     <div class="form-row d-flex align-items-baseline">
-                        <label>Traduction :</label>
+                        <label class="mr-1">Traduction :</label>
                         <select name="language" class="form-group form-control col-md-1">
-                            <option value="GE">Deutsch</option>
-                            <option value="EN">English</option>
-                            <option value="FR">Français</option>
-                            <option value="IT">Italiano</option>
+                            @foreach(config('custom.available_languages') as $key=>$value)
+                                <option value="{{$key}}" @if($key == strtoupper(app()->getLocale())) selected @endif>{{$key}}</option>
+                            @endforeach
                         </select>
-                        <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-2">
+                        <input type="text" name="traduction" data-max-words="1" class="form-group form-control col-md-4">
                     </div>
 
                     <button type="submit" class="btn btn-primary border-0 rounded-pill float-right px-4">{{__('Soumettre')}}</button>

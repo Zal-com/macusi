@@ -81,4 +81,13 @@ class ProfileController
         }
 
     }
+
+    public function delete(){
+        $user = User::find(Auth::id());
+        $user->status = 0;
+
+        $user->save();
+        Auth::logout();
+        return redirect()->route('home', ['lang'=>\app()->getLocale()]);
+    }
 }

@@ -187,5 +187,7 @@
     "La base de MaCuSi se tient dans une courte liste de syllabes ayant comme traduction les concepts les plus basiques possibles afin de les rendre modulable." : "La base di MaCuSi è un breve elenco di sillabe che traducono i concetti più elementari possibili in modo da renderli modulari.",
     "Liste des mots formant la base de MaCuSi" : "Elenco di parole che costituiscono la base di MaCuSi",
     "Votes des soumissions !" : "Votazione per le proposte!",
-    "Veuillez voter ici pour vos mots préférés. Vous pouvez voter pour autant de mots que vous le souhaitez. Les mots avec le plus de votes seront ajoutés au dictionnaire officiel." : "Vota qui per le tue parole preferite. Puoi votare per quante parole vuoi. Le parole più votate verranno aggiunte al dizionario ufficiale."
+    "Veuillez voter ici pour vos mots préférés. Vous pouvez voter pour autant de mots que vous le souhaitez. Les mots avec le plus de votes seront ajoutés au dictionnaire officiel." : "Vota qui per le tue parole preferite. Puoi votare per quante parole vuoi. Le parole più votate verranno aggiunte al dizionario ufficiale.",
+    "Le vote n'est disponible que pour les membres connectés." : "La votazione è disponibile solo per i membri registrati.",
+    "Supprimer le compte" : "Eliminare l'account"
 }

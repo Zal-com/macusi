@@ -80,6 +80,8 @@ Route::group(['prefix' => '{lang}'], function (){
             ->name('profile.password.edit');
         Route::put('/password/edit', [ProfileController::class, 'updatePassword'])
             ->name('profile.password.update');
+        Route::put('/delete', [ProfileController::class, 'delete'])
+            ->name('profile.delete');
     });
 
     Route::group([
