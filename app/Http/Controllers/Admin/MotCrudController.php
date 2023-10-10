@@ -65,6 +65,7 @@ class MotCrudController extends CrudController
         ]);
 
         CRUD::removeButton('delete');
+        CRUD::removeButton('show');
 
 
         /**
@@ -82,6 +83,7 @@ class MotCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+
         CRUD::setValidation(MotRequest::class);
 
         CRUD::field('enMacusi')
@@ -96,18 +98,16 @@ class MotCrudController extends CrudController
         CRUD::field('explication')
             ->tab('Mot');
 
-        CRUD::field([
+        CRUD::addField([
             'label' => 'Type',
             'type' => 'select_multiple',
             'name' => 'types',
             'entity' => 'types',
             'model' => 'App\Models\Type',
             'attribute' => 'trads',
-            'pivot' => true
-        ])
-
-            ->validationRules('required')
-            ->tab('Type.s');
+            'pivot' => true,
+            'tab' => 'Type.s'
+        ]);
 
 
         CRUD::field('trads')
@@ -118,12 +118,12 @@ class MotCrudController extends CrudController
         }
 
         foreach (config('custom.available_languages') as $language=>$value) {
-            CRUD::field([
+            CRUD::addField([
                 'name' => $language,
                 'label' => $value,
                 'type' => 'text',
-            ])
-                ->tab('Traductions');
+                'tab' => 'Traductions'
+            ]);
         }
 
         /**

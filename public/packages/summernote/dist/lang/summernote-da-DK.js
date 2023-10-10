@@ -1,5 +1,5 @@
 /*!
- *
+ * 
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -46,10 +46,10 @@ var __webpack_exports__ = {};
         floatLeft: 'Venstrestillet',
         floatRight: 'Højrestillet',
         floatNone: 'Fjern formatering',
-        shapeRounded: 'Login: Runde kanter',
-        shapeCircle: 'Login: Cirkel',
-        shapeThumbnail: 'Login: Miniature',
-        shapeNone: 'Login: Ingen',
+        shapeRounded: 'Form: Runde kanter',
+        shapeCircle: 'Form: Cirkel',
+        shapeThumbnail: 'Form: Miniature',
+        shapeNone: 'Form: Ingen',
         dragImageHere: 'Træk billede hertil',
         dropImage: 'Slip billede',
         selectFromFiles: 'Vælg billed-fil',

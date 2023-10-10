@@ -26,4 +26,5 @@ Route::group([
     Route::crud('type-mot', 'TypeMotCrudController');
     Route::crud('type-suggestion', 'TypeSuggestionCrudController');
     Route::crud('user', 'UserCrudController');
+    Route::crud('user-vote', 'UserVoteCrudController');
 }); // this should be the absolute last line of this file

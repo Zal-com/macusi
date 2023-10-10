@@ -5,7 +5,7 @@
 
 ( function( factory ) {
 	"use strict";
-
+	
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
@@ -3969,7 +3969,7 @@ $.ui.focusable = function( element, hasTabindex ) {
 
 		if ( focusableIfVisible ) {
 
-			// Login controls within a disabled fieldset are disabled.
+			// Form controls within a disabled fieldset are disabled.
 			// However, controls within the fieldset's legend do not get disabled.
 			// Since controls generally aren't placed inside legends, we skip
 			// this portion of the check.
@@ -4017,7 +4017,7 @@ var form = $.fn._form = function() {
 
 
 /*!
- * jQuery UI Login Reset Mixin 1.13.2
+ * jQuery UI Form Reset Mixin 1.13.2
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -4025,7 +4025,7 @@ var form = $.fn._form = function() {
  * http://jquery.org/license
  */
 
-//>>label: Login Reset Mixin
+//>>label: Form Reset Mixin
 //>>group: Core
 //>>description: Refresh input widgets when their form is reset
 //>>docs: http://api.jqueryui.com/form-reset-mixin/
