@@ -148,11 +148,11 @@
                     <p class="fw-bold mb-4 text-secondary fs-18">{{__('Contact')}}</p>
                     <p class="text-white">
                         <i class="fas fa-envelope me-1 text-white"></i>
-                        contact@macusi.be
+                        <a class="text-decoration-none text-white" href="mailto:contact@macusi.be">contact@macusi.be</a>
                     </p>
                     <p class="text-white">
                         <i class="fas fa-envelope me-1 text-white"></i>
-                        dev@macusi.be
+                        <a class="text-decoration-none text-white" href="mailto:dev@macusi.be">dev@macusi.be</a>
                     </p>
                 </div>
                 <!-- Grid column -->

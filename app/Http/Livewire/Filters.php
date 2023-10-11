@@ -61,4 +61,12 @@ class Filters extends Component
         $this->emit('updateResults', 'nbreSyllabes_' . $this->nbreSyllabes);
     }
 
+    public function resetFilters(){
+        $this->filter = ['order' => '', 'beginsWith' => '', 'nbreSyllabes' => '', 'search' => ''];
+        $this->order = '';
+        $this->search = '';
+        $this->language = 'LoMa';
+        $this->emit('updateResults', 'reset');
+    }
+
 }

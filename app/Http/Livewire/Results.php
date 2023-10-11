@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-//FIXME Pagniation ne marche pas avec une recherche retournant plus de 24 elements
-//FIXME Ordre des termes pas exactement bon
 
 class Results extends Component
 {
@@ -95,6 +93,8 @@ class Results extends Component
                 break;
             case 1 == preg_match('/^nbreSyllabes_/', $filter) : $this->filter['NbreSyllabes'] = explode('_', $filter)[1];
                 break;
+            case 'reset' : $this->resetFilters();
+                break;
         }
 
     }
@@ -166,5 +166,10 @@ class Results extends Component
         }catch(\Exception $e){
             return redirect()->route('dico.index', app()->getLocale())->with('error', __('validation.exists', ['attribute' => '']));
         }
+    }
+
+    public function resetFilters(){
+        $this->filter = ['order' => 'asc', 'beginsWith' => '', 'NbreSyllabes' => null, 'search' => ''];
+        $this->language = 'LoMa';
     }
 }

@@ -6,8 +6,18 @@
     <div wire:loading.remove>
         <div class="d-flex flex-wrap justify-content-center" id="accordion">
             @if(count($mots) == 0)
-                <p class="mt-5" style="font-weight: bolder; font-size: 32px; color: var(--main-color)">
-                    {{__('Pas de résultats')}}</p>
+                <div class="d-block text-center">
+                    <p class="mt-5" style="font-weight: bolder; font-size: 32px; color: var(--main-color)">
+                        {{__('Pas de résultats')}}
+                    </p>
+                    @auth()
+                        <div>
+                            <a id="livewire-results" href="{{route('user.submission.create', ['lang' => app()->getLocale(), 'id' => \Illuminate\Support\Facades\Auth::id()])}}" class="btn btn-primary border-0 rounded-pill px-4 bg-secondary">
+                                Soumettre mon mot
+                            </a>
+                        </div>
+                    @endauth
+                </div>
             @else
                 @foreach($mots as $mot)
                     <x-card :mot="$mot" :count="$count"/>
@@ -34,4 +44,3 @@
     </div>
 
 </div>
-

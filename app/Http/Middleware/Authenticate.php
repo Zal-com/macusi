@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Auth;
+use const http\Client\Curl\AUTH_ANY;
 
 class Authenticate extends Middleware
 {

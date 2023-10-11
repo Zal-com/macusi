@@ -481,7 +481,8 @@ button.disabled{
 }
 
 .submission_form .btn,
-#profile_edit{
+#profile_edit,
+#livewire-results{
     background: var(--secondary-color);
     color: white !important;
     font-weight: bold;
@@ -490,7 +491,8 @@ button.disabled{
 
 .submission_form .btn:hover,
 .password_edit_form .btn:hover,
-#profile_edit:hover{
+#profile_edit:hover,
+#livewire-results:hover{
     background: white !important;
     outline: 2px solid var(--secondary-color) !important;
     color: var(--secondary-color) !important;
@@ -498,7 +500,8 @@ button.disabled{
 
 .submission_form .btn:focus,
 .password_edit_form .btn:focus,
-#profile_edit:focus{
+#profile_edit:focus,
+#livewire-results:focus{
     background: white !important;
     outline: 2px solid var(--accent-color) !important;
     color: var(--accent-color) !important;

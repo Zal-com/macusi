@@ -20,6 +20,7 @@
     </button>
     <input class="rounded-pill px-3 py-1 text-black" type="search" placeholder="{{__('Rechercher')}} {{__('from ')}}{{strtolower(config('custom.available_languages')[strtoupper(app()->getLocale())])}}" wire:model="search" wire:change.debounce="search">
 
+    <div class="d-inline-block">
     <div class="d-flex justify-content-center align-items-center mt-3">
         <p class="pr-2 mb-0">MaCuSi
             <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px" alt="arrow right">
@@ -36,6 +37,10 @@
             <img src="{{Storage::url('img/icon-simple-arrow.svg')}}" style="height: 15px" alt="arrow right">
             MaCuSi
         </p>
+    </div>
+
+        <button wire:click="resetFilters" class="btn-link border-0 bg-transparent text-main mt-2"><i class="fa-solid fa-arrows-rotate"></i> Réinitialiser filtres</button>
+
     </div>
 
 </div>
