@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Mot;
 use App\Models\Syllabe;
 use App\Models\Type;
+use App\Providers\PDFDicoManager;
 use Google\Cloud\Translate\V2\TranslateClient;
 use Mockery\Adapter\Phpunit\TestListenerTrait;
 
@@ -21,6 +22,7 @@ class TranslateController extends Controller
          * Passage au mot suivant
          *
          */
+
         $translate = new TranslateClient([
             'key' => env('GOOGLE_TRANSLATE_API_KEY')
         ]);
@@ -59,6 +61,7 @@ class TranslateController extends Controller
 
         dd($result);
         */
+
     }
 
     public function store(){

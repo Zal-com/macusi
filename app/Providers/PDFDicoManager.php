@@ -15,8 +15,8 @@ class PDFDicoManager extends Fpdf\Fpdf
     protected int $y0;
 
     protected string $title = 'Dictionnaire';
-    protected string $stitle1 = 'Français - MaCuSi';
-    protected string $stitle2 = 'MaCuSi - Français';
+    protected string $stitle1;
+    protected string $stitle2;
     const NBCOL = 2;
 
 
@@ -26,6 +26,12 @@ class PDFDicoManager extends Fpdf\Fpdf
      */
     public function createPDF($lang) : void
     {
+        app()->setLocale($lang);
+
+        $this->title =__('Dictionnaire');
+        $this->stitle1 = config('custom.available_languages')[strtoupper(app()->getLocale())] . ' - MaCuSi';
+        $this->stitle2 = "MaCuSi - " . config('custom.available_languages')[strtoupper(app()->getLocale())];
+
         $filename = 'DicoPDF_' . strtoupper($lang) . '.pdf';
 
         $this->AddPage();

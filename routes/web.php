@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', App::getLocale().'/home');
 
 Route::group(['prefix' => '{lang}'], function (){
+
     Route::get('/home', function () {
         return view('macusi-expl');
     })->name('home');

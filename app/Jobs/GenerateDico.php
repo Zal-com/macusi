@@ -10,20 +10,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use PhpParser\Node\Expr\Array_;
 use ZipStream\PackField;
+use Codedge\Fpdf;
 
-class GenerateDico implements ShouldQueue, ShouldBeUnique
+class GenerateDico implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $uniqueFor = 300;
 
     /**
      * Create a new job instance.
      */
     public function __construct()
     {
-        //
+    //
     }
 
     /**
@@ -31,10 +32,15 @@ class GenerateDico implements ShouldQueue, ShouldBeUnique
      */
     public function handle(): void
     {
-        foreach (config('custom.available_languages') as $language){
-            $pdm = new PDFDicoManager();
-            $pdm->createPDF($language);
-        }
-    }
 
+        ini_set('memory_limit', '512M');
+        $locale = app()->getLocale();
+
+
+        foreach (config('custom.available_languages') as $lang => $language) {
+            $pdm = new PDFDicoManager();
+            $pdm->createPDF($lang);
+        }
+
+    }
 }

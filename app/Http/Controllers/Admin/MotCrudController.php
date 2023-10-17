@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\MotRequest;
 use App\Jobs\GenerateDico;
+use App\Models\Mot;
 use App\Models\Syllabe;
 use App\Models\Type;
 use App\Models\TypeMot;
 use App\Providers\PDFDicoManager;
+use App\Providers\TranslateTrait;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use BackpackImport\ImportOperation;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Array_;
 
 /**
  * Class MotCrudController
@@ -26,10 +29,15 @@ class MotCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation {
         store as TraitStore;
     }
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation { destroy as traitDestroy; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation {
+        update as TraitUpdate;
+    }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation {
+        destroy as traitDestroy;
+    }
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use ImportOperation;
+    use TranslateTrait;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -113,11 +121,11 @@ class MotCrudController extends CrudController
         CRUD::field('trads')
             ->type('hidden');
 
-        for ($i = 1; $i <= 6 ; $i++) {
+        for ($i = 1; $i <= 6; $i++) {
             CRUD::field('mot' . $i)->type('hidden');
         }
 
-        foreach (config('custom.available_languages') as $language=>$value) {
+        foreach (config('custom.available_languages') as $language => $value) {
             CRUD::addField([
                 'name' => $language,
                 'label' => $value,
@@ -152,19 +160,30 @@ class MotCrudController extends CrudController
             'DE' => $this->crud->getRequest()['DE'],
             'IT' => $this->crud->getRequest()['IT']
         ];
+
+        //Determines the base language used
+        foreach ($traductions as $key => $traduction){
+            if ($traduction != ''){
+                $base = $traduction;
+                $baseLanguage = $key;
+            }
+        }
+
+        $tradsArray = $this->translate($baseLanguage, $base);
+
+
         $trads = json_encode($tradsArray);
         $this->crud->getRequest()['trads'] = $trads;
 
         $macusi = $this->crud->getRequest()['enMacusi'];
         $macusi = str_split($macusi, 2);
 
-        for ($i = 1; $i <= 6 ; $i++) {
+        for ($i = 1; $i <= 6; $i++) {
 
-            if(! array_key_exists($i-1, $macusi)){
+            if (!array_key_exists($i - 1, $macusi)) {
                 $this->crud->getRequest()['mot' . $i] = null;
-            }
-            else{
-                $syllabe = Syllabe::where('syllabe', '=', $macusi[$i-1])->first();
+            } else {
+                $syllabe = Syllabe::where('syllabe', '=', $macusi[$i - 1])->first();
                 $this->crud->getRequest()['mot' . $i] = $syllabe->syllabe;
             }
 
@@ -183,16 +202,53 @@ class MotCrudController extends CrudController
             $insert->save();
         }
 
-        $this->dispatch(new GenerateDico());
+        GenerateDico::dispatch();
 
-        /*
-        //Regénération du dictionnaire dans toutes les langues
-        $pdm = new PDFDicoManager();
+        return $response;
+    }
 
-        foreach(config('custom.available_languages') as $language => $value){
-            $pdm->createPDF($language);
+    public function update()
+    {
+
+        $tradsArray = [
+            'FR' => $this->crud->getRequest()['FR'],
+            'EN' => $this->crud->getRequest()['EN'],
+            'DE' => $this->crud->getRequest()['DE'],
+            'IT' => $this->crud->getRequest()['IT']
+        ];
+
+        //Determines the base language used
+        foreach ($tradsArray as $key => $traduction){
+            if ($traduction != ''){
+                $base = $traduction;
+                $baseLanguage = $key;
+            }
         }
-*/
+
+        $tradsArray = $this->translate($baseLanguage, $base);
+
+        $trads = json_encode($tradsArray);
+        $this->crud->getRequest()['trads'] = $trads;
+
+        $macusi = $this->crud->getRequest()['enMacusi'];
+        $macusi = str_split($macusi, 2);
+
+        for ($i = 1; $i <= 6 ; $i++) {
+
+            if(! array_key_exists($i-1, $macusi)){
+                $this->crud->getRequest()['mot' . $i] = null;
+            }
+            else{
+                $syllabe = Syllabe::where('syllabe', '=', $macusi[$i-1])->first();
+                $this->crud->getRequest()['mot' . $i] = $syllabe->syllabe;
+            }
+
+        }
+
+        $response = $this->TraitUpdate();
+
+        GenerateDico::dispatch();
+
         return $response;
     }
 
@@ -211,6 +267,7 @@ class MotCrudController extends CrudController
             'trads' => 'required',
         ];
     }
+
 
 }
 

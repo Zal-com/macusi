@@ -15,7 +15,7 @@
                     @csrf
                     <div class="mb-4 mt-4">
                         <div class="col-md-10 offset-md-1 px-0">
-                            <input id="email" type="email" class="form-control rounded-pill bg-transparent px-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email Address') }}" autofocus>
+                            <input id="page_email" type="email" class="form-control rounded-pill bg-transparent px-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email Address') }}" autofocus>
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
 
                     <div class="mb-4">
                         <div class="col-md-10 offset-md-1 px-0">
-                            <input id="password" type="password" class="form-control rounded-pill bg-transparent px-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
+                            <input id="page_password" type="password" class="form-control rounded-pill bg-transparent px-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
 
                             @error('password')
                             <span class="invalid-feedback" role="alert">

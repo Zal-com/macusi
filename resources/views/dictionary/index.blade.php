@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @php
-    $localesArray = ['FR' => 'Français', 'EN' => 'English', 'IT' => 'italiano', 'DE' => 'deutsch'];
+    $localesArray = config('custom.available_languages');
 
     $locale = strtoupper(app()->getLocale());
 

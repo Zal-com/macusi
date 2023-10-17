@@ -567,6 +567,18 @@ button.disabled{
     transform: scalex(1);
 }
 
+/**
+    Formulaires Auth pages
+ */
+
+#page_email, #page_password, #page_password-confirm, #page_name, #page_firstname, #page_lastname, #page_nationality{
+    color: black !important;
+}
+
+input svg{
+    stroke: #0a53be;
+}
+
 
 
 

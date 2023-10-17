@@ -7,13 +7,13 @@ use Google\Cloud\Translate\V2\TranslateClient;
 trait TranslateTrait
 {
 
-    protected function translate($language, $trad)
+    public function translate($language, $trad)
     {
         $tradsArray = [$language => $trad];
 
 
         $translate = new TranslateClient([
-            'key' => env('GOOGLE_TRANSLATE_API_KEY')
+            'key' => 'AIzaSyDep5TlVCuFUSwokyiUoC-QDOlYomgPrqg'
         ]);
 
         $available_languages = config('custom.available_languages');
