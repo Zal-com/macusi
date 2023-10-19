@@ -1,5 +1,5 @@
 @extends('errors.layout')
-
+@dd('erreur 500')
 @php
 	$error_number = 500;
 @endphp

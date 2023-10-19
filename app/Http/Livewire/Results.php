@@ -34,7 +34,7 @@ class Results extends Component
 
     public function render()
     {
-        $mots = Mot::query();
+        $mots = Mot::query()->where('id', '>', 65);
 
         if ($this->filter['NbreSyllabes'] != null){
             $mots->whereRaw('LENGTH(enMacusi) = ' . $this->filter['NbreSyllabes']*2);

@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if(! array_key_exists(strtoupper(app()->getLocale()), config('custom.available_languages')))
+        @php
+            app()->setLocale(config('app.fallback_locale'))
+        @endphp
+    @endif
+
     @if(app()->getLocale() == 'fr')
         @section('description', 'Le MaCuSi est une idéolangue minimaliste aux niveaux phonologique et grammatical mais pas de manière lexicale. En effet, beaucoup de langues construites sont centrées sur un thème unique. Le MaCuSi a été conçu pour permettre la génération de tous les mots d\'une langue.')
         <h3 class="h3-title mb-28 mt-50">Introduction</h3>
